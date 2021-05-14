@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>java dump OQL</title>
+    <url>/2019/05/28/java_dump_OQL/</url>
+    <content><![CDATA[<h2 id="java-dump-OQL"><a href="#java-dump-OQL" class="headerlink" title="java dump OQL"></a>java dump OQL</h2><ol>
+<li>查询某个对象</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> x <span class="keyword">from</span> com.feinno.urcs.sipservlet.SipServletFuture x</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>查询某个对象,条件是字段不为空</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> x <span class="keyword">from</span> com.feinno.urcs.sipservlet.SipServletFuture x <span class="keyword">where</span> x.request != <span class="literal">null</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>统计某字段不为空的对象数量</li>
+</ol>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(heap.objects(<span class="string">'com.feinno.urcs.sipservlet.SipServletFuture'</span>),</span><br><span class="line">        <span class="keyword">function</span>(it) &#123;</span><br><span class="line">          <span class="keyword">if</span> (it.request == <span class="literal">null</span>) &#123;</span><br><span class="line">               <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">          &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>java</tag>
+        <tag>dump</tag>
+        <tag>OQL</tag>
+        <tag>jvisualvm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>tcpdump 限制文件大小, 以及端口号</title>
+    <url>/2019/05/28/tcpdump/</url>
+    <content><![CDATA[<h2 id="tcpdump-限制文件大小-以及端口号"><a href="#tcpdump-限制文件大小-以及端口号" class="headerlink" title="tcpdump 限制文件大小, 以及端口号"></a>tcpdump 限制文件大小, 以及端口号</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tcpdump -Xnn -i any port 11000 or port 31000 -vv -C 100 -w /tmp/test</span><br></pre></td></tr></table></figure>
+
+<h2 id="tcpdump-后台自动分大小抓包-C-100-100M一个"><a href="#tcpdump-后台自动分大小抓包-C-100-100M一个" class="headerlink" title="tcpdump 后台自动分大小抓包(-C 100  100M一个)"></a>tcpdump 后台自动分大小抓包(-C 100  100M一个)</h2> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nohup tcpdump -Xnn -i any port 11000 or port 31000 or port 6071 or port 30100 -vv -C 100 -w /tmp/tcpdump &amp;</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>tcpdump</tag>
+        <tag>wireshark</tag>
+      </tags>
+  </entry>
+</search>
