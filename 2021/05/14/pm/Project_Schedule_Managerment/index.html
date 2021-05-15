@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  
+  <link rel="stylesheet" href="/lib/animate-css/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"catcake.cc","root":"/","scheme":"Gemini","version":"8.0.0-rc.4","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="title: 项目管理-进度管理date: 2021-05-12 22:10:23tags: [项目管理,十大知识领域,进度管理]  进度管理管理过程规划进度管理Plan Schedule Managerment为规划,编制,管理,执行和控制项目进度而制定的政策,程序和文档的过程输入项目管理计划 项目章程 事业环境因素因素和组织过程资产工具技术专家判断 分析技术 会议输出进度管理计划定义活动De">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pm&#x2F;Project_Schedule_Managerment">
+<meta property="og:url" content="http://catcake.cc/2021/05/14/pm/Project_Schedule_Managerment/index.html">
+<meta property="og:site_name" content="C2C3">
+<meta property="og:description" content="title: 项目管理-进度管理date: 2021-05-12 22:10:23tags: [项目管理,十大知识领域,进度管理]  进度管理管理过程规划进度管理Plan Schedule Managerment为规划,编制,管理,执行和控制项目进度而制定的政策,程序和文档的过程输入项目管理计划 项目章程 事业环境因素因素和组织过程资产工具技术专家判断 分析技术 会议输出进度管理计划定义活动De">
+<meta property="og:locale" content="zh">
+<meta property="article:published_time" content="2021-05-14T15:23:56.928Z">
+<meta property="article:modified_time" content="2021-05-14T15:30:15.540Z">
+<meta property="article:author" content="CatCake">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://catcake.cc/2021/05/14/pm/Project_Schedule_Managerment/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh'
+  };
+</script>
+
+  <title>pm/Project_Schedule_Managerment | C2C3</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e4deef259e814e0bc4dc4e4861a064cb";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <main class="main">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line toggle-line-first"></span>
+        <span class="toggle-line toggle-line-middle"></span>
+        <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">C2C3</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">CatCake</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#进度管理"><span class="nav-number">1.</span> <span class="nav-text">进度管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#管理过程"><span class="nav-number">1.1.</span> <span class="nav-text">管理过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#规划进度管理Plan-Schedule-Managerment"><span class="nav-number">1.1.1.</span> <span class="nav-text">规划进度管理
+Plan Schedule Managerment</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#工具技术"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">工具技术</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">输出</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义活动Define-Activities"><span class="nav-number">1.1.2.</span> <span class="nav-text">定义活动
+Define Activities</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入-1"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#工具技术-1"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">工具技术</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出-1"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">输出</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排列活动顺序Sequence-Activeties"><span class="nav-number">1.1.3.</span> <span class="nav-text">排列活动顺序
+Sequence Activeties</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#估算活动资源Estimate-Activity-Resources"><span class="nav-number">1.1.4.</span> <span class="nav-text">估算活动资源
+Estimate Activity Resources</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#项目日历"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">项目日历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#资源日历"><span class="nav-number">1.1.4.2.</span> <span class="nav-text">资源日历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#工具技术-2"><span class="nav-number">1.1.4.3.</span> <span class="nav-text">工具技术</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#自下而上估算-Bottom-Up-Estimating"><span class="nav-number">1.1.4.3.1.</span> <span class="nav-text">自下而上估算(Bottom-Up Estimating)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#估算活动持续时间Estimate-Activity-Durations"><span class="nav-number">1.1.5.</span> <span class="nav-text">估算活动持续时间
+Estimate Activity Durations</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#工具技术-3"><span class="nav-number">1.1.5.1.</span> <span class="nav-text">工具技术</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#类比估算-Analogous-Estimating"><span class="nav-number">1.1.5.1.1.</span> <span class="nav-text">类比估算(Analogous Estimating)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#参数估算-Parametric-Estimating"><span class="nav-number">1.1.5.1.2.</span> <span class="nav-text">参数估算(Parametric Estimating)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三点估算-Three-Point-Estimate"><span class="nav-number">1.1.5.1.3.</span> <span class="nav-text">三点估算(Three-Point Estimate)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#储备分析-Reserve-Analysis"><span class="nav-number">1.1.5.1.4.</span> <span class="nav-text">储备分析(Reserve Analysis)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#制定进度计划Develop-Schedule"><span class="nav-number">1.1.6.</span> <span class="nav-text">制定进度计划
+Develop Schedule</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概念"><span class="nav-number">1.1.6.1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#时间约束因素"><span class="nav-number">1.1.6.1.1.</span> <span class="nav-text">时间约束因素</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#辅助数据和信息"><span class="nav-number">1.1.6.1.2.</span> <span class="nav-text">辅助数据和信息</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#步骤"><span class="nav-number">1.1.6.2.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入-2"><span class="nav-number">1.1.6.3.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#工具技术-4"><span class="nav-number">1.1.6.4.</span> <span class="nav-text">工具技术</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#关键链法"><span class="nav-number">1.1.6.4.1.</span> <span class="nav-text">关键链法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#计划评审技术-PERT"><span class="nav-number">1.1.6.4.2.</span> <span class="nav-text">计划评审技术(PERT)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#资源优化技术-资源平衡-资源平滑"><span class="nav-number">1.1.6.4.3.</span> <span class="nav-text">资源优化技术 (资源平衡,资源平滑)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#资源平衡-导致关键路径的改变-先做-nbsp-Resource-Leveling"><span class="nav-number">1.1.6.4.3.1.</span> <span class="nav-text">资源平衡(导致关键路径的改变) (先做)
+&amp;nbsp;Resource Leveling</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#资源平滑-不会改变关键路径-后做-nbsp-Resource-Smoothing"><span class="nav-number">1.1.6.4.3.2.</span> <span class="nav-text">资源平滑(不会改变关键路径) (后做)
+&amp;nbsp;Resource Smoothing</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出-2"><span class="nav-number">1.1.6.5.</span> <span class="nav-text">输出</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制进度Control-Schedule"><span class="nav-number">1.1.7.</span> <span class="nav-text">控制进度
+Control Schedule</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内容"><span class="nav-number">1.1.7.1.</span> <span class="nav-text">内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#步骤-1"><span class="nav-number">1.1.7.2.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#工具"><span class="nav-number">1.1.7.3.</span> <span class="nav-text">工具</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#相交曲线"><span class="nav-number">1.1.7.3.1.</span> <span class="nav-text">相交曲线</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进度更新"><span class="nav-number">1.1.7.4.</span> <span class="nav-text">进度更新</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-分析偏差产生的原因-nbsp"><span class="nav-number">1.1.7.4.1.</span> <span class="nav-text">1. 分析偏差产生的原因&amp;nbsp;</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-分析偏差对进度产生的影响"><span class="nav-number">1.1.7.4.2.</span> <span class="nav-text">2. 分析偏差对进度产生的影响</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-调整项目进度计划"><span class="nav-number">1.1.7.4.3.</span> <span class="nav-text">3. 调整项目进度计划</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#赶工-增加资源"><span class="nav-number">1.1.7.4.3.1.</span> <span class="nav-text">赶工(增加资源)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#快速跟进-并行"><span class="nav-number">1.1.7.4.3.2.</span> <span class="nav-text">快速跟进(并行)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#缩减项目范围"><span class="nav-number">1.1.7.4.3.3.</span> <span class="nav-text">缩减项目范围</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="CatCake"
+      src="https://nick-md-1251953281.cos.ap-beijing.myqcloud.com/p.jpg">
+  <p class="site-author-name" itemprop="name">CatCake</p>
+  <div class="site-description" itemprop="description">吃,喝,看喵</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+      
+        <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+        <div class="widget-wrap">
+          <div id="myCanvasContainer" class="widget tagcloud">
+            <canvas width="220" height="250" id="resCanvas" style="width=100%">
+              <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/OQL/" rel="tag">OQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dump/" rel="tag">dump</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jvisualvm/" rel="tag">jvisualvm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tcpdump/" rel="tag">tcpdump</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wireshark/" rel="tag">wireshark</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E5%8A%9B%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86/" rel="tag">人力资源管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%81%E5%A4%A7%E7%9F%A5%E8%AF%86%E9%A2%86%E5%9F%9F/" rel="tag">十大知识领域</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%B2%E7%B3%BB%E4%BA%BA%E7%AE%A1%E7%90%86/" rel="tag">干系人管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%88%90%E6%9C%AC%E7%AE%A1%E7%90%86/" rel="tag">成本管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B4%E4%BD%93%E7%AE%A1%E7%90%86/" rel="tag">整体管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B2%9F%E9%80%9A%E7%AE%A1%E7%90%86/" rel="tag">沟通管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">知识点</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8C%83%E5%9B%B4%E7%AE%A1%E7%90%86/" rel="tag">范围管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86/" rel="tag">质量管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/" rel="tag">配置管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%87%E8%B4%AD%E7%AE%A1%E7%90%86/" rel="tag">采购管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" rel="tag">项目管理</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" rel="tag">风险管理</a><span class="tag-list-count">1</span></li></ul>
+            </canvas>
+          </div>
+        </div>
+      
+        <div class="widget-wrap"><div>
+  <canvas id="canvasDiyBlock" style="width:60%;" height="100" width="700">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+<script src="/js/custom/clock.js"></script>
+
+</div>
+        </div>
+
+    </div>
+
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </header>
+
+      
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div id="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+      <div class="main-inner">
+        
+
+        <div class="content post posts-expand">
+          
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="http://catcake.cc/2021/05/14/pm/Project_Schedule_Managerment/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://nick-md-1251953281.cos.ap-beijing.myqcloud.com/p.jpg">
+      <meta itemprop="name" content="CatCake">
+      <meta itemprop="description" content="吃,喝,看喵">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="C2C3">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          pm/Project_Schedule_Managerment
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-05-14 23:23:56 / Modified: 23:30:15" itemprop="dateCreated datePublished" datetime="2021-05-14T23:23:56+08:00">2021-05-14</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <hr>
+<p>title: 项目管理-进度管理<br>date: 2021-05-12 22:10:23<br>tags: [项目管理,十大知识领域,进度管理]</p>
+<hr>
+<h1 id="进度管理"><a href="#进度管理" class="headerlink" title="进度管理"></a>进度管理</h1><h2 id="管理过程"><a href="#管理过程" class="headerlink" title="管理过程"></a>管理过程</h2><h3 id="规划进度管理Plan-Schedule-Managerment"><a href="#规划进度管理Plan-Schedule-Managerment" class="headerlink" title="规划进度管理Plan Schedule Managerment"></a>规划进度管理<br>Plan Schedule Managerment</h3><pre><code>为规划,编制,管理,执行和控制项目进度而制定的政策,程序和文档的过程</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>项目管理计划
+项目章程
+事业环境因素因素和组织过程资产</code></pre><h4 id="工具技术"><a href="#工具技术" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>专家判断
+分析技术
+会议</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>进度管理计划</code></pre><h3 id="定义活动Define-Activities"><a href="#定义活动Define-Activities" class="headerlink" title="定义活动Define Activities"></a>定义活动<br>Define Activities</h3><pre><code>识别和记录为完成项目可交付成果而采取的具体行动的过程</code></pre><h4 id="输入-1"><a href="#输入-1" class="headerlink" title="输入"></a>输入</h4><pre><code>进度管理计划
+范围基准
+事业环境因素 和组织过程资产</code></pre><h4 id="工具技术-1"><a href="#工具技术-1" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>分解
+滚动式规划
+专家判断</code></pre><h4 id="输出-1"><a href="#输出-1" class="headerlink" title="输出"></a>输出</h4><pre><code>活动清单,活动属性
+里程碑清单 (项目中重要的时间点或事件)</code></pre><h3 id="排列活动顺序Sequence-Activeties"><a href="#排列活动顺序Sequence-Activeties" class="headerlink" title="排列活动顺序Sequence Activeties"></a>排列活动顺序<br>Sequence Activeties</h3><pre><code>定义:识别和记录项目活动之间逻辑关系的过程&lt;br&gt;作用: 定义工作之间的逻辑顺序,以便在机顶的所有项目制约因素下获得最高的效率</code></pre><h3 id="估算活动资源Estimate-Activity-Resources"><a href="#估算活动资源Estimate-Activity-Resources" class="headerlink" title="估算活动资源Estimate Activity Resources"></a>估算活动资源<br>Estimate Activity Resources</h3><pre><code>定义: 估算活动资源就是确定在实施项目活动时要使用何种资源(人员.设备或物资),每一种实用的数量,以及何时用于项目计划活动&lt;br&gt;作用: 明确完成活动所需要资源种类,数量和特性, 以便于做出更准确的城北和持续时间估算.&lt;br&gt;注: 估算互动资源过程要同成本估算过程紧密配合</code></pre><h4 id="项目日历"><a href="#项目日历" class="headerlink" title="项目日历"></a>项目日历</h4><pre><code>编排开展激活活动的工作日或轮流班次, 以及不开展计划活动的非工作日的日历. 项目日历影响到所有活动 (简单理解就是 项目的工作日与非工作日)</code></pre><h4 id="资源日历"><a href="#资源日历" class="headerlink" title="资源日历"></a>资源日历</h4><pre><code>表明没中具体资源的可用工作日或者工作班次的日历. 资源丽日规定了在项目期间特定资源何时使用,可用多久. 可以在活动或者项目层面建立资源日历.&lt;br&gt;另外还需要考虑更多的资源属性, 例如经验和/或技能水平.</code></pre><h4 id="工具技术-2"><a href="#工具技术-2" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>专家判断(Export Judgment)
+备选方案分析(Alternative Analysis)
+发布的估算数据(Published estimates)</code></pre><h5 id="自下而上估算-Bottom-Up-Estimating"><a href="#自下而上估算-Bottom-Up-Estimating" class="headerlink" title="自下而上估算(Bottom-Up Estimating)"></a>自下而上估算(Bottom-Up Estimating)</h5><pre><code>对工作组成部分进行估算的一种方法. 准确性取决于打个活动或工作包的规模和复杂程度
+项目管理软件</code></pre><h3 id="估算活动持续时间Estimate-Activity-Durations"><a href="#估算活动持续时间Estimate-Activity-Durations" class="headerlink" title="估算活动持续时间Estimate Activity Durations"></a>估算活动持续时间<br>Estimate Activity Durations</h3><pre><code>定义:根据资源估算的结果, 估算完成单项活动所需所需要工作时段的过程&lt;br&gt;作用: 确定每个活动所需要花费的时间量, 未指定进度计划过程提供主要输入</code></pre><h4 id="工具技术-3"><a href="#工具技术-3" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>专家判断(Export Judgment)</code></pre><h5 id="类比估算-Analogous-Estimating"><a href="#类比估算-Analogous-Estimating" class="headerlink" title="类比估算(Analogous Estimating)"></a>类比估算(Analogous Estimating)</h5><pre><code>以过去类似项目的参数值(如持续时间,预算)</code></pre><h5 id="参数估算-Parametric-Estimating"><a href="#参数估算-Parametric-Estimating" class="headerlink" title="参数估算(Parametric Estimating)"></a>参数估算(Parametric Estimating)</h5><pre><code>利用历史数据和其他变量(如代码行)之间统计关系.来估算诸如成本,预算和陈继续时间等活动参数.</code></pre><h5 id="三点估算-Three-Point-Estimate"><a href="#三点估算-Three-Point-Estimate" class="headerlink" title="三点估算(Three-Point Estimate)"></a>三点估算(Three-Point Estimate)</h5><pre><code>通过考虑估算中的不确定性和风险, 可以提高活动持续时间估算的准确性,表明持续时间估算的变化范围&lt;br&gt;估算值 = (最乐观时间 + 4 X 最可能时间 + 最悲观时间 ) /6</code></pre><h5 id="储备分析-Reserve-Analysis"><a href="#储备分析-Reserve-Analysis" class="headerlink" title="储备分析(Reserve Analysis)"></a>储备分析(Reserve Analysis)</h5><pre><code>(储备量用来应对风险)在进行持续时间估算时,需考虑应急储备(时间储备,缓冲时间) 并将其纳入项目进度计划中,用来应对进度方面的不确定性.</code></pre><h3 id="制定进度计划Develop-Schedule"><a href="#制定进度计划Develop-Schedule" class="headerlink" title="制定进度计划Develop Schedule"></a>制定进度计划<br>Develop Schedule</h3><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><pre><code>分析活动顺序,持续时间,资源需求和进度制约因素,创建项目进度模型的过程
+作用: 把活动,持续时间,资源,资源可用性和逻辑关系带入进度规划工具,从而形成包含各个项目活动的计划日期的进度模型</code></pre><h5 id="时间约束因素"><a href="#时间约束因素" class="headerlink" title="时间约束因素"></a>时间约束因素</h5><pre><code>活动开始或结束的强制性日期.
+项目发起人客户或其他干系人制定关键时间或里程碑</code></pre><h5 id="辅助数据和信息"><a href="#辅助数据和信息" class="headerlink" title="辅助数据和信息"></a>辅助数据和信息</h5><pre><code>里程碑
+计划活动
+活动属性
+假设与约束因素
+按时间段提出的资源需求
+其他可供选择的进度计划
+进度应急储备</code></pre><h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><pre><code>1. 项目描述&lt;br&gt;2. 项目分解与活动界定&lt;br&gt;3. 工作描述&lt;br&gt;4. 项目组织和工作责任分配&lt;br&gt;5. 工作排序&lt;br&gt;6. 计算工作量&lt;br&gt;7. 估算工作持续时间&lt;br&gt;8. 绘制网络图&lt;br&gt;9. 进度安排</code></pre><h4 id="输入-2"><a href="#输入-2" class="headerlink" title="输入"></a>输入</h4><pre><code>进度管理计划, 项目范围说明书,风险登记册
+活动清单,活动属性,项目进度网络图,活动资源需求, 资源日历
+互动持续时间估算,项目人员分派,资源分解结构
+事业环境因素 ,组织过程资产</code></pre><h4 id="工具技术-4"><a href="#工具技术-4" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>关键路径法</code></pre><h5 id="关键链法"><a href="#关键链法" class="headerlink" title="关键链法"></a>关键链法</h5><pre><code>CCM 统一管理缓冲</code></pre><h5 id="计划评审技术-PERT"><a href="#计划评审技术-PERT" class="headerlink" title="计划评审技术(PERT)"></a>计划评审技术(PERT)</h5><pre><code>6希格玛
+进度压缩</code></pre><h5 id="资源优化技术-资源平衡-资源平滑"><a href="#资源优化技术-资源平衡-资源平滑" class="headerlink" title="资源优化技术 (资源平衡,资源平滑)"></a>资源优化技术 (资源平衡,资源平滑)</h5><h6 id="资源平衡-导致关键路径的改变-先做-nbsp-Resource-Leveling"><a href="#资源平衡-导致关键路径的改变-先做-nbsp-Resource-Leveling" class="headerlink" title="资源平衡(导致关键路径的改变) (先做)&nbsp;Resource Leveling"></a>资源平衡(导致关键路径的改变) (先做)<br>&nbsp;Resource Leveling</h6><pre><code>为了在资源需求与资源供给之间去的平衡, 根据资源制约对开始日期和结束日期进行调整的一种技术, 往往会导致关键路径的改变, 通常是延长</code></pre><h6 id="资源平滑-不会改变关键路径-后做-nbsp-Resource-Smoothing"><a href="#资源平滑-不会改变关键路径-后做-nbsp-Resource-Smoothing" class="headerlink" title="资源平滑(不会改变关键路径) (后做)&nbsp;Resource Smoothing"></a>资源平滑(不会改变关键路径) (后做)<br>&nbsp;Resource Smoothing</h6><pre><code>对进度模型中的活动进行调整,从而使项目资源需求不超过预订资源限制的一种技术, 不会改变关键路径,完工日期不会延时, 可能无法实现所有资源的优化.&lt;br&gt;通常是把资源看成可替换的.</code></pre><h4 id="输出-2"><a href="#输出-2" class="headerlink" title="输出"></a>输出</h4><pre><code>进度精准
+项目进度计划 (项目进度网络图, 横道图,里程碑图)
+进度数据,项目日志,项目管理计划更新,项目文件更新</code></pre><h3 id="控制进度Control-Schedule"><a href="#控制进度Control-Schedule" class="headerlink" title="控制进度Control Schedule"></a>控制进度<br>Control Schedule</h3><pre><code>监督项目活动状态, 更新项目进展, 管理进度基准变更,以实现计划的过程</code></pre><h4 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h4><pre><code>判断项目进度当前状态
+对引起进度变更的因素施加影响,以保证这种变化朝着有利的方向发展.
+判断进度是否发生变更
+发生变更时候按照变更控制流程管理实际的变更</code></pre><h4 id="步骤-1"><a href="#步骤-1" class="headerlink" title="步骤"></a>步骤</h4><pre><code>1.分析进度,找出那些地方需要采取纠正措施
+2. 确定应采取哪些具体纠正措施
+3. 修改计划, 将纠正措施列入计划
+4. 重新计算季度,估计计划采取的纠正措施的效果.</code></pre><h4 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h4><h5 id="相交曲线"><a href="#相交曲线" class="headerlink" title="相交曲线"></a>相交曲线</h5><pre><code>ES 曲线+ LS 曲线 (最早开始,最晚开始)
+比较曲线</code></pre><h4 id="进度更新"><a href="#进度更新" class="headerlink" title="进度更新"></a>进度更新</h4><h5 id="1-分析偏差产生的原因-nbsp"><a href="#1-分析偏差产生的原因-nbsp" class="headerlink" title="1. 分析偏差产生的原因&nbsp;"></a>1. 分析偏差产生的原因&nbsp;</h5><pre><code>人员因素
+工具,设备因素
+方法,技术因素
+资金因素
+环境因素</code></pre><h5 id="2-分析偏差对进度产生的影响"><a href="#2-分析偏差对进度产生的影响" class="headerlink" title="2. 分析偏差对进度产生的影响"></a>2. 分析偏差对进度产生的影响</h5><pre><code>产生偏差活动是否为关键活动
+偏差是否大于总浮动时间
+偏差是否大于自由浮动时间</code></pre><h5 id="3-调整项目进度计划"><a href="#3-调整项目进度计划" class="headerlink" title="3. 调整项目进度计划"></a>3. 调整项目进度计划</h5><h6 id="赶工-增加资源"><a href="#赶工-增加资源" class="headerlink" title="赶工(增加资源)"></a>赶工(增加资源)</h6><pre><code>以最小的成本最大限度的压缩进度
+加人,加班</code></pre><h6 id="快速跟进-并行"><a href="#快速跟进-并行" class="headerlink" title="快速跟进(并行)"></a>快速跟进(并行)</h6><pre><code>效率增加,风险增加, 而且不一定能适用</code></pre><h6 id="缩减项目范围"><a href="#缩减项目范围" class="headerlink" title="缩减项目范围"></a>缩减项目范围</h6><pre><code>分批交付,或者缩减范围, 必须要有客户方的认可
+使用高素质的资源或者经验更丰富的人员
+改进方法或进度
+加强质量管理,减少返工</code></pre><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/05/14/pm/Business_Management/" rel="prev" title="pm/Business_Management">
+      <i class="fa fa-chevron-left"></i> pm/Business_Management
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+        </div>
+        
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CatCake</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

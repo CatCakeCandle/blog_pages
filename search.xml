@@ -36,4 +36,993 @@
         <tag>wireshark</tag>
       </tags>
   </entry>
+  <entry>
+    <title>项目管理-配置管理</title>
+    <url>/2021/05/12/pm/Project_Configuration_Management.md/</url>
+    <content><![CDATA[<h1 id="项目配置管理Project-Configuration-Management"><a href="#项目配置管理Project-Configuration-Management" class="headerlink" title="项目配置管理Project Configuration Management"></a>项目配置管理<br>Project Configuration Management</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="配置项"><a href="#配置项" class="headerlink" title="配置项"></a>配置项</h3><pre><code>定义: 硬件,软件或者二者的集合, 再配合管理过程种作为一个单独的实体对待.</code></pre><h4 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h4><pre><code>外部交付的软件产品和数据
+制定的内部软件工作产品和数据
+制定的用于创建或支持软件产品的支持工具
+供方/供应商提供的软件和客户提供的设备/软件
+基线配置项(可交付成果): 需求文档,设计文档, 源代码, 可执行代码测试用例, 运行软件所需数据等.
+非基线配置项: 各类计划(如 项目管理计划,进度管理计划), 各类报告.</code></pre><h4 id="配置项的状态"><a href="#配置项的状态" class="headerlink" title="配置项的状态"></a>配置项的状态</h4><pre><code>草稿 --通过评审--&amp;gt; 正式状态 &amp;nbsp; ; &amp;nbsp;&lt;br&gt;正式状态要修改 需要再通过评审 --&amp;gt; 正式状态&amp;nbsp;&lt;br&gt;</code></pre><h5 id="版本号规则"><a href="#版本号规则" class="headerlink" title="版本号规则:"></a>版本号规则:</h5><pre><code>草稿状态 版本号格式为 0.YZ, YZ 取值01-99 
+正式版本 X.Y . &amp;nbsp;X 为主版本, Y 为次版本号, 取值0-9 . 配置第一次正式发布时版本为1.0
+如果升级服务较小, 只增大 Y 值, X 值不变. 只有升级幅度比较大的时候, 才允许增大 Y 值.
+如果正在修改状态的配置项版本号格式为 X.YZ. 修改状态只增 Z.</code></pre><h3 id="配置库"><a href="#配置库" class="headerlink" title="配置库"></a>配置库</h3><pre><code>开发库(动态库,程序员库, 工作库) : 保证正在开发的配置实体
+受控库 (主库) : 管理基线 &amp;nbsp;(申请 修改)
+产品库 (静态库, 产品库, 软件仓库) : 最终产品. &amp;nbsp;(不能修改)</code></pre><h4 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h4><pre><code>1. 产品库 复制为 受控库&amp;nbsp;
+2. 受控库 check out 为开发库
+3. &amp;nbsp;开发库 &amp;nbsp;check in &amp;nbsp;到受控库
+4. 受控库 更新到产品库
+权限最大: 配置管理员 (CMO)</code></pre><h3 id="配置基线"><a href="#配置基线" class="headerlink" title="配置基线"></a>配置基线</h3><pre><code>基线是一组通过正式审查并达成一致的规范或工作产品, 是开发工作的基础.
+基线是由一组配置项组成. 通常对应开发过程中的里程碑. 一个产品可以有多个基线, 也可只有一个基线.
+基线的主要特征有: 名称,标志符,版本,日期等
+基线配置项向软件开发人员开放读取权限(可能包括所有设计文档和源程序等)
+非基线配置项向 PM, CCB 及 相关人员开放(可能包括项目各类计划和报告等)</code></pre><h4 id="基线分类"><a href="#基线分类" class="headerlink" title="基线分类"></a>基线分类</h4><h5 id="国家标准"><a href="#国家标准" class="headerlink" title="国家标准"></a>国家标准</h5><pre><code>功能基线 (分析)
+分配基线 (设计)
+产品基线 :软件产品所有配置项</code></pre><h5 id="实际工作"><a href="#实际工作" class="headerlink" title="实际工作"></a>实际工作</h5><pre><code>需求基线,设计基线,测试基线,产品基线</code></pre><h5 id="对内对外"><a href="#对内对外" class="headerlink" title="对内对外"></a>对内对外</h5><pre><code>构造基线: 企业内部适用, 释放
+发型基线: 交付给外部客户 , 交付</code></pre><h3 id="CCB-配置管理委员会-变更控制委员会-管理者角色"><a href="#CCB-配置管理委员会-变更控制委员会-管理者角色" class="headerlink" title="CCB (配置管理委员会/ 变更控制委员会) (管理者角色)"></a>CCB (配置管理委员会/ 变更控制委员会) (管理者角色)</h3><pre><code>职能: 对配置变更做出评估, 审批以及监督已批准的变更的实施
+成员: 项目经理,用户代表, 产品经理, 开发/测试工程师
+特点: 领导橘色不做具体执行, 非常设机构, 可以时兼职人员</code></pre><h3 id="CMO-配置管理员-执行者角色"><a href="#CMO-配置管理员-执行者角色" class="headerlink" title="CMO 配置管理员(执行者角色)"></a>CMO 配置管理员(执行者角色)</h3><h4 id="具体工作"><a href="#具体工作" class="headerlink" title="具体工作"></a>具体工作</h4><pre><code>1. 建立配置项, &amp;nbsp; 建立和维护配置管理系统/配置库</code></pre><h5 id="2-开展配置管理的主要活动"><a href="#2-开展配置管理的主要活动" class="headerlink" title="2 开展配置管理的主要活动"></a>2 开展配置管理的主要活动</h5><pre><code>编写配置管理计划
+配置项识别
+建立和管理基线
+版本管理和配置控制
+配置状态报告
+配置审计
+发布管理和交付</code></pre><h3 id="配置管理活动"><a href="#配置管理活动" class="headerlink" title="配置管理活动"></a>配置管理活动</h3><pre><code>定义: 标识和说明配置项的功能和服务里特性</code></pre><h4 id="主要活动"><a href="#主要活动" class="headerlink" title="主要活动"></a>主要活动</h4><h5 id="制定配置管理计划"><a href="#制定配置管理计划" class="headerlink" title="制定配置管理计划"></a>制定配置管理计划</h5><pre><code>CMO (配置管理员) 制定, CCB 审批</code></pre><h6 id="内容-1"><a href="#内容-1" class="headerlink" title="内容"></a>内容</h6><pre><code>配置管理活动, 覆盖主要活动包括配置编制, 配置控制, ....
+试试这些活动的规范和规程
+实施这些活动的进度安排
+负责实施这些活动的人员或组织,以及他们和其他组织的关系</code></pre><h5 id="识别标识"><a href="#识别标识" class="headerlink" title="识别标识"></a>识别标识</h5><pre><code>也叫配置识别</code></pre><h6 id="基本步骤"><a href="#基本步骤" class="headerlink" title="基本步骤"></a>基本步骤</h6><pre><code>识别需要受控的配置项&lt;br&gt;分配一个唯一标识号&lt;br&gt;定义每个配置项的重要特征&lt;br&gt;确定每个配置项的所有者及其责任&lt;br&gt;确定配置项进入配置管理的时间和条件&lt;br&gt;建立和控制基线&lt;br&gt;维护文档和组件的修订于产品版本之间的关系</code></pre><h5 id="配置控制"><a href="#配置控制" class="headerlink" title="配置控制"></a>配置控制</h5><h6 id="配置控制的任务-变更控制流程-包括"><a href="#配置控制的任务-变更控制流程-包括" class="headerlink" title="配置控制的任务(变更控制流程)包括"></a>配置控制的任务(变更控制流程)包括</h6><pre><code>变更申请&lt;br&gt;变更评估&lt;br&gt;通告评估结果&lt;br&gt;变更实施&lt;br&gt;变更验证与确认&lt;br&gt;变更的发布&lt;br&gt;基于配置库的变更控制</code></pre><h5 id="配置状态报告"><a href="#配置状态报告" class="headerlink" title="配置状态报告"></a>配置状态报告</h5><pre><code>及时准确的给出配置项的当前状态.供相关人员了解</code></pre><h6 id="内容总概"><a href="#内容总概" class="headerlink" title="内容总概:"></a>内容总概:</h6><pre><code>配置项的标志和状态
+变更申请的状态和已批准的修改
+基线的当前和过去版本你的状态
+其他配置管理过程活动的记录</code></pre><h6 id="内容详细"><a href="#内容详细" class="headerlink" title="内容详细:"></a>内容详细:</h6><pre><code>各变更请求的该要, 变更请求号,日期,申请人,状态, 估计工作量,实际工作量, 发布版本,变更结束日期
+基线库的状态 : 库标志, 至某日预计颅内配置项数, 实际配置项数, 于谦版本差异描述
+发行信息: 发布版本, 计划发布时间,实际法不是件,说你哥
+备份信息: 备份日期, 截至,备份存放位置
+配置管理工具状态
+配置管理培训状态</code></pre><h5 id="配置审计"><a href="#配置审计" class="headerlink" title="配置审计"></a>配置审计</h5><pre><code>为了保证项目配置管理的有效性, 体现了配置项的最根本要求:不允许出现任何混乱, &amp;nbsp;一致性和完整性</code></pre><h6 id="功能配置审计"><a href="#功能配置审计" class="headerlink" title="功能配置审计"></a>功能配置审计</h6><pre><code>配置项的实际功效是否于其需求一致
+配置项的开发是否圆满完成
+配置项否达到规定的性能和功能特性
+配置项的运行和支持文档是否完成,是否符合要求</code></pre><h6 id="物理配置审计"><a href="#物理配置审计" class="headerlink" title="物理配置审计"></a>物理配置审计</h6><pre><code>配置项的五里村在是否于预期一致
+要交付的配置项是否存在
+配置项种是否包含了所有必要的项目</code></pre><h5 id="发布管理和交付"><a href="#发布管理和交付" class="headerlink" title="发布管理和交付"></a>发布管理和交付</h5><pre><code>妥善保存代码于文档的母拷贝
+存储 : 选择何时的截至, 副本存在不同的受控场所
+复制 : 建立流程确保复制的一致性于完整性
+打包
+交付
+重建 (应能重建软件环境)</code></pre><h4 id="CMMI-关于配置管理之流程"><a href="#CMMI-关于配置管理之流程" class="headerlink" title="CMMI 关于配置管理之流程"></a>CMMI 关于配置管理之流程</h4><pre><code>制定配置管理计划
+识别配置项
+建立配置管理系统
+创建或发型基线
+跟踪变更
+控制变更
+建立配置管理记录
+执行配置审核
+版本控制
+管理过程</code></pre><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>项目管理</tag>
+        <tag>十大知识领域</tag>
+        <tag>配置管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>项目管理-干系人管理</title>
+    <url>/2021/05/12/pm/Program_Stakeholder_Management%20/</url>
+    <content><![CDATA[<h1 id="干系人管理Program-Stakeholder-Management"><a href="#干系人管理Program-Stakeholder-Management" class="headerlink" title="干系人管理Program Stakeholder Management"></a>干系人管理<br/>Program Stakeholder Management</h1><pre><code>注意干系人期望管理</code></pre><h2 id="管理过程-4个"><a href="#管理过程-4个" class="headerlink" title="管理过程(4个)"></a>管理过程(4个)</h2><h3 id="识别干系人Identify-Stakeholders"><a href="#识别干系人Identify-Stakeholders" class="headerlink" title="识别干系人Identify Stakeholders"></a>识别干系人<br>Identify Stakeholders</h3><table>  <tr> <td bgcolor=#71cb2d><font color=#ffffff>启动过程组</font></td></tr> </table>    识别能影响项目决策, 活动货结果的个人, 群体或组织. 以及被项目决策,活动和结果缩影香的个人群体或组织, 并分析和记录他们的相关信息的过程<br><br>注意: 是要识别干系人利益, 参与度, 相互依赖, 影响力以及对项目成功的潜在影响等
+
+<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>项目章程
+采购文件
+事业环境因素 组织过程资产</code></pre><h4 id="工具技术"><a href="#工具技术" class="headerlink" title="工具技术"></a>工具技术</h4><h5 id="干系人分析"><a href="#干系人分析" class="headerlink" title="干系人分析"></a>干系人分析</h5><pre><code>权力/利益方格</code></pre><p><img src="https://docs-1251953281.cos.ap-beijing.myqcloud.com/2021/05/05/16202223452722.jpg" alt="image"><br>    权力/影响方格</p>
+<p><img src="https://docs-1251953281.cos.ap-beijing.myqcloud.com/2021/05/05/16202224916130.jpg" alt="image"><br>    影响/作用方格<br>    凸现模型<br>    专家判断<br>    会议</p>
+<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><h5 id="干系人登记册"><a href="#干系人登记册" class="headerlink" title="干系人登记册"></a>干系人登记册</h5><pre><code>干系人利益, 参与度, 相互依赖, 影响力以及对项目成功的潜在影响等</code></pre><h3 id="规划干系人管理Plan-Stakeholder-Management"><a href="#规划干系人管理Plan-Stakeholder-Management" class="headerlink" title="规划干系人管理Plan Stakeholder Management"></a>规划干系人管理<br>Plan Stakeholder Management</h3><h4 id="输入-1"><a href="#输入-1" class="headerlink" title="输入"></a>输入</h4><pre><code>项目管理计划
+干系人登记册
+事业环境因素, 组织过程资产</code></pre><h4 id="工具技术-1"><a href="#工具技术-1" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>组织项管会议, 专家判断</code></pre><h5 id="分析技术"><a href="#分析技术" class="headerlink" title="分析技术"></a>分析技术</h5><pre><code>干系人参与评估矩阵&lt;br&gt;C: 当前参与程度&lt;br&gt;D: 所需参与程度</code></pre><p><img src="https://docs-1251953281.cos.ap-beijing.myqcloud.com/2021/05/05/16202231778894.jpg" alt="image"></p>
+<h4 id="输出-1"><a href="#输出-1" class="headerlink" title="输出"></a>输出</h4><h5 id="干系人管理计划"><a href="#干系人管理计划" class="headerlink" title="干系人管理计划"></a>干系人管理计划</h5><pre><code>关键干系人的所需参与程度和当前参与程度
+干系人变更的范围和影响
+干系人之间的相互关系和潜在关系
+项目夏娜阶段的干系人沟通需求
+需要分发给干系人的信息, 包括语言,根式, 内容和详细程度
+向干系人分发所需信息的时限和频率
+分发相关信息的理由, 以及可能对干系人参与所产生的影响
+随着项目的进展,更新和优化干系人管理计划的方法
+项目计划更新
+注意: 规划干系人管理是一个反复的过程, 应该由项目经理定期开展</code></pre><h3 id="管理干系人参与Manage-Stakeholder-Engagement"><a href="#管理干系人参与Manage-Stakeholder-Engagement" class="headerlink" title="管理干系人参与Manage Stakeholder Engagement"></a>管理干系人参与<br>Manage Stakeholder Engagement</h3><pre><code>管理干系人是在整个项目生命周期中,与干系人进行沟通和写作,以满足其需要和与期望.解决实际出现的问题, 促进干系人合理参与项目活动的过程&lt;br&gt;作用: 帮助项目经理提升来自干系人的支持, 并把干系人的地址讲到最低, 从而显著提高项目成功机会.&lt;br&gt;</code></pre><h4 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h4><pre><code>调动干系人适时参与项目,以获取或确认他们对项目成功的持续承诺
+筒骨哦协商和沟通, 管理干系人的期望, 确保时限项目目标
+处理尚未成为问题的干系人关注点,预测干系人在未来可能提出的问题. 需要尽早识别.
+澄清和解决以识别的问题.</code></pre><h4 id="输入-2"><a href="#输入-2" class="headerlink" title="输入"></a>输入</h4><pre><code>干系人管理计划, 沟通管理计划
+变更日志, 组织过程资产</code></pre><h4 id="工具技术-2"><a href="#工具技术-2" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>沟通方法
+人际关系技能
+管理技能</code></pre><h4 id="输出-2"><a href="#输出-2" class="headerlink" title="输出"></a>输出</h4><pre><code>问题日志, 变更请求
+项目管理计划更新, 项目文件更新, 组织过程资产更新</code></pre><h3 id="控制干系人参与Control-Stakeholder-Engagement"><a href="#控制干系人参与Control-Stakeholder-Engagement" class="headerlink" title="控制干系人参与Control Stakeholder Engagement"></a>控制干系人参与<br>Control Stakeholder Engagement</h3><table>  <tr> <td bgcolor=#ff9f1a><font color=#ffffff>监控过程组</font></td></tr> </table>    全面监督项目干系人之间的关系,调整策略和计划, 调动干系人参与的过程
+
+<h4 id="输入-3"><a href="#输入-3" class="headerlink" title="输入"></a>输入</h4><pre><code>项目管理计划
+问题日志,工作绩效数据 项目文件</code></pre><h4 id="工具技术-3"><a href="#工具技术-3" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>信息管理系统
+专家判断
+会议</code></pre><h4 id="输出-3"><a href="#输出-3" class="headerlink" title="输出"></a>输出</h4><pre><code>工作绩效信息
+变更请求
+项目管理计划更新,项目文件更新,组织过程资产更新</code></pre><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>项目管理</tag>
+        <tag>十大知识领域</tag>
+        <tag>干系人管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>项目管理-成本管理</title>
+    <url>/2021/05/12/pm/Project_Cost_Management/</url>
+    <content><![CDATA[<h1 id="成本管理Project-Cost-Management"><a href="#成本管理Project-Cost-Management" class="headerlink" title="成本管理Project Cost Management"></a>成本管理<br/>Project Cost Management</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="项目成本"><a href="#项目成本" class="headerlink" title="项目成本"></a>项目成本</h3><pre><code>项目全过程所消耗的各种成本综合</code></pre><h3 id="全生命周期成本"><a href="#全生命周期成本" class="headerlink" title="全生命周期成本"></a>全生命周期成本</h3><pre><code>权益总成本 既开发成本和维护成本的总和</code></pre><h3 id="学习曲线"><a href="#学习曲线" class="headerlink" title="学习曲线"></a>学习曲线</h3><pre><code>重复生产许多产品时,那些产品的单位成本随着数量的增多呈规律性递减</code></pre><h3 id="机会成本"><a href="#机会成本" class="headerlink" title="机会成本"></a>机会成本</h3><pre><code>因选择一个机会而放弃另一个机会带来的成本 (选机会成本比较小的)</code></pre><h3 id="沉默成本"><a href="#沉默成本" class="headerlink" title="沉默成本"></a>沉默成本</h3><pre><code>一种历史成本,对现有决策而言使不可控成本,决策时应排除其干扰</code></pre><h2 id="管理过程-4个"><a href="#管理过程-4个" class="headerlink" title="管理过程(4个)"></a>管理过程(4个)</h2><h3 id="规划成本管理Plan-Cost-Management"><a href="#规划成本管理Plan-Cost-Management" class="headerlink" title="规划成本管理Plan Cost Management"></a>规划成本管理<br>Plan Cost Management</h3><table>  <tr> <td bgcolor=#63abf7><font color=#ffffff>规划过程组</font></td></tr> </table>    定义: 为规划,管理,话费和控制项目成本而制定政策,程序和文档的过程
+
+<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>项目章程,项目管理计划
+风险登记册
+事业环境因素因素和组织过程资产</code></pre><h4 id="工具技术"><a href="#工具技术" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>专家判断
+分析技术
+会议</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><h5 id="成本管理计划"><a href="#成本管理计划" class="headerlink" title="成本管理计划"></a>成本管理计划</h5><pre><code>计量单位
+精确度
+组织程序链接
+控制临界值(偏差需要接入,管控的尺度值)
+绩效测量规则</code></pre><h3 id="估算成本Estimate-Costs"><a href="#估算成本Estimate-Costs" class="headerlink" title="估算成本Estimate Costs"></a>估算成本<br>Estimate Costs</h3><table>  <tr> <td bgcolor=#63abf7><font color=#ffffff>规划过程组</font></td></tr> </table>    定义: 对完成项目活动所需要资金进行近似估算的过程<br>作用 :确定完成项目工作所需的成本数额
+
+<h4 id="主要步骤"><a href="#主要步骤" class="headerlink" title="主要步骤"></a>主要步骤</h4><pre><code>1. 识别并分析项目成本的构成科目 (形成项目资源矩阵)
+2. 估算每一科目的成本大小
+3. 分析成本估算结果,祝熬出各种可以相互替代的成本, 协调各种成本之间的比例关系
+项目资源矩阵格式 &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;div&gt;| 工作| 资源需要|&lt;br&gt;&lt;/div&gt;|工作1| 资源1|资源2|资源3|..&lt;br&gt;|工作2| 资源1|资源2|资源..|..&lt;br&gt;
+注: 工期优化,费用优化, 资源优化, 无论怎么降低项目成本估算值,项目的应急储备都不应该被裁剪</code></pre><h4 id="输入-1"><a href="#输入-1" class="headerlink" title="输入"></a>输入</h4><pre><code>成本管理计划, 范围基准,项目进度计划,人力资源管理计划
+风险登记册
+事业环境因素 和组织过程资产</code></pre><h4 id="工具技术-1"><a href="#工具技术-1" class="headerlink" title="工具技术"></a>工具技术</h4><h5 id="专家判断"><a href="#专家判断" class="headerlink" title="专家判断"></a>专家判断</h5><pre><code>根据专家以往经验进行判断. 其中 Delphi 方法&quot;背靠背&quot;的专家判断法. 通过多轮匿名估算并调整, 最终取得较为统一的结论.
+多轮后 最后一轮平均值</code></pre><h5 id="类比估算"><a href="#类比估算" class="headerlink" title="类比估算"></a>类比估算</h5><pre><code>(有参数值的一般是类比) &amp;nbsp;以过去类似项目的参数值为基础, 来估算未来项目的同类参数或指标</code></pre><h5 id="参数估算"><a href="#参数估算" class="headerlink" title="参数估算"></a>参数估算</h5><pre><code>统计估算 &amp;nbsp;关键字统计关系</code></pre><h5 id="自下而上估算"><a href="#自下而上估算" class="headerlink" title="自下而上估算"></a>自下而上估算</h5><pre><code>准确度相对较高</code></pre><h5 id="三点估算"><a href="#三点估算" class="headerlink" title="三点估算"></a>三点估算</h5><pre><code>(最好 + 最坏 + 4 * 正常) /6
+储备分析 &amp;nbsp;质量成本
+项目管理软件, 卖方投标分析, 群体决策技术</code></pre><h4 id="输出-1"><a href="#输出-1" class="headerlink" title="输出"></a>输出</h4><pre><code>活动成本估算
+估算依据
+项目文件更新</code></pre><h3 id="制定预算Determine-Budget"><a href="#制定预算Determine-Budget" class="headerlink" title="制定预算Determine Budget"></a>制定预算<br>Determine Budget</h3><table>  <tr> <td bgcolor=#63abf7><font color=#ffffff>规划过程组</font></td></tr> </table>
+#### 概念
+
+<pre><code>定义: 汇总所有单个活动货工作包的估算成本, 建立一个经批准的成本基准的过程</code></pre><h5 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h5><pre><code>计算出各个进度所需要的成本
+汇总得出工作包的成本
+将各个工作包的成本汇总,得到控制账户的成本
+将各个控制帐号肚饿成本汇总, 得到项目成本
+在得到项目成本的基础上,加上一定的不可遇见费用(应急储备),得到项目的成本基准(预算.),有时,可以增加管理储备</code></pre><h5 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h5><pre><code>项目成本预算要以项目需求为基础
+项目成本预算要与项目目标相联系,必须同时考虑到项目质量目标和进度目标
+项目成本预算要切实可行&lt;br&gt;
+项目成本预算应当留有一定的弹性
+项目预算的组成</code></pre><p><img src="https://docs-1251953281.cos.ap-beijing.myqcloud.com/2021/05/04/16201397968614.jpg" alt="image"></p>
+<h4 id="输入-2"><a href="#输入-2" class="headerlink" title="输入"></a>输入</h4><pre><code>成本管理计划,活动成本估算,估算依据
+协议(合同), 范围基准, 项目进度计划
+资源日历, 风险登记册, 组织过程资产</code></pre><h4 id="工具技术-2"><a href="#工具技术-2" class="headerlink" title="工具技术"></a>工具技术</h4><h5 id="成本汇总"><a href="#成本汇总" class="headerlink" title="成本汇总"></a>成本汇总</h5><pre><code>以 WBS 工作包为单位对活动成本估算进行汇总, 然后往更高层次(控制账户)汇总,最终得到项目总成本
+专家判断</code></pre><h5 id="储备分析-管理储备-与-应急储备"><a href="#储备分析-管理储备-与-应急储备" class="headerlink" title="储备分析(管理储备 与 应急储备)"></a>储备分析(管理储备 与 应急储备)</h5><pre><code>计算出所需要的应急储备与管理储备</code></pre><h6 id="管理储备"><a href="#管理储备" class="headerlink" title="管理储备"></a>管理储备</h6><pre><code>针对未知的未知事件
+项目经理(无权直接适用)在使用或者支出管理储备前,可能需要获得批准
+管理储备不是项目成本基准的一部分, 但是包含在项目总预算中, 管理储备不纳入挣值计算</code></pre><h6 id="应急储备"><a href="#应急储备" class="headerlink" title="应急储备"></a>应急储备</h6><pre><code>针对已知的未知事件
+项目经理有权使用, 一般专款专用
+已知的未知事件,既在风险登记册中的一已知风险,是项目范围和成本基准的一部分</code></pre><h5 id="资源限制平衡"><a href="#资源限制平衡" class="headerlink" title="资源限制平衡"></a>资源限制平衡</h5><pre><code>根据对项目资金的任何限制,来平衡资金支出.
+历史关系</code></pre><h4 id="输出-2"><a href="#输出-2" class="headerlink" title="输出"></a>输出</h4><h5 id="成本基准"><a href="#成本基准" class="headerlink" title="成本基准"></a>成本基准</h5><pre><code>经批准的按时间安排的成本支出计划
+项目资金需求
+项目文件更新</code></pre><h3 id="控制成本Control-Cost"><a href="#控制成本Control-Cost" class="headerlink" title="控制成本Control Cost"></a>控制成本<br>Control Cost</h3><table>  <tr> <td bgcolor=#ff9f1a><font color=#ffffff>监控过程组</font></td></tr> </table>    监督项目状态以更新项目成本,管理成本基准变更的过程
+
+<h4 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h4><pre><code>对造成成本基准变更的因素施加影响
+确保所有的变更请求都的到及时处理
+当变更发生时,管理这些变更
+确保成本支出不超过批准的资金限额, 阶段性与总额都不超
+监督成本绩效,找出与成本基准的偏差
+对照资金支出,监督工作绩效
+防止出现未经批准的变更
+设法把成本超支控制在可接受范围内</code></pre><h4 id="成本失控原因"><a href="#成本失控原因" class="headerlink" title="成本失控原因"></a>成本失控原因</h4><pre><code>对项目认识不足(难度,规模认识不足)
+组织制度不健全
+方法问题
+技术的制约
+需求管理不当(变更频繁)</code></pre><h4 id="输入-3"><a href="#输入-3" class="headerlink" title="输入"></a>输入</h4><pre><code>项目管理计划,项目资金需求
+工作绩效数据
+组织过程资产</code></pre><h4 id="工具技术-3"><a href="#工具技术-3" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>挣值管理, 预测 完工尚需绩效指数
+绩效审查,储备分析
+项目管理软件</code></pre><h4 id="输出-3"><a href="#输出-3" class="headerlink" title="输出"></a>输出</h4><pre><code>工作绩效信息
+成本预测
+变更请求
+项目管理计划更新,项目文件更新,组织过程资产更新</code></pre><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>项目管理</tag>
+        <tag>十大知识领域</tag>
+        <tag>成本管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>项目管理-沟通管理</title>
+    <url>/2021/05/12/pm/Project_Communication_Management/</url>
+    <content><![CDATA[<h1 id="沟通管理Project-Communication-Management"><a href="#沟通管理Project-Communication-Management" class="headerlink" title="沟通管理Project Communication Management"></a>沟通管理<br>Project Communication Management</h1><pre><code>项目经理绝大多数实践(90%) 都用玉团队成员和其他干系人的沟通</code></pre><h2 id="管理过程3个"><a href="#管理过程3个" class="headerlink" title="管理过程3个"></a>管理过程3个</h2><h3 id="规划沟通管理Plan-Communication"><a href="#规划沟通管理Plan-Communication" class="headerlink" title="规划沟通管理Plan Communication"></a>规划沟通管理<br>Plan Communication</h3><pre><code>根据干系人的信息和要求以及组织的可用资产情况,制定合理的项目沟通方式和计划的过程</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>项目管理计划
+干系人登记册
+事业环境因素 组织过程资产</code></pre><h4 id="工具技术"><a href="#工具技术" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>沟通需求分析
+会议</code></pre><h5 id="沟通技术"><a href="#沟通技术" class="headerlink" title="沟通技术"></a>沟通技术</h5><pre><code>谈话, 会议,书面文件,在线查询资料</code></pre><h6 id="选择因素"><a href="#选择因素" class="headerlink" title="选择因素:"></a>选择因素:</h6><pre><code>信息需求的紧迫性
+技术的可用性
+易用性: 培训计划
+项目环境
+信息的敏感性和保密性</code></pre><h6 id="沟通障碍"><a href="#沟通障碍" class="headerlink" title="沟通障碍"></a>沟通障碍</h6><pre><code>缺乏清晰的沟通渠道
+发送者与接受者存在屋里距离
+沟通双方彼此技术语言不通
+分散注意力的环境因素(噪声)
+有害的态度(敌对, 不信任)
+权力游戏, 直流信息,隐藏议程和敌对情绪
+沟通模型</code></pre><h5 id="沟通方法"><a href="#沟通方法" class="headerlink" title="沟通方法"></a>沟通方法</h5><h6 id="交互式沟通"><a href="#交互式沟通" class="headerlink" title="交互式沟通"></a>交互式沟通</h6><pre><code>两方或多方多向信息交互 (会议,电话,即时通信)</code></pre><h6 id="推式沟通"><a href="#推式沟通" class="headerlink" title="推式沟通"></a>推式沟通</h6><pre><code>信息发送给特定接收方 (信件,邮件.)</code></pre><h6 id="拉式沟通"><a href="#拉式沟通" class="headerlink" title="拉式沟通"></a>拉式沟通</h6><pre><code>信息量很大,或受众很多(企业公告, 电子课堂)</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><h5 id="沟通管理计划"><a href="#沟通管理计划" class="headerlink" title="沟通管理计划"></a>沟通管理计划</h5><pre><code>项目干系人沟通要求 (什么人)
+需要沟通的信息, 包括语言个事内容和详细程度 (以什么形式)
+发布信息的原因
+发布信息以及告知(包含如果需要做出回应)的时限和频率
+负责沟通项管信息的人员
+负责授权保密信息发布的人员
+将接收信息的个人或小组
+传递信息的技术或方法, 入备忘录,电子邮件,新闻稿等
+为沟通活动分配的资源,包含时间与预算
+问题升级程序, 用于规定下层员工无法解决问题时的上报时限和上报路径
+随项目进展,对沟通管理计划进行更新与优化的方法
+通用术语表
+项目信息流向图, 工作程程,报告清单
+沟通制约因素, 通常来自特定的法律法规, 技术要求和组织政策等
+项目文件更新</code></pre><h3 id="管理沟通Manage-Communication"><a href="#管理沟通Manage-Communication" class="headerlink" title="管理沟通Manage Communication"></a>管理沟通<br>Manage Communication</h3><pre><code>根据沟通管理计划,生成,收集,分发,存储,检索以及最终处置项目信息的过程</code></pre><h4 id="输入-1"><a href="#输入-1" class="headerlink" title="输入"></a>输入</h4><pre><code>沟通管理计划
+工作绩效报告(监控项目工作的输出)
+事业环境因素, 组织过程资产</code></pre><h4 id="工具技术-1"><a href="#工具技术-1" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>沟通技术,沟通模型,沟通方法
+信息管理系统</code></pre><h5 id="报告绩效"><a href="#报告绩效" class="headerlink" title="报告绩效"></a>报告绩效</h5><pre><code>报告绩效是指收集和发布绩效信息,包括状态报告, 进展测量以及预测结果</code></pre><h6 id="详尽的报告"><a href="#详尽的报告" class="headerlink" title="详尽的报告"></a>详尽的报告</h6><pre><code>对过去绩效的分析
+本报告期完成的工作
+风险和问题的当前状态
+本报改期被批准的变更汇总
+下一个报告期要完成的工作
+项目预测分析, 包括实践成本
+需要审查和讨论的其他相关信息</code></pre><h4 id="输出-1"><a href="#输出-1" class="headerlink" title="输出"></a>输出</h4><pre><code>项目沟通
+项目管理计划更新, 项目文件更新, 组织过程资产更新</code></pre><h3 id="控制沟通Control-COmmunication"><a href="#控制沟通Control-COmmunication" class="headerlink" title="控制沟通Control COmmunication"></a>控制沟通<br>Control COmmunication</h3><pre><code>整个项目生命周期中对沟通进行监督和控制的过程,以确保满足项目干系人对信息的需求</code></pre><h4 id="输入-2"><a href="#输入-2" class="headerlink" title="输入"></a>输入</h4><pre><code>项目管理计划
+项目沟通,问题日志
+工作绩效数据,组织过程资产</code></pre><h4 id="工具技术-2"><a href="#工具技术-2" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>信息管理系统
+专家判断
+会议</code></pre><h4 id="输出-2"><a href="#输出-2" class="headerlink" title="输出"></a>输出</h4><pre><code>工作绩效信息
+变更请求
+项目管理计划更新,项目文件更新,组织过程资产更新</code></pre><h3 id="如何改进项目沟通总结"><a href="#如何改进项目沟通总结" class="headerlink" title="如何改进项目沟通总结"></a>如何改进项目沟通总结</h3><pre><code>适用项目沟通模板
+建立沟通基础设施</code></pre><h4 id="把握项目沟通基本原则"><a href="#把握项目沟通基本原则" class="headerlink" title="把握项目沟通基本原则"></a>把握项目沟通基本原则</h4><pre><code>沟通内外有别
+非正式的沟通有助于关系的融洽
+采用对方能接受的沟通风格
+沟通的升级原则
+扫出沟通障碍
+发展更好的沟通技能</code></pre><h4 id="把握人际沟通风格"><a href="#把握人际沟通风格" class="headerlink" title="把握人际沟通风格"></a>把握人际沟通风格</h4><pre><code>&lt;br&gt;</code></pre><p><img src="https://docs-1251953281.cos.ap-beijing.myqcloud.com/2021/05/05/16202271741615.jpg" alt="image"><br>    进行良好的冲突管理<br>    召开高效的会议<br>    使用项目管理信息系统</p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>项目管理</tag>
+        <tag>十大知识领域</tag>
+        <tag>沟通管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>pm/Business_Management</title>
+    <url>/2021/05/14/pm/Business_Management/</url>
+    <content><![CDATA[<h1 id="企业管理知识"><a href="#企业管理知识" class="headerlink" title="企业管理知识"></a>企业管理知识</h1><h2 id="战略管理"><a href="#战略管理" class="headerlink" title="战略管理"></a>战略管理</h2><pre><code>组织战略规划根据外部环境和自身条件及其变化来制定和实施战略, 并循环迭代的过程&lt;br&gt;</code></pre><h3 id="组织战略"><a href="#组织战略" class="headerlink" title="组织战略"></a>组织战略</h3><pre><code>未来发展方向
+资源配置策略</code></pre><h3 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h3><pre><code>战略目标 : 预期结果, 时依据和出发点
+战略仿真: 指导组织行动的纲领
+战略实施能力: 组织战略实施的物质基础
+战略措施: 实施战略的重要保障, 组织架构,权力分配, 监督机制等
+面临的问题 : 事业问题(核心, &amp;nbsp;业务层面), 工程问题, 和行政问题</code></pre><h3 id="组织-事业战略类型-事业角度"><a href="#组织-事业战略类型-事业角度" class="headerlink" title="组织 事业战略类型: (事业角度)"></a>组织 事业战略类型: (事业角度)</h3><pre><code>防御者战略 : 提高组织运行效率
+探索者战略: 新产品,新技术
+分析者战略: 避险同时创新
+反应者战略: 迫不得已才调整</code></pre><h3 id="战略组织类型-组织角度"><a href="#战略组织类型-组织角度" class="headerlink" title="战略组织类型 (组织角度)"></a>战略组织类型 (组织角度)</h3><pre><code>指挥型: 如何制定最佳战略, 并按照战略执行
+变革型: 如何组织一系列变革
+合作型: 与其他搞成分担战略责任
+文化型: 文化手段,全体总动员
+增长型: 高层如何激励一般的管理人员制定于实施战略</code></pre><h3 id="组织战略层次"><a href="#组织战略层次" class="headerlink" title="组织战略层次"></a>组织战略层次</h3><pre><code>目标层 基本战略目标,慕白分解原则方法, 目标之间依赖
+方针层 : 政策, 体质 组织结构设计
+行为层 : 对策措施,相关程序和流程</code></pre><h3 id="战略-SWOT-分析"><a href="#战略-SWOT-分析" class="headerlink" title="战略 SWOT 分析"></a>战略 SWOT 分析</h3><pre><code>&lt;br&gt;</code></pre><p><img src="https://docs-1251953281.cos.ap-beijing.myqcloud.com/2021/05/10/16206571867625.jpg" alt="image"></p>
+<h2 id="用户业务流程管理"><a href="#用户业务流程管理" class="headerlink" title="用户业务流程管理"></a>用户业务流程管理</h2><pre><code>概念 &amp;nbsp;特征 :目标 内在行, 整体性 动态型,层次性 结构性</code></pre><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><h4 id="价值链分析法"><a href="#价值链分析法" class="headerlink" title="价值链分析法"></a>价值链分析法</h4><pre><code>找出货设计出使顾客满意,时限顾客价值最大化的业务流程</code></pre><h4 id="供应链分析法"><a href="#供应链分析法" class="headerlink" title="供应链分析法"></a>供应链分析法</h4><pre><code>分析那些流程处于供应链的核心环节</code></pre><h4 id="ERP-分析法"><a href="#ERP-分析法" class="headerlink" title="ERP 分析法"></a>ERP 分析法</h4><pre><code>将夜五流程看做一个紧密连接的供应链
+增值性分析法: 找出流程&quot;瓶颈&quot;活动, 通过评价相关活动的三个参数, r(价值系数),f(贡献), c(成本)&lt;br&gt;</code></pre><h3 id="业务流程重构和改进"><a href="#业务流程重构和改进" class="headerlink" title="业务流程重构和改进"></a>业务流程重构和改进</h3><h4 id="业务流程重组-BPR"><a href="#业务流程重组-BPR" class="headerlink" title="业务流程重组 (BPR)"></a>业务流程重组 (BPR)</h4><pre><code>对企业的业务流程进行根本性的再思考和彻底性的再设计从而获得可以用诸如成本,质量,服务和速度等方面的业绩来衡量的显著性的成就</code></pre><h4 id="业务流程管理-BPM"><a href="#业务流程管理-BPM" class="headerlink" title="业务流程管理 (BPM)"></a>业务流程管理 (BPM)</h4><pre><code>以规范化的构造短倒短的卓越业务流程为中心, 以持续的提高业务继续哦唉为目的的系统化方法, 应用了 PDCA 循环</code></pre><h2 id="知识管理"><a href="#知识管理" class="headerlink" title="知识管理"></a>知识管理</h2><h3 id="显性知识"><a href="#显性知识" class="headerlink" title="显性知识"></a>显性知识</h3><pre><code>先性知识管理步骤: 采集,过滤,组织,传播,应用&amp;nbsp;</code></pre><h3 id="隐性知识"><a href="#隐性知识" class="headerlink" title="隐性知识"></a>隐性知识</h3><pre><code>隐性知识共享方法: 编码化, 面对面交流,人员轮滑,网络
+知识生成工具
+知识编码工具</code></pre><h4 id="知识转移工具"><a href="#知识转移工具" class="headerlink" title="知识转移工具"></a>知识转移工具</h4><pre><code>传播</code></pre><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+  </entry>
+  <entry>
+    <title>项目管理-采购管理</title>
+    <url>/2021/05/12/pm/Project_Procurement_Management/</url>
+    <content><![CDATA[<h1 id="采购管理Project-Procurement-Management"><a href="#采购管理Project-Procurement-Management" class="headerlink" title="采购管理Project Procurement Management"></a>采购管理<br>Project Procurement Management</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="采购战略合作管理"><a href="#采购战略合作管理" class="headerlink" title="采购战略合作管理"></a>采购战略合作管理</h3><pre><code>本质是供应链管理&lt;br&gt;供应链成员企业之间建立战略合作关系伙伴关系
+供应链中上下游企业基于信任和共同目标,共享资源,共担风险,共同火力, 非正式长期协议关系
+必须摒弃&quot;以企业为中心&quot;的传统古哪里模式,代之以现代战略合作的管理模式</code></pre><h4 id="意义"><a href="#意义" class="headerlink" title="意义:"></a>意义:</h4><pre><code>可以缩短供应商的供应周期,提高供应的灵活性.
+可以降低企业采购设备额库存水平, 降低管理费用,加快最近周转
+提高采购设备的质量
+与供应商共享管理经验, 推动企业政企管理水平的提高
+加强与供应商沟通,改善订单的处理过程,提高设备需求的准确度
+可以共享供应商额技术与革新成果, 加快产品开发数独, 缩短产品开发周期.</code></pre><h3 id="合同类型"><a href="#合同类型" class="headerlink" title="合同类型"></a>合同类型</h3><h4 id="按项目范围划分"><a href="#按项目范围划分" class="headerlink" title="按项目范围划分"></a>按项目范围划分</h4><h5 id="总承包合同"><a href="#总承包合同" class="headerlink" title="总承包合同"></a>总承包合同</h5><pre><code>整个项目给一个总承包商</code></pre><h5 id="单项承包合同"><a href="#单项承包合同" class="headerlink" title="单项承包合同"></a>单项承包合同</h5><pre><code>把项目分解, 分别给不同承包商</code></pre><h5 id="分包合同"><a href="#分包合同" class="headerlink" title="分包合同"></a>分包合同</h5><pre><code>接到项目, 分包部分出去</code></pre><h4 id="按项目付款方式划分"><a href="#按项目付款方式划分" class="headerlink" title="按项目付款方式划分"></a>按项目付款方式划分</h4><pre><code>F: &amp;nbsp;Fixed&amp;nbsp;固定的;&lt;br&gt;C: Cost 成本 &amp;nbsp;&amp;nbsp;&lt;br&gt;</code></pre><h5 id="总价合同-范围明确-风险不大的推荐"><a href="#总价合同-范围明确-风险不大的推荐" class="headerlink" title="总价合同 (范围明确, 风险不大的推荐)"></a>总价合同 (范围明确, 风险不大的推荐)</h5><pre><code>固定总价合同 ( FFP )</code></pre><h6 id="总价加激励费用合同-FPIF-有最高现价-奖惩机制"><a href="#总价加激励费用合同-FPIF-有最高现价-奖惩机制" class="headerlink" title="总价加激励费用合同 (FPIF) : 有最高现价,奖惩机制"></a>总价加激励费用合同 (FPIF) : 有最高现价,奖惩机制</h6><pre><code>定目标成本(卖多少钱), 定目标费用(卖方利润), &amp;nbsp;定分摊比例,定最高限价.&lt;br&gt;如果 开发方能低于目标成本完成, 那么开发方能得到的利润是 节省下来的* 分摊比例+ 目标费用.&amp;nbsp;&lt;br&gt;如果开发方花超了, 那么开发方能得到的最多就是 目标成本+目标费用. 如果花超这个数, 那么就赔本.
+总价加经济价格调整合同(FP-EPA) : 周期长,考虑通胀
+订购单: 标准护肤, 不谈判,单笔按合同</code></pre><h5 id="成本补偿合同"><a href="#成本补偿合同" class="headerlink" title="成本补偿合同"></a>成本补偿合同</h5><h6 id="成本-固定费用合同-CPFF-nbsp-无论花多少钱-卖方利润固定"><a href="#成本-固定费用合同-CPFF-nbsp-无论花多少钱-卖方利润固定" class="headerlink" title="成本 + 固定费用合同 (CPFF) :&nbsp;无论花多少钱,卖方利润固定"></a>成本 + 固定费用合同 (CPFF) :&nbsp;无论花多少钱,卖方利润固定</h6><pre><code>选择可能性小(鼓励开发商花钱.)</code></pre><h6 id="成本-激励费用合同-CPIF-nbsp-设定目标成本-多或少按比例分摊"><a href="#成本-激励费用合同-CPIF-nbsp-设定目标成本-多或少按比例分摊" class="headerlink" title="成本 + 激励费用合同(CPIF):&nbsp;设定目标成本,多或少按比例分摊"></a>成本 + 激励费用合同(CPIF):&nbsp;设定目标成本,多或少按比例分摊</h6><pre><code>与总价+激励费用合同(FPIF) 的区别是无最高现价. &amp;nbsp;无论超支还是节约都按比例承担各自部分.&amp;nbsp;
+成本 + 奖励费用合同 (CPAF ): 卖方凭主观给买方奖励</code></pre><h5 id="工料合同-T-amp-M-工时材料合同"><a href="#工料合同-T-amp-M-工时材料合同" class="headerlink" title="工料合同(T&amp;M) :工时材料合同"></a>工料合同(T&amp;M) :工时材料合同</h5><pre><code>根据实际工时数和材料付款, 金额小,周期短的项目, 专家费, 外包等</code></pre><h3 id="外包管理-非核心部分"><a href="#外包管理-非核心部分" class="headerlink" title="外包管理(非核心部分)"></a>外包管理(非核心部分)</h3><pre><code>外包形式</code></pre><h4 id="外包流程"><a href="#外包流程" class="headerlink" title="外包流程"></a>外包流程</h4><pre><code>开发方式选择</code></pre><h5 id="选择承包商"><a href="#选择承包商" class="headerlink" title="选择承包商"></a>选择承包商</h5><pre><code>竞标邀请
+评估候选承包商的综合能力
+确定承包商
+签订外包合同
+监控外包开发过程</code></pre><h5 id="成果验收"><a href="#成果验收" class="headerlink" title="成果验收"></a>成果验收</h5><pre><code>验收准备
+成果生茶
+验收测试
+问题处理
+成果交付</code></pre><h4 id="外包的目的"><a href="#外包的目的" class="headerlink" title="外包的目的"></a>外包的目的</h4><pre><code>转移风险
+提高效率
+节约成本
+提高质量
+发挥核心竞争力
+获得先进技术
+增加企业价值
+规模经济效益</code></pre><h2 id="管理过程"><a href="#管理过程" class="headerlink" title="管理过程"></a>管理过程</h2><h3 id="规划采购管理Plan-Procurement-Management"><a href="#规划采购管理Plan-Procurement-Management" class="headerlink" title="规划采购管理Plan Procurement Management"></a>规划采购管理<br>Plan Procurement Management</h3><pre><code>定义: 记录项目采购决策,明确采购方法, 识别潜在的卖方的过程.&lt;br&gt;作用: 确定是否需要外部支持,如果需要,这还要决定采购什么, 如何采购, 采购多少,以及何时采购</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>项目管理计划, 项目进度计划, 活动成本估算
+活动资源需求,需求文件, 干系人登记册, 风险登记册
+事业环境因素 组织过程资产</code></pre><h4 id="工具技术"><a href="#工具技术" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>资质和外购分析(间接成本, 直接成本, 合同类型)
+专家判断, 市场调研,会议</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><h5 id="采购管理计划"><a href="#采购管理计划" class="headerlink" title="采购管理计划"></a>采购管理计划</h5><pre><code>采用的合同类型
+是否采用独立估算作为评估标准
+管理多个供应商
+进行自制/外购的决策
+为卖方(供方)提供指导</code></pre><h5 id="采购工作说明书"><a href="#采购工作说明书" class="headerlink" title="采购工作说明书"></a>采购工作说明书</h5><pre><code>项目工作说明说的 买方(甲方)角度
+详细描述拟 采购的产品, 服务, 或成果
+应包括任何所需要的简介服务. 例如 对说采购项目提供的绩效报表或项目后期的运作支持
+所有的说明必须清晰,完成, 简洁明了
+采购文件,功放选择标准
+自制或外购决策, 变更请求,项目文件更新</code></pre><h3 id="实施采购Conduct-Procurements"><a href="#实施采购Conduct-Procurements" class="headerlink" title="实施采购Conduct Procurements"></a>实施采购<br>Conduct Procurements<br></h3><pre><code>定义: 获取卖方答应,选择卖方并授权合同的过程.&lt;br&gt;作用: 通过达成协议,使内部和外部干系人的期望协调一致&lt;br&gt;</code></pre><h4 id="招投标法"><a href="#招投标法" class="headerlink" title="招投标法"></a>招投标法</h4><h5 id="招标"><a href="#招标" class="headerlink" title="招标"></a>招标</h5><pre><code>公开,公平,公正, 诚实信用
+可委托给招代理机构
+公开招标,邀请招标
+招标文件</code></pre><h5 id="投标"><a href="#投标" class="headerlink" title="投标"></a>投标</h5><pre><code>投标人 3个以上</code></pre><h6 id="联合投标问题"><a href="#联合投标问题" class="headerlink" title="联合投标问题"></a>联合投标问题</h6><pre><code>涉及资质问题需要 联合体的每一家都得达到资质要求.
+投标文件
+招标文件发出之日到 投标文件提交期限 不得少于20日
+修改招标文件,应该在投标截止日期15日前做出
+招标文件的异议提出和答复, 赢在投标截至时间10日前提出.
+招标文件异议答复时间: 在收到异议起3日内答复, 做出答复钱,展厅招标投标活动.</code></pre><h5 id="开标"><a href="#开标" class="headerlink" title="开标"></a>开标</h5><pre><code>开标日期为投标结束日期</code></pre><h5 id="评标"><a href="#评标" class="headerlink" title="评标"></a>评标</h5><pre><code>5人以上单数, &amp;nbsp; 2/3 以上是技术,经济专家
+不允许同一个投标人投递多个投标文件</code></pre><h6 id="评定准则"><a href="#评定准则" class="headerlink" title="评定准则"></a>评定准则</h6><pre><code>客观事实为依据
+严格控制自由裁量权
+得分应明显分出高低
+执行国家规定, 体现国家政策
+细则横向比较</code></pre><h5 id="中标"><a href="#中标" class="headerlink" title="中标"></a>中标</h5><h6 id="中标条件"><a href="#中标条件" class="headerlink" title="中标条件"></a>中标条件</h6><pre><code>达到评分要求, 价格最低, 但是不能低于成本价</code></pre><h6 id="谈判问题"><a href="#谈判问题" class="headerlink" title="谈判问题"></a>谈判问题</h6><pre><code>先技术,再商务
+30日内签合同</code></pre><h6 id="分包问题"><a href="#分包问题" class="headerlink" title="分包问题"></a>分包问题</h6><pre><code>不能分包主体部分.
+明确责任问题</code></pre><h4 id="政府采购法"><a href="#政府采购法" class="headerlink" title="政府采购法"></a>政府采购法</h4><h5 id="采购方式"><a href="#采购方式" class="headerlink" title="采购方式"></a>采购方式</h5><pre><code>公开招标</code></pre><h6 id="邀请招标"><a href="#邀请招标" class="headerlink" title="邀请招标"></a>邀请招标</h6><pre><code>只能从有限范围的供应商处采购, 采购公开招标方式的费用占用政府采购项目总价值的比率过大的.</code></pre><h6 id="竞争性谈判"><a href="#竞争性谈判" class="headerlink" title="竞争性谈判"></a>竞争性谈判</h6><pre><code>招标后没有供应商投标或者没有合格表的或者重新招标未能成立的.&lt;br&gt;技术复杂或者性质特殊, 不能确定详细规格或者具体要求的.&lt;br&gt;采用招标所需要的时间不能满足用户紧急需要的.&lt;br&gt;不能时限计算出价格总额的</code></pre><h6 id="单一来源采购"><a href="#单一来源采购" class="headerlink" title="单一来源采购"></a>单一来源采购</h6><pre><code>只能从以为供应商处采购的.&lt;br&gt;发生了不可预见的紧急情况不能从其他供应商处采购的.&lt;br&gt;注: 必须保证原有采购项目一致性或者服务配套的要求,需要集成从原供应商采购, 且天狗自己总额不超过原合同采购金额百分之十的.</code></pre><h6 id="询价"><a href="#询价" class="headerlink" title="询价"></a>询价</h6><pre><code>采购的火舞规格, 标准统一,现货货源充足且价格变化幅度小的政府采购项目
+其他采购方式</code></pre><h5 id="废标"><a href="#废标" class="headerlink" title="废标"></a>废标</h5><pre><code>符合专业条件的供应商或者对照边魏吉娜做出实际影响的供应商不足三家的.
+出现影响采购公正的违法,违规行为的
+投标人的报价均超过了采购预算,采购人不能支付的.
+因重大变故,采购任务取消的.
+废标后,采购人应当将废标理由通知所有投标人.</code></pre><h5 id="质疑"><a href="#质疑" class="headerlink" title="质疑"></a>质疑</h5><pre><code>供应商认为采购过程使自己的全已收到损害, 可在知道权益损害之日起 七个工作日内, 以书面形式向采购人提出质疑.&amp;nbsp;
+采购人受到质疑应七个工作日内回复,否则供应商有权向财政部门投诉.</code></pre><h4 id="合同法"><a href="#合同法" class="headerlink" title="合同法"></a>合同法</h4><pre><code>要约邀请 &amp;nbsp;邀请对方主动发起要约. 对应的是招标
+要约 (要跟对方建立合同关系的意思的表达. &amp;nbsp; 对应投标.
+承诺(中标)
+承诺生效(合同签订)</code></pre><h5 id="合同内容"><a href="#合同内容" class="headerlink" title="合同内容"></a>合同内容</h5><pre><code>当事人的名称项目名称
+标的内容和范伟
+项目的质量要求
+项目的计划, 进度 地点, 地域, 方式
+项目建设过程中各种期限
+风险责任的承担
+验收的标准和方法
+技术成果的归属
+价款, 报酬或使用费用及其支付方式
+解决争议的方法.
+名词属于解释</code></pre><h5 id="无效合同"><a href="#无效合同" class="headerlink" title="无效合同"></a>无效合同</h5><pre><code>一方欺诈, 斜坡的手段订立合同
+损害社会公共利益
+违反法律,行政法规的强制性规定.&amp;nbsp;
+以合同形式掩盖非法目的.</code></pre><h5 id="违约责任的承担方式"><a href="#违约责任的承担方式" class="headerlink" title="违约责任的承担方式"></a>违约责任的承担方式</h5><pre><code>继续履行
+才去补救措施</code></pre><h6 id="支付约定违约金或定金"><a href="#支付约定违约金或定金" class="headerlink" title="支付约定违约金或定金."></a>支付约定违约金或定金.</h6><pre><code>订金 可以退
+定金 &amp;nbsp;不能退</code></pre><h4 id="输入-1"><a href="#输入-1" class="headerlink" title="输入"></a>输入</h4><pre><code>项目管理计划, 采购文件,供方选择标准, 卖方建议书
+项目文件, 自制或外购决策
+采购工作说明书,组织过程资产</code></pre><h4 id="工具技术-1"><a href="#工具技术-1" class="headerlink" title="工具技术"></a>工具技术</h4><h5 id="建议书评价技术"><a href="#建议书评价技术" class="headerlink" title="建议书评价技术"></a>建议书评价技术</h5><pre><code>有评价委员会按照评审流程对加以书进行评价并选择, 报管理层批准, 甲醛系统就是对定型数据的一种定量评价标准</code></pre><h5 id="独立估算"><a href="#独立估算" class="headerlink" title="独立估算"></a>独立估算</h5><pre><code>对于许多采购,才狗狗组织可以自行编制独立估算,或者邀请外部专家做出成本估算,并将此作为边干, 用来与潜在的卖方应答作比较</code></pre><h5 id="专家判断"><a href="#专家判断" class="headerlink" title="专家判断"></a>专家判断</h5><pre><code>专家判断可以评价卖方建议书
+分析技术</code></pre><h5 id="采购谈判"><a href="#采购谈判" class="headerlink" title="采购谈判"></a>采购谈判</h5><pre><code>合同签署前, 对合同结构,要求,和其他条款加以澄清. 取得一致意见.</code></pre><h5 id="投标人会议"><a href="#投标人会议" class="headerlink" title="投标人会议"></a>投标人会议</h5><pre><code>在投标书提交之前,再买方和所有潜在卖方之间召开的会议. 目标是保证所有潜在卖方对本项目采购都有清楚切一致的理解.</code></pre><h5 id="广告"><a href="#广告" class="headerlink" title="广告"></a>广告</h5><pre><code>投广告, 扩充现有的潜在在卖方</code></pre><h4 id="输出-1"><a href="#输出-1" class="headerlink" title="输出"></a>输出</h4><pre><code>选定的卖方, 学医, 资源日历
+变更请求,项目管理计划更新,项目文件更新</code></pre><h3 id="控制采购Control-Procurements"><a href="#控制采购Control-Procurements" class="headerlink" title="控制采购Control Procurements"></a>控制采购<br>Control Procurements</h3><pre><code>定义: 管理 i 采购关系, 监督合同执行情况.&amp;nbsp;&lt;br&gt;作用: 确保买卖双方旅行法律协议,满足采购需求</code></pre><h4 id="合同管理"><a href="#合同管理" class="headerlink" title="合同管理"></a>合同管理</h4><h5 id="合同签订管理"><a href="#合同签订管理" class="headerlink" title="合同签订管理"></a>合同签订管理</h5><pre><code>建议适用国家或行业标准的合同格式
+卖方认真审阅买方拟订的合同条款
+条款中具体写清楚 规格,型号, 适用标准
+附件于主合同白痴一致, 有冲突以主合同为准
+合同内容前后一致
+合同中需要变更,转让, 解除应详细说明
+对于既有投标书,又有正式合同以及附件的, 列明适用顺序
+可将合同进行公正.</code></pre><h5 id="合同履行管理"><a href="#合同履行管理" class="headerlink" title="合同履行管理"></a>合同履行管理</h5><pre><code>合同争议处置程序 &amp;nbsp;谈判--&amp;gt; 调解 --&amp;gt; 仲裁 --&amp;gt; 诉讼</code></pre><h5 id="合同变更管理"><a href="#合同变更管理" class="headerlink" title="合同变更管理"></a>合同变更管理</h5><pre><code>变更基本原则: 协商一致
+如果某方晕啊因带来变更损失, 有赔偿另一方的责任.</code></pre><h5 id="合同档案管理"><a href="#合同档案管理" class="headerlink" title="合同档案管理"></a>合同档案管理</h5><pre><code>要求电脑打印,手写旁注和修改无法律效力.</code></pre><h5 id="合同违约索赔管理"><a href="#合同违约索赔管理" class="headerlink" title="合同违约索赔管理"></a>合同违约索赔管理</h5><pre><code>按索赔目的分类: 工期索赔, 费用索赔
+按索赔的依据分类: 合同规定的索赔, 非合同规定的索赔
+按索赔的业务性质分类: 工程索赔, 商务索赔
+按索赔的处理方式分类: 单项索赔, 总索赔.
+索赔事项发生后的28天内 -&amp;gt; 提出索赔要求-&amp;gt; 提交索赔材料 -&amp;gt; 索赔答复(再索赔通知书发出后的28天内, 28天内给予答复)&lt;br&gt;&amp;nbsp;-&amp;gt; 索赔认可- &amp;gt; 完成索赔,提交索赔报告 &amp;nbsp;&lt;br&gt;&amp;nbsp;-&amp;gt; 不认可 -&amp;gt; 争议处置程序.</code></pre><h6 id="索赔中合同规定含糊不清时候-nbsp"><a href="#索赔中合同规定含糊不清时候-nbsp" class="headerlink" title="索赔中合同规定含糊不清时候:&nbsp;"></a>索赔中合同规定含糊不清时候:&nbsp;</h6><pre><code>特殊条件优先于一般条件
+具体规定优先于笼统规定
+手写条文优先于印刷条文
+单价优先于总价
+价格文字表达优先于阿拉伯数字
+技术规范优先于图纸</code></pre><h4 id="输入-2"><a href="#输入-2" class="headerlink" title="输入"></a>输入</h4><pre><code>项目管理计划, 采购文件, 协议
+批准的变更请求
+工作绩效报告, 工作绩效数据</code></pre><h4 id="工具技术-2"><a href="#工具技术-2" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>合同变更控制系统
+支付系统
+记录管理系统
+采购绩效审查
+检查于审计
+报告绩效
+索赔管理</code></pre><h4 id="输出-2"><a href="#输出-2" class="headerlink" title="输出"></a>输出</h4><pre><code>工作绩效信息
+变更请求
+项目管理计划更新,项目文件更新,组织过程资产更新</code></pre><h3 id="结束采购Close-Procurement"><a href="#结束采购Close-Procurement" class="headerlink" title="结束采购Close Procurement"></a>结束采购<br>Close Procurement</h3><pre><code>定义 结束采购-- 完成单次项目的采购过程&lt;br&gt;作用: 把合同和相关文件归档, 供未来项目参考适用</code></pre><h4 id="输入-3"><a href="#输入-3" class="headerlink" title="输入"></a>输入</h4><pre><code>项目管理计划
+采购文件</code></pre><h4 id="工具技术-3"><a href="#工具技术-3" class="headerlink" title="工具技术"></a>工具技术</h4><h5 id="采购审计"><a href="#采购审计" class="headerlink" title="采购审计"></a>采购审计</h5><pre><code>对采购过程进行结构化的审查. 总结成功经验和失败教训</code></pre><h5 id="采购谈判-1"><a href="#采购谈判-1" class="headerlink" title="采购谈判"></a>采购谈判</h5><pre><code>解决全部未决事项, 索赔和争议. 如果谈判搞不定. 就是仲裁-诉讼
+记录管理系统</code></pre><h4 id="输出-3"><a href="#输出-3" class="headerlink" title="输出"></a>输出</h4><pre><code>结束的采购
+组织过程资产更新</code></pre><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>项目管理</tag>
+        <tag>十大知识领域</tag>
+        <tag>采购管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>项目管理-整体管理</title>
+    <url>/2021/05/12/pm/Project_Integration_Management/</url>
+    <content><![CDATA[<h1 id="整体管理"><a href="#整体管理" class="headerlink" title="整体管理"></a>整体管理<br></h1><h2 id="管理过程6个"><a href="#管理过程6个" class="headerlink" title="管理过程6个"></a>管理过程6个</h2><h3 id="制定项目章程Develop-Project-Charter"><a href="#制定项目章程Develop-Project-Charter" class="headerlink" title="制定项目章程Develop Project Charter"></a>制定项目章程<br>Develop Project Charter</h3><table>  <tr> <td bgcolor=#71cb2d><font color=#ffffff>启动过程组</font></td></tr> </table>
+#### 项目章程
+
+
+<h5 id="作用"><a href="#作用" class="headerlink" title="作用:"></a>作用:</h5><pre><code>作用: 授权
+确定项目经理,规定项目经理权利
+确认项目存在
+规定项目的总体目标, 包含范围,时间,成本质量等
+通过叙述启动项目的理由,把项目与执行组织的日常经营运作以及战略计划联系起来
+由 发起人(或者高层管理者, 不能是项目经理发布)发布,&amp;nbsp;</code></pre><h5 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h5><h6 id="项目工作说明书"><a href="#项目工作说明书" class="headerlink" title="项目工作说明书"></a>项目工作说明书</h6><pre><code>由项目提供的产品和服务的文字说明&lt;br&gt;(业务需要,产品范围描述,战略计划)</code></pre><h6 id="商业论证"><a href="#商业论证" class="headerlink" title="商业论证"></a>商业论证</h6><pre><code>从商业角度提供必要的信息,决定项目是否值得投资</code></pre><h6 id="协议-合同"><a href="#协议-合同" class="headerlink" title="协议(合同)"></a>协议(合同)</h6><pre><code>定义了启动项目的初衷, 包括合同,谅解备忘录,意向书,口头协议,电子邮件等
+事业环境因素
+组织过程资产</code></pre><h5 id="工具与技术"><a href="#工具与技术" class="headerlink" title="工具与技术"></a>工具与技术</h5><pre><code>引导技术(头脑风暴,会议等)
+专家判断</code></pre><h5 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h5><h6 id="项目章程"><a href="#项目章程" class="headerlink" title="项目章程"></a>项目章程</h6><pre><code>项目目的活或批准项目的原因
+可测量的项目目标和相关的成功标准
+假设条件和制约因素
+高层级项目描述和边界定义
+高层级风险
+总体里程碑进度计划
+总体预算
+项目审批需求
+委派的项目经理及其权贵
+发起人或其他批准项目章程的人员姓名和职权</code></pre><h3 id="制定项目管理计划Develop-Project-Management-Plan"><a href="#制定项目管理计划Develop-Project-Management-Plan" class="headerlink" title="制定项目管理计划Develop Project Management Plan"></a>制定项目管理计划<br>Develop Project Management Plan</h3><table>  <tr> <td bgcolor=#63abf7><font color=#ffffff>规划过程组</font></td></tr> </table>    定义: &nbsp;是定义,准备和协调所有自己花,并把它嗯整合为一份综合项目管理计划的过程<br>作用: 生成一份核心文件作为所有项目工作的依据.
+
+<h4 id="输入-1"><a href="#输入-1" class="headerlink" title="输入"></a>输入</h4><pre><code>项目章程</code></pre><h5 id="其他过程的输出"><a href="#其他过程的输出" class="headerlink" title="其他过程的输出"></a>其他过程的输出</h5><pre><code>主要各种子计划
+事业环境因素
+组织过程资产</code></pre><h4 id="工具与技术-1"><a href="#工具与技术-1" class="headerlink" title="工具与技术"></a>工具与技术</h4><pre><code>专家判断
+引导技术</code></pre><h4 id="项目管理计划"><a href="#项目管理计划" class="headerlink" title="项目管理计划"></a>项目管理计划</h4><h5 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h5><pre><code>项目所选用的生命周期以及各阶段采用的过程
+项目管理团队做出的裁剪决定:&lt;br&gt;* 项目管理团队所选的的项目管理过程.&lt;br&gt;* 每个所选过程的执行程度&lt;br&gt;* 对这些过程执行所需要的工具与技术描述&lt;br&gt;* 这些过程的输入输出,以及如何利用这些过程管理&lt;br&gt;具体项目的描述,包括这些过程的依赖关系和相互影响&lt;br&gt;
+关于如何执行工作已实现项目目标的描述
+变更管理计划: 用来明确如何开展配置管理&amp;nbsp;
+对如何维护绩效测量基准完整性的描述
+干系人的沟通需求和适用的沟通技术
+为处理未决问题和制定决策所开展的关键管理审查,&lt;br&gt;包括内容,程度和时间安排&lt;br&gt;</code></pre><h5 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h5><pre><code>1. 先制定一个初步整体计划&lt;br&gt;2. 然后编写各分计划&lt;br&gt;3. 把分计划进行协调,平衡和综合成一个整体计划.&lt;br&gt;4. 项目经理只是负责组织编写项目计划,不是由项目经理一个人制定.&lt;br&gt;5. 活的品准后的项目计划就成为了项目的基准计划.&amp;nbsp;&lt;br&gt;6. 因为初期信息不是分明确, 不能理想化的期望项目管理计划一步到位,</code></pre><h3 id="指导与管理项目工作Direct-And-Manage-Project-Work"><a href="#指导与管理项目工作Direct-And-Manage-Project-Work" class="headerlink" title="指导与管理项目工作Direct And Manage Project Work"></a>指导与管理项目工作<br>Direct And Manage Project Work</h3><table>  <tr> <td bgcolor=#30bfbf><font color=#ffffff>执行过程组</font></td></tr> </table>    定义: 是实现项目目标领导何止行项目管理计划众所确定的工作,并实施已批准变更的过程<br>作用: 对项目工作提供全面管理
+
+<h4 id="输入-2"><a href="#输入-2" class="headerlink" title="输入"></a>输入</h4><pre><code>1. 项目管理计划&lt;br&gt;2. 批准的变更请求&lt;br&gt;3. 事业环境因素&lt;br&gt;4. 组织过程资产&lt;br&gt;</code></pre><h4 id="工具与技术-2"><a href="#工具与技术-2" class="headerlink" title="工具与技术"></a>工具与技术</h4><pre><code>会议
+项目管理信息系统
+专家判断</code></pre><h4 id="输出-1"><a href="#输出-1" class="headerlink" title="输出"></a>输出</h4><pre><code>可交付成果
+工作绩效数据
+变更请求
+项目管理计划更新
+项目文件更新</code></pre><h3 id="监控项目工作Monitor-And-Control-Project-Work"><a href="#监控项目工作Monitor-And-Control-Project-Work" class="headerlink" title="监控项目工作Monitor And Control Project Work"></a>监控项目工作<br>Monitor And Control Project Work</h3><table>  <tr> <td bgcolor=#ff9f1a><font color=#ffffff>监控过程组</font></td></tr> </table>    定义: 跟踪,审查和报告项目进展,已实现项目管理计划中确定的绩效目标的过程<br>作用:&nbsp;让干系人了解项目当前状态,一猜去的步骤以及对预算,进度和范围的预测; 才去急症和预防措施控制项目的实施效果,监视使贯穿项目适中的项目管理的一个方面, 连续的监视使项目管理团队能够洞察项目的状态是否正常,病史别人喝可能要求给予特别关注的项目 
+    关注点<br>1. 把项目的实际绩效与项目管理计划比较<br>2. 评估项目绩效,决定是否需要才去纠正活着预防措施,并推荐必要的措施<br>3. 识别信工先,分析跟踪和监控一有风险, 确保全面识别风险,报告风险状态,报告风险状态.<br>4.......
+
+<h4 id="输入-3"><a href="#输入-3" class="headerlink" title="输入"></a>输入</h4><pre><code>项目管理计划
+进度预测
+成本预测
+确认的变更
+工作绩效信息
+失业环境因素
+组织过程资产</code></pre><h4 id="工具技术"><a href="#工具技术" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>会议
+项目管理信息系统
+专家判断</code></pre><h4 id="输出-2"><a href="#输出-2" class="headerlink" title="输出"></a>输出</h4><h5 id="变更请求"><a href="#变更请求" class="headerlink" title="变更请求"></a>变更请求</h5><pre><code>纠正措施: 为使项目工作绩效重新与想买管理计划一致而进行的有目的的活动&amp;nbsp;
+预防措施: 为确保项目工作的未来绩效符合项目管理计划而进行的有目的的活动
+缺陷补救: 为了修正不一致的产品或者产品组见而进行的有目的的活动
+工作绩效报告
+项目管理计划(更新)
+项目文件更新</code></pre><h3 id="实施整体变更控制"><a href="#实施整体变更控制" class="headerlink" title="实施整体变更控制"></a>实施整体变更控制</h3><table>  <tr> <td bgcolor=#ff9f1a><font color=#ffffff>监控过程组</font></td></tr> </table>
+#### 概念
+
+
+<h5 id="整体变更控制流程"><a href="#整体变更控制流程" class="headerlink" title="整体变更控制流程"></a>整体变更控制流程</h5><pre><code>申请(书面) -&amp;gt; 论证-&amp;gt; 决策 -&amp;gt; 实施 -&amp;gt; 监控 -&amp;gt; 评估&amp;nbsp;&lt;br&gt;1. 提出和接受变更 &lt;br&gt;2. 对变更的初审(申请文档审核流转) &lt;br&gt;3. 变更方案论证 (技术要求转换为资源需求) &lt;br&gt;4. 项目变更控制委员会审查 &lt;br&gt;5. 发出白更通知并开始实施 &lt;br&gt;6 变更实施的监控 &lt;br&gt;7. 变更效果的评估 &lt;br&gt;8. 判断发生变更后的项目是否已经纳入正常轨道&lt;br&gt;&lt;br&gt;
+定义: 审查所有变更请求,品准变更,管理对可交付成果,组织过程自残,项目文佳你和项目管理计划的变更,并对变更处理结果进行沟通的过程
+作用: 从整合的角度考虑记录再按的项目变更, 从而降低因为考虑变更对整体项目目标活计划的影响而产生的项目风险</code></pre><h5 id="变更创建原因"><a href="#变更创建原因" class="headerlink" title="变更创建原因"></a>变更创建原因</h5><pre><code>产品范围(成果)定义的过时或者疏忽
+项目范围(工作) 定义恶斗过时活着疏忽
+增值变更
+对应风险的紧急计划或者回避计划
+项目执行过程与基准要求不一致带来的被动调整
+外部事件</code></pre><h5 id="项目变更的分类"><a href="#项目变更的分类" class="headerlink" title="项目变更的分类"></a>项目变更的分类</h5><pre><code>根据变更性质: 重大变更,重要变更, 一般变更
+根据变更的迫切性: 紧急变更, 非紧急变更</code></pre><h5 id="变更原则"><a href="#变更原则" class="headerlink" title="变更原则"></a>变更原则</h5><pre><code>实施整体变更控制公职试审查所有变更请求,批准变更,管理对可交付成果,组织过程资产,项目文件和项目管理计划的变更, 并对变更处理结果进行沟通的过程. &amp;nbsp;整体变更控制过程贯穿项目的始终,项目经理对此负最终责任.
+要求: 项目基准化;变更管理过程规范化;明确组织分工(评估-评审-执行);妥善保管变更产生的相关文档;谨慎对待变更请求,尽量哈总之变更;高度重视需求和范围的变更;签署变更控制协议;在几线基础之上做好变更实施;需要好的变更控制工具支持;把项目变化融入项目计划;及时发布变更信息</code></pre><h5 id="项目经理与-CCB"><a href="#项目经理与-CCB" class="headerlink" title="项目经理与 CCB"></a>项目经理与 CCB</h5><h6 id="项目经理的作用"><a href="#项目经理的作用" class="headerlink" title="项目经理的作用"></a>项目经理的作用</h6><pre><code>响应变更提出者的要求
+评估变更对项目的影响以及赢对方安, 将需求由技术要求转化为资源需求,供授权人决策
+根据评审结果实施,调整项目基准, 确保项目基准放映项目实施情况</code></pre><h4 id="输入-4"><a href="#输入-4" class="headerlink" title="输入"></a>输入</h4><pre><code>项目管理计划
+变更请求
+工作绩效报告
+事业环境因素
+组织过程资产</code></pre><h4 id="工具技术-1"><a href="#工具技术-1" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>会议
+专家判断
+变更控制工具</code></pre><h4 id="输出-3"><a href="#输出-3" class="headerlink" title="输出"></a>输出</h4><pre><code>批准的变更请求
+变更日志
+项目管理计划(更新)
+项目文件更新</code></pre><h3 id="结束项目或者阶段"><a href="#结束项目或者阶段" class="headerlink" title="结束项目或者阶段"></a>结束项目或者阶段</h3><table>  <tr> <td bgcolor=#d6f0f8><font color=#276f86>收尾过程组</font></td></tr> </table>
+#### 概念
+
+<pre><code>定义: 完结所有项目管理过程组的所有活动,已正式结束项目或者阶段的过程
+作用: 总结经验教训,正式结束项目工作,释放组织资源 &amp;nbsp;(对内对外, 先对外,在对内)&lt;br&gt;</code></pre><h5 id="收尾-对内对外"><a href="#收尾-对内对外" class="headerlink" title="收尾(对内对外)"></a>收尾(对内对外)</h5><h6 id="合同收尾-对外"><a href="#合同收尾-对外" class="headerlink" title="合同收尾 (对外)"></a>合同收尾 (对外)</h6><pre><code>产品验证
+合同管理收尾</code></pre><h6 id="管理收尾-对内"><a href="#管理收尾-对内" class="headerlink" title="管理收尾(对内)"></a>管理收尾(对内)</h6><pre><code>确认项目或者阶段以满足所有重要项目干系人需求的行动和活动
+确认于满足项目阶段(机票整个项目)的完成标准或者退出标准的行动和活动
+手机项目或者项目阶段记录,手机教训,归档项目信息, 以方便组织未来的项目管理</code></pre><h6 id="系统集成项目验收工作的步骤-IT-项目特有"><a href="#系统集成项目验收工作的步骤-IT-项目特有" class="headerlink" title="系统集成项目验收工作的步骤(IT 项目特有)"></a>系统集成项目验收工作的步骤(IT 项目特有)</h6><pre><code>系统测试(开发方主导)
+系统的试运行(用户进行)
+系统的文档验收(项目介绍,项目最终报告, 系统说明书,系统维护手册, 软硬件产品说明书,质量保证书等)
+项目的最终验收报告</code></pre><h4 id="输入-5"><a href="#输入-5" class="headerlink" title="输入"></a>输入</h4><pre><code>项目管理计划
+验收的可交付成果
+组织过程资产</code></pre><h4 id="工具与技术-3"><a href="#工具与技术-3" class="headerlink" title="工具与技术"></a>工具与技术</h4><pre><code>会议
+分析技术
+专家判断</code></pre><h4 id="输出-4"><a href="#输出-4" class="headerlink" title="输出"></a>输出</h4><pre><code>最终产品或者服务转移
+组织过程资产更新</code></pre><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>项目管理</tag>
+        <tag>十大知识领域</tag>
+        <tag>整体管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>项目管理-人力资源管理</title>
+    <url>/2021/05/12/pm/Project_Human_Resource_Management/</url>
+    <content><![CDATA[<h1 id="人力资源管理"><a href="#人力资源管理" class="headerlink" title="人力资源管理"></a>人力资源管理</h1><h2 id="管理过程-4个"><a href="#管理过程-4个" class="headerlink" title="管理过程(4个)"></a>管理过程(4个)</h2><h3 id="规划人力资源管理Personnel-Human-Resource-Plan"><a href="#规划人力资源管理Personnel-Human-Resource-Plan" class="headerlink" title="规划人力资源管理Personnel Human Resource Plan"></a>规划人力资源管理<br>Personnel Human Resource Plan</h3><pre><code>定义:识别和记录项目角色,之色,所需技能,报告关系,并编制人员配置管理计划的过程&lt;br&gt;作用: 建立项目角色于职责, 项目组织图, 以及包含人员招募和前三时间表的人员配备管理&amp;nbsp;&lt;br&gt;</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>项目管理计划
+活动资源需求
+事业环境因素 组织过程资产</code></pre><h4 id="工具技术"><a href="#工具技术" class="headerlink" title="工具技术"></a>工具技术</h4><h5 id="组织图和职位描述-组织理论"><a href="#组织图和职位描述-组织理论" class="headerlink" title="组织图和职位描述, 组织理论"></a>组织图和职位描述, 组织理论</h5><h6 id="责任分配矩阵-RAM"><a href="#责任分配矩阵-RAM" class="headerlink" title="责任分配矩阵(RAM)"></a>责任分配矩阵(RAM)</h6><pre><code>RACI 矩阵</code></pre><p><img src="https://docs-1251953281.cos.ap-beijing.myqcloud.com/2021/05/05/16202036552332.jpg" alt="image"><br>    层次结构图(OBS)<br>    文本格式<br>    人际交际<br>    会议,专家判断</p>
+<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><h5 id="人力资源管理计划"><a href="#人力资源管理计划" class="headerlink" title="人力资源管理计划"></a>人力资源管理计划</h5><pre><code>角色于职责 (所需岗位,技能, 角色,职权,职责, 能力)
+项目组织图 (以图形方式展示项目团队成员及其报告关系)
+人员配备管理计划 (所需人员,每个团队成员的时间段)</code></pre><h3 id="组件项目团队Acquire-Project-Team"><a href="#组件项目团队Acquire-Project-Team" class="headerlink" title="组件项目团队Acquire Project Team"></a>组件项目团队<br>Acquire Project Team</h3><pre><code>确认人力资源的可用情况,并为开展项目活动而组件团队的过程&lt;br&gt;作用: 指导团队选择和职责分配,组件一个成功的团队</code></pre><h4 id="输入-1"><a href="#输入-1" class="headerlink" title="输入"></a>输入</h4><pre><code>人力资源管理计划
+事业环境因素 组织过程资产</code></pre><h4 id="工具技术-1"><a href="#工具技术-1" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>预分派</code></pre><h5 id="谈判"><a href="#谈判" class="headerlink" title="谈判"></a>谈判</h5><pre><code>与职能经理</code></pre><h5 id="招募"><a href="#招募" class="headerlink" title="招募"></a>招募</h5><pre><code>招聘</code></pre><h5 id="虚拟团队"><a href="#虚拟团队" class="headerlink" title="虚拟团队"></a>虚拟团队</h5><h6 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h6><pre><code>有可能在不同地理位置的员工之间组件团队
+为项目团队增加特殊技能, 即使相应的专家不在统一地理区域.
+将在家办公的员工纳入团队
+在工作班次, 工作小时或工作日不同的员工之间组件团队
+将行为不变者或者残疾人纳入团队
+执行那些原因会因差旅费用过高而被否决的项目</code></pre><h6 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h6><pre><code>可能产生误解, 有柜里干,团队成员之间难以分享知识和经验, 采用通信技术会有成本
+需要重点管理, 注重沟通,&amp;nbsp;
+多标准决策技术</code></pre><h4 id="输出-1"><a href="#输出-1" class="headerlink" title="输出"></a>输出</h4><pre><code>项目人员分派
+资源日历
+项目管理计划更新</code></pre><h3 id="建设项目团队Develop-Project-Team"><a href="#建设项目团队Develop-Project-Team" class="headerlink" title="建设项目团队Develop Project Team"></a>建设项目团队<br>Develop Project Team</h3><pre><code>提高工作能力,促进团队成员互动, 改善团队整氛围,以提高项目绩效的过程&lt;br&gt;作用: 改进团队写作,增强人际技能, 激励团队成员,降低人员离职率, 提升整体项目绩效.</code></pre><h4 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h4><pre><code>提高项目团队成员的个人技能
+提升信任感,凝聚力, 以提高士气,降低冲突,促进团队合作
+共享经验和知识</code></pre><h4 id="阶段"><a href="#阶段" class="headerlink" title="阶段"></a>阶段</h4><h5 id="形成阶段-Forming"><a href="#形成阶段-Forming" class="headerlink" title="形成阶段 Forming"></a>形成阶段 Forming</h5><pre><code>刚组建,不熟悉, 在相互了解,角色定位</code></pre><h5 id="震荡阶段-Storming"><a href="#震荡阶段-Storming" class="headerlink" title="震荡阶段 Storming"></a>震荡阶段 Storming</h5><pre><code>冲突,不和谐, &amp;nbsp;项目经理最值得花时间管控的阶段</code></pre><h5 id="规范阶段-Norming"><a href="#规范阶段-Norming" class="headerlink" title="规范阶段 Norming"></a>规范阶段 Norming</h5><pre><code>相互信任,形成凝聚力,有合作意识&amp;nbsp;</code></pre><h5 id="发挥阶段-Performing"><a href="#发挥阶段-Performing" class="headerlink" title="发挥阶段 Performing"></a>发挥阶段 Performing</h5><pre><code>相互理解,高效沟通,密切配合,充分授权</code></pre><h5 id="解散阶段-Adjourning"><a href="#解散阶段-Adjourning" class="headerlink" title="解散阶段 Adjourning"></a>解散阶段 Adjourning</h5><pre><code>团队解散
+激励理论</code></pre><h4 id="优秀团队的特点"><a href="#优秀团队的特点" class="headerlink" title="优秀团队的特点:"></a>优秀团队的特点:</h4><pre><code>目标明确, 成员清除自己的工作对目标的贡献
+组织结构清晰,岗位明确
+成文货习惯的工作流程和方法内, 流程简明有效
+明确的考核和评价标准, 工作结果公正公开,赏罚分明
+共同制定并遵守组织纪律
+协同工作,善于总结学习, 学习型组织</code></pre><h4 id="输入-2"><a href="#输入-2" class="headerlink" title="输入"></a>输入</h4><pre><code>人力资源管理计划
+项目人员分派
+资源日历</code></pre><h4 id="工具技术-2"><a href="#工具技术-2" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>人际关系技能</code></pre><h5 id="培训"><a href="#培训" class="headerlink" title="培训"></a>培训</h5><pre><code>人员技能不足,首先培训,其次调换岗位&amp;nbsp;</code></pre><h5 id="基本原则"><a href="#基本原则" class="headerlink" title="基本原则"></a>基本原则</h5><pre><code>明文约定行为规范,沟通方式,协同工作,会议礼仪等, 以减少误解,提高生产力
+集中办公
+团队建设活动
+认可和奖励</code></pre><h5 id="人事评测工具"><a href="#人事评测工具" class="headerlink" title="人事评测工具"></a>人事评测工具</h5><pre><code>洞察成员的优势和劣势,评估偏好和愿望</code></pre><h4 id="输出-2"><a href="#输出-2" class="headerlink" title="输出"></a>输出</h4><pre><code>团队绩效评价
+事业环境因素更新</code></pre><h3 id="管理项目团队Manage-Project-Team"><a href="#管理项目团队Manage-Project-Team" class="headerlink" title="管理项目团队Manage Project Team"></a>管理项目团队<br>Manage Project Team</h3><pre><code>跟踪团队成员工作表现,提供反馈, 决绝问题并管理团队变更, 以优化项目绩效的过程.&lt;br&gt;作用: 影响团队行为,管理冲突,解决问题,并评估团队成员的绩效</code></pre><h4 id="输入-3"><a href="#输入-3" class="headerlink" title="输入"></a>输入</h4><pre><code>人力资源管理计划
+项目人员分派
+团队绩效评价, 问题日志 工作绩效报告 组织过程资产</code></pre><h4 id="工具技术-3"><a href="#工具技术-3" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>观察和交谈
+人际关系技能</code></pre><h5 id="冲突管理"><a href="#冲突管理" class="headerlink" title="冲突管理"></a>冲突管理</h5><h6 id="产生原因"><a href="#产生原因" class="headerlink" title="产生原因"></a>产生原因</h6><pre><code>不一致的需求
+沟通不畅
+稀缺资源竞争
+进度优先级排序
+个人工作风格</code></pre><h6 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h6><pre><code>合作 (解决问题) : 达成一致, 最好的方式,双赢,多数人接受
+妥协(调节): &amp;nbsp;双方让一步,一定程度满意,双输
+强迫(命令) : 推行一方,否决一方, 嬴-输
+缓和(包容) : 在和做之前,可以先适用缓和, 也要考虑冲突双方要不固执. 强调一致而非差异, 求同存异,缓和气氛
+撤退(回避) : 当前不解决,未来解决的. 常用的做法有下次在开会讨论, 等信息更明朗时候决策等</code></pre><h5 id="项目绩效评价"><a href="#项目绩效评价" class="headerlink" title="项目绩效评价"></a>项目绩效评价</h5><pre><code>技能的改进,从而使成员更搞笑的完成所分派的任务
+能力和情感方面的改进, 从而提升团队能力,帮助团队更好的共同工作
+团队成员流动率降低
+增加团队凝聚力</code></pre><h4 id="输出-3"><a href="#输出-3" class="headerlink" title="输出"></a>输出</h4><pre><code>变更请求
+项目管理计划更新
+项目文件更新
+事业环境因素更新
+组织过程资产更新</code></pre><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>项目管理</tag>
+        <tag>十大知识领域</tag>
+        <tag>人力资源管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>项目管理-质量管理</title>
+    <url>/2021/05/12/pm/Project_Quality_Management/</url>
+    <content><![CDATA[<h1 id="质量管理Project-Quality-Management"><a href="#质量管理Project-Quality-Management" class="headerlink" title="质量管理Project Quality Management"></a>质量管理<br/>Project Quality Management</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="质量"><a href="#质量" class="headerlink" title="质量"></a>质量</h3><pre><code>一组固有特征满足需求的程度. 需求指明确的, 隐含的或必须履行的需求或期望</code></pre><h3 id="质量管理"><a href="#质量管理" class="headerlink" title="质量管理"></a>质量管理</h3><pre><code>在质量方面指挥和控制组织的协调的活动,通常包括制定质量方针和质量目标以及质量策划,质量控制, 质量保证和质量改进</code></pre><h3 id="质量方针"><a href="#质量方针" class="headerlink" title="质量方针"></a>质量方针</h3><pre><code>由组织的最高层管理者正式发布的该组织总得质量宗旨和方向. 它体现了是组织内部的行为准则. 由最高管理者批准.(不是项目经理, 也不是针对单个项目组)</code></pre><h3 id="质量目标"><a href="#质量目标" class="headerlink" title="质量目标"></a>质量目标</h3><pre><code>在质量方面所追求的目标&lt;br&gt;质量目标必须明确,具体,尽量用定量化的语言进行描述,保证质量目标容易被沟通和理解.</code></pre><h3 id="标准体系"><a href="#标准体系" class="headerlink" title="标准体系"></a>标准体系</h3><pre><code>IOS9000, CMMI, 六西格玛等</code></pre><h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><pre><code>1. 确定质量标注体系
+2. 对项目实施进行质量监控
+3. 将实际与标准对照
+4. 纠错纠偏</code></pre><h3 id="质量保证-QA-与质量控制-QC"><a href="#质量保证-QA-与质量控制-QC" class="headerlink" title="质量保证(QA)与质量控制(QC)"></a>质量保证(QA)与质量控制(QC)</h3><h4 id="质量保证-QA"><a href="#质量保证-QA" class="headerlink" title="质量保证 QA"></a>质量保证 QA</h4><pre><code>关注过程, 每个人的职责
+阶段性的质量审计和过程分析, 过程合规性</code></pre><h5 id="QA-的职责包括-过程指导-过程评审-产品审计-过程改进-过程度量"><a href="#QA-的职责包括-过程指导-过程评审-产品审计-过程改进-过程度量" class="headerlink" title="QA 的职责包括 过程指导, 过程评审, 产品审计,过程改进,过程度量"></a>QA 的职责包括 过程指导, 过程评审, 产品审计,过程改进,过程度量</h5><pre><code>1. 导师的角色 &amp;nbsp; 在项目期间,QA 辅助项目经理制定项目计划, 包括根据质量体系中的标准过程裁剪得到项目过程,帮助项目进度估算,设定质量目标等, 对项目成员进行过程和规范的培训以及在过程中进行指导等.
+2. 警察的角色 &amp;nbsp;在项目过程中, QA 有选择的参加项目技术评审,定期对项目的工作和产品和过程进行审计和评审.
+3. 医生的角色 &amp;nbsp;在项目 u 过程中,QA 也可承担收集,统计,分析对量数据的工作, 用于支持管理决策
+一般 QA 独立于项目组
+质量计划是质量控制与质量保证的共同依据</code></pre><h4 id="质量控制-QC"><a href="#质量控制-QC" class="headerlink" title="质量控制 QC"></a>质量控制 QC</h4><pre><code>关注结果, &amp;nbsp;QC 工程师的职责 (测试工程师)</code></pre><h2 id="管理过程-3个"><a href="#管理过程-3个" class="headerlink" title="管理过程(3个)"></a>管理过程(3个)</h2><h3 id="规划质量管理Plan-Quality"><a href="#规划质量管理Plan-Quality" class="headerlink" title="规划质量管理Plan Quality"></a>规划质量管理<br>Plan Quality</h3><table>  <tr> <td bgcolor=#63abf7><font color=#ffffff>规划过程组</font></td></tr> </table>    定义:识别项目以及可交付成果的质量要求和(或)标准, 并书面描述项目将如何证明符合质量要求的过程.<br>作用:
+
+<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>项目管理计划
+干系人登记册,风险登记册
+事业环境因素和组织过程资产</code></pre><h4 id="工具技术"><a href="#工具技术" class="headerlink" title="工具技术"></a>工具技术</h4><h5 id="成本绩效分析Cost-Benefit-Analysis"><a href="#成本绩效分析Cost-Benefit-Analysis" class="headerlink" title="成本绩效分析Cost-Benefit Analysis"></a>成本绩效分析<br>Cost-Benefit Analysis</h5><pre><code>对每个质量活动比较其可能成本与预期效益.&lt;br&gt;主要效益包括减少返工,提高生产率,降低成本与提升干系人满意度</code></pre><h5 id="质量成本Cost-of-Quality"><a href="#质量成本Cost-of-Quality" class="headerlink" title="质量成本Cost of Quality"></a>质量成本<br>Cost of Quality</h5><pre><code>包括在产品生命周期中为预防不符合要求, 为评价产品或服务是否符合要求,一级因未达到要求(返工)而发生的所有成本
+详细分类表格</code></pre><p><img src="https://docs-1251953281.cos.ap-beijing.myqcloud.com/2021/05/05/16201867305537.jpg" alt="image"><br>    七种质量工具</p>
+<h5 id="标杆对照Benchmarking"><a href="#标杆对照Benchmarking" class="headerlink" title="标杆对照Benchmarking"></a>标杆对照<br>Benchmarking</h5><pre><code>将实际或规划中的项目实践与可比项目的实践进行对照.</code></pre><h5 id="实验设计Design-of-Experiments"><a href="#实验设计Design-of-Experiments" class="headerlink" title="实验设计Design of Experiments"></a>实验设计<br>Design of Experiments</h5><pre><code>一种统计方法. 通过对实验数据的分析,了解产品或流程的最优状态,找到显著影响产品或流程状态的各种因素. 并揭示这些因素之间存在的相互影响和协同作用.
+统计抽样
+会议</code></pre><h5 id="其他质量规划工具"><a href="#其他质量规划工具" class="headerlink" title="其他质量规划工具"></a>其他质量规划工具</h5><pre><code>头脑风暴, 亲可图/关系图, 力场分析, 名义小组技术, 模块图,流程图,矩阵图, 优先矩阵图</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>质量管理计划
+过程改进计划
+质量测量指标
+质量核对单
+项目文件更新</code></pre><h3 id="实施质量保证Perform-Quality-Assurance"><a href="#实施质量保证Perform-Quality-Assurance" class="headerlink" title="实施质量保证Perform Quality Assurance"></a>实施质量保证<br>Perform Quality Assurance</h3><table>  <tr> <td bgcolor=#30bfbf><font color=#ffffff>执行过程组</font></td></tr> </table>
+#### 概念
+
+<pre><code>审计质量要求和质量控制测量结果,确保采用合理的质量标准和操作性定义的过程
+通过规划过程预防缺陷, 在执行阶段对正在进行的工作检查出缺陷, 保证质量的正确性.
+在项目管理中,质量保证所开展的预防和检查, 应该对项目有明显的影响.&amp;nbsp;</code></pre><h4 id="工具技术-1"><a href="#工具技术-1" class="headerlink" title="工具技术"></a>工具技术</h4><h5 id="质量审计QUality-Audits"><a href="#质量审计QUality-Audits" class="headerlink" title="质量审计QUality Audits"></a>质量审计<br>QUality Audits</h5><pre><code>独立的结构化审查&lt;br&gt;目标: 识别出全部的正在实施的良好/最佳实践; 识别出全部的差距/不足; 分享所在组织或行业中良好实践.</code></pre><h5 id="过程分析Process-Analysis"><a href="#过程分析Process-Analysis" class="headerlink" title="过程分析Process Analysis"></a>过程分析<br>Process Analysis</h5><pre><code>按照过程改进计划中的步骤来识别所需的改进,也要检查在过程运行期间遇到的问题,制约因素,以及发现的非增值活动
+规划质量的工具与技术
+质量控制的工具与技术</code></pre><h3 id="控制质量Control-Quality"><a href="#控制质量Control-Quality" class="headerlink" title="控制质量Control Quality"></a>控制质量<br>Control Quality</h3><table>  <tr> <td bgcolor=#ff9f1a><font color=#ffffff>监控过程组</font></td></tr> </table>    定义: 监督并记录执行质量活动执行结果,以便评估绩效, 并推荐必要的变更的过程<br>作用: 1. 识别过程抵消货产品质量低劣的原因, 建议并或才去响应措施消除这些原因;<br>&nbsp; &nbsp; &nbsp; &nbsp; 2. 确认项目的可交付成果以及工作满足主要干系人的既定需求, 足以进行最终验收.
+
+<h4 id="实施步骤"><a href="#实施步骤" class="headerlink" title="实施步骤"></a>实施步骤</h4><pre><code>选择控制对象
+为控制对象确定标准或目标
+制定实施计划,确定保证措施
+按计划执行
+对项目实施情况进行跟踪检测,检查, 并将检测结果与计划或标准比较.
+发现并并分析偏差
+根据偏差采取相应对策</code></pre><h4 id="输入-1"><a href="#输入-1" class="headerlink" title="输入"></a>输入</h4><pre><code>项目管理计划,质量测量指标, 质量核对单, 工作绩效数据
+批准的变更请求, 可交付成果, 项目文件, 组织过程资产.</code></pre><h4 id="工具技术-2"><a href="#工具技术-2" class="headerlink" title="工具技术"></a>工具技术</h4><h5 id="七种基本质量工具"><a href="#七种基本质量工具" class="headerlink" title="七种基本质量工具"></a>七种基本质量工具</h5><h6 id="老七种"><a href="#老七种" class="headerlink" title="老七种"></a>老七种</h6><pre><code>喜欢用数据说话
+核对表(检查表)
+帕勒托分析
+二八定律
+因果分析 (鱼骨图)
+通过问题, 反推产生问题的原因.</code></pre><p><img src="https://docs-1251953281.cos.ap-beijing.myqcloud.com/2021/05/05/16201999375237.jpg" alt="image"><br>    趋势分析<br>    对现有数据记录,绘制图形, 判断未来趋势<br>    直方图<br>    散点图<br>    点集中于 一条直线, 相关性越高<br>    有点离趋势越高, 是异常点.<br>    控制图<br>    连续7个点往一个方向走 可能出现问题&nbsp;<br>多个点集中于一侧, 也是问题</p>
+<h6 id="新七种"><a href="#新七种" class="headerlink" title="新七种"></a>新七种</h6><pre><code>亲和图
+针对问题, 产生有组织的想法模式, &amp;nbsp;强调灵感
+过程决策程序图(PDPC)
+用于理解目标与达成目标步骤之间关系
+关联图
+相互交叉的逻辑关系
+树型图
+WBS RBS,OBS 图
+优先矩阵
+识别首选与备选方案
+活动网络图
+矩阵图
+统计抽样
+检查
+审查已批准的变更请求</code></pre><h4 id="输出-1"><a href="#输出-1" class="headerlink" title="输出"></a>输出</h4><pre><code>质量控制测量结果, 确认的变更, 核实的可交付成果,工作绩效信息
+变更请求, 项目管理计划更新, 组织过程资产更新</code></pre><h2 id="总结-nbsp"><a href="#总结-nbsp" class="headerlink" title="总结&nbsp;"></a>总结&nbsp;</h2><h3 id="软件质量管理硬重点完成的工作"><a href="#软件质量管理硬重点完成的工作" class="headerlink" title="软件质量管理硬重点完成的工作"></a>软件质量管理硬重点完成的工作</h3><pre><code>要制定出切实可行的质量管理计划
+硬判断独立于项目组的 QA 人员负责 QA 工作
+对软件开发的过程实施质量保证和审计
+加强技术评审工作,注重对需求,设计等文档的技术评审
+注重测试工作,应当安排相对独立的测试人员
+对发现的缺陷进行统计分析, 取保最终的软件产品的质量.
+做好版本控制,加强配置管理.</code></pre><h3 id="如何提升项目质量"><a href="#如何提升项目质量" class="headerlink" title="如何提升项目质量"></a>如何提升项目质量</h3><h4 id="强有力的领导-构建良好的环境"><a href="#强有力的领导-构建良好的环境" class="headerlink" title="强有力的领导(构建良好的环境)"></a>强有力的领导(构建良好的环境)</h4><pre><code>制定公司质量管理方针
+选择质量标准或者制定质量要求
+制定质量控制流程
+提出质量保证所才去的方法和技术(和工具)
+提供相应的资源
+建立组织级项目管理体系
+建立组织级质量管理体系
+建立项目级激励制度
+理解质量成本
+提高项目文档质量
+发展和遵从熟度模型</code></pre><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>项目管理</tag>
+        <tag>十大知识领域</tag>
+        <tag>质量管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>项目管理-风险管理</title>
+    <url>/2021/05/12/pm/Project_Risk_Management/</url>
+    <content><![CDATA[<h1 id="风险管理Project-Risk-Management"><a href="#风险管理Project-Risk-Management" class="headerlink" title="风险管理Project Risk Management"></a>风险管理<br>Project Risk Management</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><pre><code>风险是一种不确定性的事件或条件, 一旦发生,会对一个项目目标造成影响, 比如范围,进度,成本和质量
+正向的叫机会, 负面影响叫消极风险</code></pre><h3 id="风险属性-nbsp"><a href="#风险属性-nbsp" class="headerlink" title="风险属性&nbsp;"></a>风险属性&nbsp;</h3><pre><code>随机性(发不发生
+相对性</code></pre><h4 id="可变性-性质-后果-新风险"><a href="#可变性-性质-后果-新风险" class="headerlink" title="可变性(性质/后果/新风险)"></a>可变性(性质/后果/新风险)</h4><pre><code>收益大,风险承受能力大
+投入越大, 风险承受能力越小
+地位越高, 资源越多风险承受能力越大</code></pre><h3 id="风险分类"><a href="#风险分类" class="headerlink" title="风险分类"></a>风险分类</h3><h4 id="按照-风险后果"><a href="#按照-风险后果" class="headerlink" title="按照 风险后果"></a>按照 风险后果</h4><h5 id="纯粹风险"><a href="#纯粹风险" class="headerlink" title="纯粹风险"></a>纯粹风险</h5><pre><code>不能带来机会,无货的利益的可能, 要么造成风险, 要么不造成风险</code></pre><h5 id="投机风险"><a href="#投机风险" class="headerlink" title="投机风险"></a>投机风险</h5><pre><code>可能带来机会, 获得利益但是隐含威胁,造成损失. 三种后果. 造成损失, 不造成损失, 获得利益
+避免把投机风险转化程纯粹风险</code></pre><h4 id="按照-风险来源"><a href="#按照-风险来源" class="headerlink" title="按照 风险来源"></a>按照 风险来源</h4><h5 id="自然风险"><a href="#自然风险" class="headerlink" title="自然风险"></a>自然风险</h5><pre><code>自然的作用, 如洪水,地震</code></pre><h5 id="人为风险"><a href="#人为风险" class="headerlink" title="人为风险"></a>人为风险</h5><pre><code>人的活动带啦 IDE 风险, 可细分为 行为,经理技术,政治和组织风险</code></pre><h4 id="按照-影响范围"><a href="#按照-影响范围" class="headerlink" title="按照 影响范围"></a>按照 影响范围</h4><h5 id="局部风险"><a href="#局部风险" class="headerlink" title="局部风险"></a>局部风险</h5><pre><code>影响范围小</code></pre><h5 id="总体风险"><a href="#总体风险" class="headerlink" title="总体风险"></a>总体风险</h5><pre><code>影响范围大
+局部风险和总体风险来说, 项目经理要重点注意总体风险</code></pre><h4 id="按照-可预测性"><a href="#按照-可预测性" class="headerlink" title="按照 可预测性"></a>按照 可预测性</h4><h5 id="已知风险"><a href="#已知风险" class="headerlink" title="已知风险"></a>已知风险</h5><pre><code>已知-已知. 能够明确,后果也可遇见的风险. 概率高,后果轻微. 比如 :项目目标不明确, 过分乐观的进度计划, 设计或施工的变更,材料价格波动</code></pre><h5 id="可预测风险"><a href="#可预测风险" class="headerlink" title="可预测风险"></a>可预测风险</h5><pre><code>已知-未知. 可预见其发生, 但其后果不可预见, 后果有可能相当严重. &amp;nbsp;如: 不及时审批, 分包生不及时交工,设备故障. 不可预见地址条件.</code></pre><h5 id="不可预测风险"><a href="#不可预测风险" class="headerlink" title="不可预测风险"></a>不可预测风险</h5><pre><code>未知-未知, 不能预见的风险, 也成为未知风险. 一般是外部因素作用. 比如: 地震, 百年不遇的暴雨, 通货膨胀,政策变化.</code></pre><h4 id="按照-可管理性"><a href="#按照-可管理性" class="headerlink" title="按照 可管理性"></a>按照 可管理性</h4><h5 id="可管理风险"><a href="#可管理风险" class="headerlink" title="可管理风险"></a>可管理风险</h5><pre><code>可以预测,并客才去相应措施加以控制的风险</code></pre><h5 id="不可管理风险"><a href="#不可管理风险" class="headerlink" title="不可管理风险"></a>不可管理风险</h5><pre><code>不可预测的风险, 增加信息加强管理可使不可管理风险转化为可管理</code></pre><h2 id="管理过程-6个"><a href="#管理过程-6个" class="headerlink" title="管理过程 6个"></a>管理过程 6个</h2><h3 id="规划风险管理"><a href="#规划风险管理" class="headerlink" title="规划风险管理"></a>规划风险管理</h3><pre><code>定义如何实施项目风险管理活动的过程</code></pre><h4 id="风险类别"><a href="#风险类别" class="headerlink" title="风险类别"></a>风险类别</h4><pre><code>定义:规定对潜在风险成瘾的分类方法.&amp;nbsp;
+提供了一种结构化的方法以便是风险识别的过程系统化,全面化, 保证组织能够在一个统一的框架下进行风险识别, 目的是提高风险识别的质量和有效性
+风险分解结构 (RBS) : 按照风险累彪排列的一种层级结构,有助于发现风险产生的多种原因.</code></pre><p><img src="http://www.5thspace.net/d/file/content/2020/09/5f7401778d644.png" alt="image"></p>
+<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>项目管理计划,项目章程,干系人登记册 事业环境因素 组织过程资产</code></pre><h4 id="工具技术"><a href="#工具技术" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>分析技术,专家判断,会议</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>风险管理计划(方法轮,角色与职责, 预算,时间安排, 风险类别,风险概率和影响的定义, 概率和影响矩阵,干系人承受度,报告格式, 跟踪)</code></pre><h3 id="识别风险"><a href="#识别风险" class="headerlink" title="识别风险"></a>识别风险</h3><pre><code>判断哪些风险会影响项目,并将其特性记录成文,一般要求全员参与</code></pre><h4 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h4><pre><code>识别并确定项目有哪些潜在风险
+识别引起这些风险的主要因素
+识别项目风险可能引起的后果</code></pre><h4 id="识别风险遵循的原则"><a href="#识别风险遵循的原则" class="headerlink" title="识别风险遵循的原则"></a>识别风险遵循的原则</h4><h5 id="全员性"><a href="#全员性" class="headerlink" title="全员性"></a>全员性</h5><pre><code>全员参与</code></pre><h5 id="系统性"><a href="#系统性" class="headerlink" title="系统性"></a>系统性</h5><pre><code>全局性识别</code></pre><h5 id="动态性"><a href="#动态性" class="headerlink" title="动态性"></a>动态性</h5><pre><code>风险识别不是一次性工作
+信息依赖性
+综合性</code></pre><h4 id="输入-1"><a href="#输入-1" class="headerlink" title="输入"></a>输入</h4><pre><code>风险/成本/进度/质量/人力资源管理计划
+范围基准, 活动成本于持续时间估算,干系人登记册
+项目文件,采购文件,事业环境因素,组织过程资产</code></pre><h4 id="工具技术-1"><a href="#工具技术-1" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>文档审查</code></pre><h5 id="信息收集技术"><a href="#信息收集技术" class="headerlink" title="信息收集技术"></a>信息收集技术</h5><pre><code>头脑风暴: 综合风险清单
+德尔菲技术: 专题,达成一致
+访谈: 收集风险识别数据
+根本原因识别
+核对表分析
+假设分析</code></pre><h5 id="图解技术"><a href="#图解技术" class="headerlink" title="图解技术"></a>图解技术</h5><pre><code>因果图: 风险的成因
+系统或过程流程图
+影响图: 因果影响</code></pre><h5 id="SWOT-分析"><a href="#SWOT-分析" class="headerlink" title="SWOT 分析"></a>SWOT 分析</h5><pre><code>S （strengths）是优势、W （weaknesses）是劣势、O （opportunities）是机会、T （threats）是威胁
+专家判断</code></pre><h4 id="输出-1"><a href="#输出-1" class="headerlink" title="输出"></a>输出</h4><h5 id="风险登记册-已识别风险清单-应对措施-根本原因-风险类别更新"><a href="#风险登记册-已识别风险清单-应对措施-根本原因-风险类别更新" class="headerlink" title="风险登记册 (已识别风险清单, 应对措施,根本原因, 风险类别更新)"></a>风险登记册 (已识别风险清单, 应对措施,根本原因, 风险类别更新)</h5><pre><code>风险管理过程都有风险登记册更新</code></pre><h3 id="实施定性风险分析"><a href="#实施定性风险分析" class="headerlink" title="实施定性风险分析"></a>实施定性风险分析</h3><h4 id="评估并综合分析风险的概率和影响-对风险进行优先级排序-从而为后续分析或行动提供基础"><a href="#评估并综合分析风险的概率和影响-对风险进行优先级排序-从而为后续分析或行动提供基础" class="headerlink" title="评估并综合分析风险的概率和影响, 对风险进行优先级排序, 从而为后续分析或行动提供基础."></a>评估并综合分析风险的概率和影响, 对风险进行优先级排序, 从而为后续分析或行动提供基础.</h4><pre><code>概率 X 影响 得到风险值 &amp;nbsp;风险值大的优先</code></pre><h4 id="输入-2"><a href="#输入-2" class="headerlink" title="输入"></a>输入</h4><pre><code>风险管理计划, 范围基准, 风险登记册
+事业环境因素,组织过程资产</code></pre><h4 id="工具技术-2"><a href="#工具技术-2" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>风险概率与影响评估</code></pre><h5 id="概率和影响矩阵"><a href="#概率和影响矩阵" class="headerlink" title="概率和影响矩阵"></a>概率和影响矩阵</h5><pre><code>&lt;br&gt;</code></pre><p><img src="https://www.educity.cn/article_images/2017-05-27/b845ab43-4420-4b0f-89b9-8ece6230f428.png" alt="image"><br>    <br></p>
+<p><img src="https://www.educity.cn/article_images/2017-05-27/f353094d-2b12-4abb-96f8-2ddfe2869cf6.png" alt="image"><br>    风险数据质量评估<br>    风险分类<br>    风险紧迫性评估<br>    专家判断</p>
+<h4 id="输出-2"><a href="#输出-2" class="headerlink" title="输出"></a>输出</h4><pre><code>项目文件更新(风险登记册(更新),假设条件日志)</code></pre><h3 id="实施定量风险分析"><a href="#实施定量风险分析" class="headerlink" title="实施定量风险分析"></a>实施定量风险分析</h3><h4 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h4><pre><code>定义: 就一识别风险对项目整体目标的影响进行定量分析的过程&lt;br&gt;作用: 产生量化风险信息, 来支持决策制定, 降低项目的不确定性.&amp;nbsp;</code></pre><h5 id="内容-1"><a href="#内容-1" class="headerlink" title="内容"></a>内容</h5><pre><code>对项目结果以及时限项目结果的概率进行量化
+评估时限具体项目目标的概率
+通过量化各种风险对项目总体风险的影响, 确定需要特别重视的风险.
+在考虑项目风险的情况下,确定可以实现的切合实际的成本,进度
+在某些条件或结果不确定时, 确定最佳的项目管理策略</code></pre><h5 id="数据收集和表示技术"><a href="#数据收集和表示技术" class="headerlink" title="数据收集和表示技术"></a>数据收集和表示技术</h5><pre><code>访谈
+概率分析
+专家判断</code></pre><h5 id="定量风险分析和建模技术"><a href="#定量风险分析和建模技术" class="headerlink" title="定量风险分析和建模技术"></a>定量风险分析和建模技术</h5><pre><code>期望货币价值分析</code></pre><h6 id="决策树分析"><a href="#决策树分析" class="headerlink" title="决策树分析"></a>决策树分析</h6><pre><code>情况1百分比* 收益1 + 情况2百分比 * 收益2 = 平均数
+灵敏度分析
+建模分析和仿真</code></pre><h3 id="规划风险应对"><a href="#规划风险应对" class="headerlink" title="规划风险应对"></a>规划风险应对</h3><pre><code>针对项目目标,制定提高机会, 降低威胁方案和措施的过程&lt;br&gt;作用: 根据风险的优先级来制定应对措施, 并发风险应对所需的资源和活动加进项目的预算, 进度计划和项目管理计划中</code></pre><h4 id="应对策略"><a href="#应对策略" class="headerlink" title="应对策略"></a>应对策略</h4><h5 id="消极风险应对策略"><a href="#消极风险应对策略" class="headerlink" title="消极风险应对策略"></a>消极风险应对策略</h5><h6 id="避免-Avoid"><a href="#避免-Avoid" class="headerlink" title="避免 Avoid"></a>避免 Avoid</h6><pre><code>回避, 或者换个风险</code></pre><h6 id="减轻-Mitigate"><a href="#减轻-Mitigate" class="headerlink" title="减轻 Mitigate"></a>减轻 Mitigate</h6><pre><code>冗余,备份</code></pre><h6 id="转移-Transfer"><a href="#转移-Transfer" class="headerlink" title="转移 Transfer"></a>转移 Transfer</h6><pre><code>找别人分担,找替死鬼</code></pre><h6 id="接受-Accept"><a href="#接受-Accept" class="headerlink" title="接受 Accept"></a>接受 Accept</h6><pre><code>认了</code></pre><h5 id="积极风险应对策略"><a href="#积极风险应对策略" class="headerlink" title="积极风险应对策略"></a>积极风险应对策略</h5><h6 id="开拓-Exploit"><a href="#开拓-Exploit" class="headerlink" title="开拓 Exploit"></a>开拓 Exploit</h6><pre><code>孤注一掷,背水一战</code></pre><h6 id="提高-Enhance"><a href="#提高-Enhance" class="headerlink" title="提高 Enhance"></a>提高 Enhance</h6><pre><code>提高概率</code></pre><h6 id="分享-Share"><a href="#分享-Share" class="headerlink" title="分享 Share"></a>分享 Share</h6><pre><code>找人一起</code></pre><h6 id="接受-Accept-1"><a href="#接受-Accept-1" class="headerlink" title="接受 Accept"></a>接受 Accept</h6><pre><code>不怎么准备,随缘</code></pre><h5 id="应急应对策略-应急计划"><a href="#应急应对策略-应急计划" class="headerlink" title="应急应对策略 (应急计划)"></a>应急应对策略 (应急计划)</h5><pre><code>有紧急预案
+专家判断(综合判断)</code></pre><h3 id="控制风险"><a href="#控制风险" class="headerlink" title="控制风险"></a>控制风险</h3><table>  <tr> <td bgcolor=#ff9f1a><font color=#ffffff>监控过程组</font></td></tr> </table>    在整个项目种实施风险应对计划, 耿总一识别风险, 监督参与风险,识别新风险, 以及评估风险过程有效性的过程.
+
+<h4 id="输入-3"><a href="#输入-3" class="headerlink" title="输入"></a>输入</h4><pre><code>风险管理计划,范围基准,风险登记册
+事业环境因素,组织过程资产</code></pre><h4 id="工具技术-3"><a href="#工具技术-3" class="headerlink" title="工具技术"></a>工具技术</h4><h5 id="风险再评估-次生风险"><a href="#风险再评估-次生风险" class="headerlink" title="风险再评估(次生风险)"></a>风险再评估(次生风险)</h5><pre><code>反复评估,是否发生,是否再发生等</code></pre><h5 id="风险审计-风险管理活动有效性"><a href="#风险审计-风险管理活动有效性" class="headerlink" title="风险审计(风险管理活动有效性)"></a>风险审计(风险管理活动有效性)</h5><pre><code>风险管控过程是否合规,是否有效
+偏差和趋势分析
+技术绩效测量
+储备分析
+会议</code></pre><h4 id="输出-3"><a href="#输出-3" class="headerlink" title="输出"></a>输出</h4><pre><code>工作绩效信息, 变更请求,项目管理计划更新,项目文件更新,组织过程资产更新</code></pre><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>项目管理</tag>
+        <tag>十大知识领域</tag>
+        <tag>风险管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>项目管理-知识点</title>
+    <url>/2021/05/12/pm/%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    <content><![CDATA[<h1 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h1><h2 id="工具技术"><a href="#工具技术" class="headerlink" title="工具技术"></a>工具技术</h2><h3 id="专家判断法-nbsp"><a href="#专家判断法-nbsp" class="headerlink" title="专家判断法&nbsp;"></a>专家判断法&nbsp;</h3><pre><code>Deiphi 匿名( 背靠背的)专家判断法</code></pre><h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><pre><code>基本需求
+期望需求
+兴奋需求</code></pre><h2 id="SMART-原则"><a href="#SMART-原则" class="headerlink" title="SMART 原则"></a>SMART 原则</h2><pre><code>　　1. 目标必须是具体的（Specific）&lt;br&gt;　　2. 目标必须是可以衡量的（Measurable）&lt;br&gt;　　3. 目标必须是可以达到的（Attainable）&lt;br&gt;　　4. 目标必须和其他目标具有相关性（Relevant）&lt;br&gt;　　5. 目标必须具有明确的截止期限（Time-based）&lt;br&gt;</code></pre><h2 id="项目变更控制委员会-CCB"><a href="#项目变更控制委员会-CCB" class="headerlink" title="项目变更控制委员会 (CCB)"></a>项目变更控制委员会 (CCB)</h2><pre><code>是项目的所有者权益代表,负责裁定接受那些变更, CCB 由项目所涉及的多放人员共同朱恒,通常包括用户和试试房的决策人员. CCB 试决策机构,不是作业机构;通常CCB 的工作试通过评审手段来决定项目是否比昂呢个, 但不提出变更方案; CCB 可以不是常设机构.&amp;nbsp;</code></pre><h3 id="成员"><a href="#成员" class="headerlink" title="成员"></a>成员</h3><pre><code>公司管理人员
+甲方主管
+项目经理
+关键开发人员
+关键测试人员
+质量保证代表
+配置管理代表</code></pre><h2 id="需求跟踪矩阵"><a href="#需求跟踪矩阵" class="headerlink" title="需求跟踪矩阵"></a>需求跟踪矩阵</h2><pre><code>&amp;nbsp;正向跟踪: 用户原始需求--&amp;gt; 跟踪 --&amp;gt; 下游工作产品
+反向跟踪: 用户原始需求 &amp;nbsp; &amp;lt;-- 跟踪 &amp;lt;-- 下游工作产品</code></pre><h3 id="作用-通过用例与-原始需求对应-判断-nbsp"><a href="#作用-通过用例与-原始需求对应-判断-nbsp" class="headerlink" title="作用: 通过用例与 原始需求对应, 判断&nbsp;"></a>作用: 通过用例与 原始需求对应, 判断&nbsp;</h3><pre><code>用例与任何原始需求不对应, 可能使多余用例
+原始需求不关联任何用例, 表明可能需求遗漏</code></pre><h2 id="WBS"><a href="#WBS" class="headerlink" title="WBS"></a>WBS</h2><h3 id="编排方法-nbsp-树型-列表型"><a href="#编排方法-nbsp-树型-列表型" class="headerlink" title="编排方法 &nbsp;树型,列表型"></a>编排方法 &nbsp;树型,列表型</h3><h4 id="树型-层次清晰-直观-结构性很强-适用于中小型应用项目"><a href="#树型-层次清晰-直观-结构性很强-适用于中小型应用项目" class="headerlink" title="树型: 层次清晰,直观, 结构性很强, 适用于中小型应用项目"></a>树型: 层次清晰,直观, 结构性很强, 适用于中小型应用项目</h4><pre><code>两种方式分解方式 以&quot;生命周期各个阶段&quot; 或者 &quot;主要可交付成果(子系统)&quot; 作为的第二层
+列表型: 能反应所有工作的要素,直观性较差, 适用于大型 复杂的项目</code></pre><h3 id="WBS-分解原则"><a href="#WBS-分解原则" class="headerlink" title="WBS 分解原则"></a>WBS 分解原则</h3><pre><code>1. WBS 必须使面向可交付成果的
+2. 必须符合慈昂木范围,在各个层次上保持项目的完整性(避免遗漏必要的组成部分(100% 规则))
+3. 最底层工作应该支持计划和控制, 具备可比性,使可管理的, 可定量检查的 (8-80小时规则 ) &amp;nbsp;工作包
+4. 工作单元应该分开不同的责任者合并不同工作内容,(每个工作单元有且只有一个人负责) 独立责任原则
+5. 一个工作单元智能从属于某个上层单元, 避免交从属 &amp;nbsp;一般控制在4-6层
+6. WBS 应当包含项目管理工作, 也包含分包出去的工作
+7. WBS 的编制需要所有(主要)项目干系人彩玉, 需要项目团队成员参与
+8. WBS 并不是一成不变的</code></pre><h3 id="规划包"><a href="#规划包" class="headerlink" title="规划包"></a>规划包</h3><pre><code>是控制账户之下,工作内容已知但是尚缺详细进度活动的 WBS 组成部分</code></pre><h3 id="控制账户"><a href="#控制账户" class="headerlink" title="控制账户"></a>控制账户</h3><pre><code>一种管理控制点. 在该控制点上将范围,预算, 实际成本和进度加以整合, 并将他们与挣值进行比较, 以测量绩效.
+通常多个工作包,归属一个控制账户, &amp;nbsp;对控制账户做绩效测量</code></pre><h3 id="WBS-词典"><a href="#WBS-词典" class="headerlink" title="WBS 词典"></a>WBS 词典</h3><pre><code>给 WBS 每个部分富裕一个账户编码标志符, 他们使成本,进度和资源使用信息汇总的层次结构. &amp;nbsp; 解释作用</code></pre><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><pre><code>明确说明项目范围
+清除的定义项目边界
+为各独立单元分派人员
+确定项目进度和控制的基准
+防止需求蔓延
+确定工作内容和顺序
+将项目工作与项目的财务账目联系起来
+针对独立单元,进行事件,费用和资源的需求量估算,提升估算准确性</code></pre><h2 id="XXX-分解-nbsp-XBS"><a href="#XXX-分解-nbsp-XBS" class="headerlink" title="XXX 分解 &nbsp; XBS"></a>XXX 分解 &nbsp; XBS</h2><pre><code>工作分解结构 (WBS)
+组织分解结构 OBS
+资源分解结构
+风险分解结构 RBS
+物料清单 BOM</code></pre><h3 id="关系"><a href="#关系" class="headerlink" title="关系"></a>关系</h3><pre><code>WBS + 组织分解结构 : 把工作包责任到部门(一些人)
+WBS + 责任分配矩阵 : 工作包到人, 比 到部门更细致
+WBS + 风险分解结构: 安风险类别划分风险
+WBS + 资源分解机构: 除人力资源外的其他资源分解问题
+WBS + 物料清单 &amp;nbsp;产品所需要的实际部件, 组件.
+里程碑</code></pre><h2 id="工作绩效"><a href="#工作绩效" class="headerlink" title="工作绩效"></a>工作绩效</h2><h3 id="工作绩效数据"><a href="#工作绩效数据" class="headerlink" title="工作绩效数据"></a>工作绩效数据</h3><pre><code>执行项目过程中,从每个正在执行的活动中收集到的原始观察结果和测量值, &amp;nbsp;例如: 工作完成百分比, 质量合计数绩效测量值, 进度活动的开始结束日期, 变更请求的数量,缺陷的数量,实际成本和实际持续事件等</code></pre><h3 id="工作绩效信息"><a href="#工作绩效信息" class="headerlink" title="工作绩效信息"></a>工作绩效信息</h3><pre><code>从各个控制过程中收集并结合相关背景和跨领域关系,进行整合分析得到的绩效数据. 如: 可交付成果的状况, 变更请求的执行情况,预测的完工估算.</code></pre><h3 id="工作绩效报告"><a href="#工作绩效报告" class="headerlink" title="工作绩效报告"></a>工作绩效报告</h3><pre><code>为制定决策,踢出问题,采取行动或引起关注,而会变工作绩效信息, 索性城的实物或电子项目文件, 例如: 状态报告, 备忘录, 论证报告,信息札记, 电子表格, 推荐意见或情况更新
+技术绩效测量
+质量控制测量结果</code></pre><h2 id="过程组"><a href="#过程组" class="headerlink" title="过程组"></a>过程组</h2><h3 id="监控过程组"><a href="#监控过程组" class="headerlink" title="监控过程组"></a>监控过程组</h3><pre><code>除了整体管理, 每个输入都有工作绩效数据, 每个输出都有工作绩效信息</code></pre><h2 id="确认范围延伸"><a href="#确认范围延伸" class="headerlink" title="确认范围延伸"></a>确认范围延伸</h2><h3 id="确认范围与核实产品"><a href="#确认范围与核实产品" class="headerlink" title="确认范围与核实产品"></a>确认范围与核实产品</h3><pre><code>核实产品 产品是否完成, 强调产品是否完整
+确认范围 &amp;nbsp;关注项目可交付成果, 客户或发起人-确认验收</code></pre><h3 id="确认范围与质量控制"><a href="#确认范围与质量控制" class="headerlink" title="确认范围与质量控制"></a>确认范围与质量控制</h3><pre><code>确认范围 强调交付成果是否可接受
+质量控制 强调可交付成果是否正确
+质量控制 一般在确认范围前进行, 也可以同时进行
+确认范围 一般在阶段末进行, 质量控制不一定在阶段末进行
+质量控制属于 内部检查, 由执行组织实施
+确认范围由外部客户或发起人进行检查验收
+合适产品-&amp;gt; 质量控制和确认范围, 越来越详细的检查.</code></pre><h3 id="确认范围与项目收尾"><a href="#确认范围与项目收尾" class="headerlink" title="确认范围与项目收尾"></a>确认范围与项目收尾</h3><pre><code>确认范围 --- 核实与接受 --- 可交付成果&amp;nbsp;
+项目收尾-- 结束项目所要做的流程性工作 --- 验收产品</code></pre><h2 id="活动"><a href="#活动" class="headerlink" title="活动"></a>活动</h2><pre><code>WBS 分解流程得 -得到-&amp;gt; 工作包 --&amp;gt; 定义活动过程 -得到-&amp;gt; 活动 (为完成工作包二必须开展的工作)
+虚活动: 既不占资源, 也不耗时间</code></pre><h3 id="活动之间依赖关系"><a href="#活动之间依赖关系" class="headerlink" title="活动之间依赖关系"></a>活动之间依赖关系</h3><pre><code>强制性依赖关系 (硬逻辑关系, 工艺关系)
+选择型依赖关系 (软逻辑关系,首选逻辑关系, 优先逻辑关系)
+外部依赖关系 (项目活动与非项目活动)
+内部依赖关系(项目活动质检的紧前关系)</code></pre><h3 id="单代号网络图-nbsp-PDM"><a href="#单代号网络图-nbsp-PDM" class="headerlink" title="单代号网络图 &nbsp;(PDM)"></a>单代号网络图 &nbsp;(PDM)</h3><pre><code>&amp;nbsp;每个节点是活动, Finish Start
+FS (结束-开始) 关系
+FF (结束-结束)关系
+SS(开始-开始)关系
+SF(开始-结束)关系</code></pre><h3 id="双代号网络图-ADM"><a href="#双代号网络图-ADM" class="headerlink" title="双代号网络图 (ADM)"></a>双代号网络图 (ADM)</h3><pre><code>只使用完成-开始依赖关系
+每条边代表一个活动, (节点表示事件), 每一事件必须有唯一的一个带好, 既网络图中不会有相同的代号
+任何两项活动紧前事件和紧随事件至少有一个不相同, 节点序号沿箭头方向越来越大
+流入(流出)同一事件的活动,均有共同的后继活动; 流出同一事件的活动,先行活动</code></pre><h2 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h2><h3 id="三点估算"><a href="#三点估算" class="headerlink" title="三点估算"></a>三点估算</h3><pre><code>估算值 = (最乐观时间 + 4 * 最可能时间 + 最悲观时间 ) /6</code></pre><h3 id="PERT-计划评审技术"><a href="#PERT-计划评审技术" class="headerlink" title="PERT 计划评审技术"></a>PERT 计划评审技术</h3><pre><code>估算值 = (最乐观时间 + 4 * 最可能时间 + 最悲观时间 ) /6
+标准差(σ) = ( 悲观时间-乐观时间)/6
+&lt;br&gt;</code></pre><p><img src="https://pic3.zhimg.com/v2-933150699d3c7538e53ead73adc25782_1440w.jpg" alt="image"><br>    正负1个标准差 1σ= 68.26%<br>正负2个标准差 2σ= 95.43%<br>正负3个标准差 3σ= 99.73%<br>正负6个标准差 6σ= 99.99966%<br></p>
+<h2 id="PDCA-循环-戴明环"><a href="#PDCA-循环-戴明环" class="headerlink" title="PDCA 循环(戴明环)"></a>PDCA 循环(戴明环)</h2><pre><code>计划（Plan）、执行（Do）、检查（Check/Study）、处理（Act）&lt;br&gt;
+&lt;br&gt;</code></pre><p><img src="https://docs-1251953281.cos.ap-beijing.myqcloud.com/2021/05/05/16201835098746.jpg" alt="image"></p>
+<h2 id="进度相关概念"><a href="#进度相关概念" class="headerlink" title="进度相关概念"></a>进度相关概念</h2><h3 id="关键路径法"><a href="#关键路径法" class="headerlink" title="关键路径法"></a>关键路径法</h3><pre><code>一种进度网络分析技术,不考虑任何资源限制
+&lt;br&gt; </code></pre><p><img src="https://docs-1251953281.cos.ap-beijing.myqcloud.com/2021/05/03/16200536193116.jpg" alt="image"><br>    关键路径的长度 = 项目的最短工期<br>    总时差为0 的活动为关键路径</p>
+<h3 id="关键链法-CCM"><a href="#关键链法-CCM" class="headerlink" title="关键链法(CCM)"></a>关键链法(CCM)</h3><pre><code>关键链法 CCM 是一种进度规划方法, 允许项目团队在任何项目进度路径上设置缓冲, 一应对资源限制和项目的不确定.&lt;br&gt;CCM 在关键路径上考虑了资源分配, 资源优化, 资源平衡和活动历时不确定性对关键路径的影响.</code></pre><h3 id="总时差"><a href="#总时差" class="headerlink" title="总时差"></a>总时差</h3><pre><code>在不延误总工期的前提下, 该活动的机动时间
+总时差= 最晚开始时间-最早开始时间</code></pre><h3 id="自由时差"><a href="#自由时差" class="headerlink" title="自由时差"></a>自由时差</h3><pre><code>在不影响紧后互动的最早开始时间前提下,该活动的机动时间.
+自由时差 = 紧后活动最早开始时间-当前活动最早结束时间</code></pre><h3 id="横道图-甘特图"><a href="#横道图-甘特图" class="headerlink" title="横道图(甘特图)"></a>横道图(甘特图)</h3><pre><code>简单已读,常用于向管理层汇报, 但不能表达负载的逻辑关系</code></pre><h3 id="时标网络图"><a href="#时标网络图" class="headerlink" title="时标网络图"></a>时标网络图</h3><pre><code>双代号网络图的变种.&amp;nbsp;
+实箭线表示活动, 虚箭线表示虚活动, 曲线表示已经完成但是后续要时间间隔连接后续
+存在曲线的活动,肯定不是在关键路径上
+用于计算工期
+计算两项相邻工作之间的时间间隔 (LAG) .(曲线的部分是该活动的自由时差).</code></pre><h2 id="成本相关"><a href="#成本相关" class="headerlink" title="成本相关"></a>成本相关</h2><h3 id="挣值管理"><a href="#挣值管理" class="headerlink" title="挣值管理"></a>挣值管理</h3><pre><code>PV (Planned Value) &amp;nbsp; 计划值, 计划完成工作的预算成本
+EV (Earned Value) 挣值, 已完成工作的预算成本
+AC (Actual Cost) 实际成本, 已完成工作的真实成本
+BAC 完工预算 &amp;nbsp; : BAC = 完工时的 PV 值
+进度偏差 SV (Schedule Variance ) : SV = EV - PV &amp;nbsp;负数表示进度落后
+成本偏差 CV(Cost Variance) : CV = EV - AC &amp;nbsp;负数表示成本超支
+进度绩效指数 SPI = EV / PV &amp;nbsp; &amp;nbsp;低于1就是不好
+成本绩效指数 CPI = EV / AC &amp;nbsp;&amp;nbsp;低于1就是不好</code></pre><h4 id="完工尚需成本-剩余工作成本-ETC-Estimate-to-Complete"><a href="#完工尚需成本-剩余工作成本-ETC-Estimate-to-Complete" class="headerlink" title="完工尚需成本(剩余工作成本) ETC (Estimate to Complete)"></a>完工尚需成本(剩余工作成本) ETC (Estimate to Complete)</h4><pre><code>非典型偏差 &amp;nbsp;ETC = BAC -EV &amp;nbsp; &amp;nbsp; &amp;nbsp;(原来的偏差不具有代表性, 原来偏,以后不偏)
+典型偏差 ETC = (BAC-EV) / CPI &amp;nbsp; (原来偏以后也会同样偏)
+完工估算 EAC(Estimate at Completion) : EAC =AC +ETC</code></pre><h2 id="质量"><a href="#质量" class="headerlink" title="质量"></a>质量</h2><h3 id="质量标准"><a href="#质量标准" class="headerlink" title="质量标准"></a>质量标准</h3><h4 id="ISO9000"><a href="#ISO9000" class="headerlink" title="ISO9000"></a>ISO9000</h4><pre><code>八大基本原则&lt;br&gt;以顾客为关注焦点&lt;br&gt;领导作用&lt;br&gt;全员参与&lt;br&gt;过程方法&lt;br&gt;管理的系统方法&lt;br&gt;持续改进&lt;br&gt;以实施为基础进行决策&lt;br&gt;与供方互利的关系&lt;br&gt;&lt;br&gt;</code></pre><h4 id="CMM-和-CMMI"><a href="#CMM-和-CMMI" class="headerlink" title="CMM 和 CMMI"></a>CMM 和 CMMI</h4><h5 id="CMM-软件成熟度模型-5个等级"><a href="#CMM-软件成熟度模型-5个等级" class="headerlink" title="CMM 软件成熟度模型 (5个等级)"></a>CMM 软件成熟度模型 (5个等级)</h5><pre><code>一级 , 初始级 : 软件过程是无序的,成功取决于个人努力
+二级 &amp;nbsp;可重复级(项目级) : 需求管理,项目计划,配置管理,项目监督与控制,供应商合同管理,度量和分析,过程和产品质量保证.
+三级 已定义级(组织级) : 需求开发,技术解决方案, 产品集成,验证, 确认,组织级过程焦点,组织级过程定义,组织级培训,集成项目管理,风险管理,集成化的团队, 决策分析和解决方案, 组织级集成环境.
+四级 定量管理级 : 组织级过程性能,定量项目管理
+五级 &amp;nbsp;优化级 : 组织级改革与实施, 因果分析和解决方案</code></pre><h5 id="CMMI-组织成熟度"><a href="#CMMI-组织成熟度" class="headerlink" title="CMMI 组织成熟度"></a>CMMI 组织成熟度</h5><h6 id="阶段分组"><a href="#阶段分组" class="headerlink" title="阶段分组"></a>阶段分组</h6><pre><code>一级 &amp;nbsp; 混乱级
+二级 &amp;nbsp;可管理级
+三级 &amp;nbsp;已定义级
+四级 量化管理级
+五级 优化管理级</code></pre><h6 id="包含领域"><a href="#包含领域" class="headerlink" title="包含领域"></a>包含领域</h6><pre><code>软件工程 (SW-CMM)
+系统工程 &amp;nbsp;(SE-CMM)
+集成的产品和过程开发 (IPPD-CMM)
+采购 (SS-CMM)</code></pre><h6 id="CMMI-的目标"><a href="#CMMI-的目标" class="headerlink" title="CMMI 的目标"></a>CMMI 的目标</h6><pre><code>一 高质量&lt;br&gt;二 时间表&lt;br&gt;三 用最低的成本
+六西格玛</code></pre><h2 id="人力资源"><a href="#人力资源" class="headerlink" title="人力资源"></a>人力资源</h2><h3 id="激励理论"><a href="#激励理论" class="headerlink" title="激励理论"></a>激励理论</h3><h4 id="需求层次理论-马斯洛-五个层次"><a href="#需求层次理论-马斯洛-五个层次" class="headerlink" title="需求层次理论(马斯洛)五个层次"></a>需求层次理论(马斯洛)五个层次</h4><pre><code>自我实现 : 个人理想, 报复, 最高层次需要
+受尊重 : 自尊心和荣誉感
+社会交往 : 包括对友谊,爱情以及隶属关系的需求
+安全 : 人参安全,生活稳定, 不至事业以及免遭痛苦,威胁或疾病等需求
+(最底层)生理 : 衣食住行等需求都是生理需要, 是推动人们行动最收腰的动力</code></pre><h4 id="双因素理论-赫茨伯格"><a href="#双因素理论-赫茨伯格" class="headerlink" title="双因素理论(赫茨伯格)"></a>双因素理论(赫茨伯格)</h4><pre><code>激励因素; 高层次需求, &amp;nbsp;成熟,成人, 发展机会,缺失会导致缺失进取心
+保健因素: 工作环境或条件有关的</code></pre><h4 id="X-理论和-Y-理论"><a href="#X-理论和-Y-理论" class="headerlink" title="X 理论和 Y 理论"></a>X 理论和 Y 理论</h4><pre><code>X 理论 : 性本恶, 应对员工才去强制, 惩罚, 解雇等手段
+Y理论 : 性本善, 采取以人为中心的, 宽容的及放权的领导方式进行管理.</code></pre><h4 id="期望理论"><a href="#期望理论" class="headerlink" title="期望理论"></a>期望理论</h4><pre><code>激发力量 = 目标效价 (达成奖励) * 期望值 (概率)</code></pre><h3 id="权力"><a href="#权力" class="headerlink" title="权力"></a>权力</h3><pre><code>影响行为,改变事情的过程和方向, 克服阻力的潜在能力
+职位权力
+惩罚权力
+奖励权力</code></pre><h4 id="专家权力"><a href="#专家权力" class="headerlink" title="专家权力"></a>专家权力</h4><pre><code>自己是行业专家, 大家信服</code></pre><h4 id="参照权力"><a href="#参照权力" class="headerlink" title="参照权力"></a>参照权力</h4><pre><code>感召权,感召力, 榜样的力量</code></pre><h2 id="沟通"><a href="#沟通" class="headerlink" title="沟通"></a>沟通</h2><pre><code>沟通路径(沟通渠道计算公式) &amp;nbsp;CC= n * (n-1) /2 . &amp;nbsp; n 为项目组人数, CC 渠道数量</code></pre><h3 id="沟通模型"><a href="#沟通模型" class="headerlink" title="沟通模型"></a>沟通模型</h3><pre><code>基本沟通模型</code></pre><p><img src="https://docs-1251953281.cos.ap-beijing.myqcloud.com/2021/05/05/16202254964780.jpg" alt="image"><br>    五种基本状态 &nbsp; 已发送–&gt; 已收到–&gt; 以理解–&gt; 以认可–&gt; 已转化为行动</p>
+<h3 id="会议"><a href="#会议" class="headerlink" title="会议"></a>会议</h3><h4 id="如何开一个高效的会议"><a href="#如何开一个高效的会议" class="headerlink" title="如何开一个高效的会议"></a>如何开一个高效的会议</h4><pre><code>事先预订一个例会制度
+放弃可开可不开的会议
+明确会议的目的和期望结果
+发布会议通知
+在会议之前将会议资料发送给参会人员
+可以借助视频设备
+明确会议规则
+会议要有记录
+会后要有总结, 提炼结论</code></pre><h4 id="项目例会"><a href="#项目例会" class="headerlink" title="项目例会"></a>项目例会</h4><pre><code>一般以周为单位,是项目团队内部沟通的主要平台</code></pre><h5 id="项目例会由项目经理召开议题包含"><a href="#项目例会由项目经理召开议题包含" class="headerlink" title="项目例会由项目经理召开议题包含"></a>项目例会由项目经理召开议题包含</h5><pre><code>1 项目进展程度调查和汇报
+2. 项目问题的解决
+3. 项目潜在风险的评估
+4. 项目团队人力资源协调
+风险</code></pre><h2 id="SWOT-分析"><a href="#SWOT-分析" class="headerlink" title="SWOT 分析"></a>SWOT 分析</h2><pre><code>S （strengths）是优势、W （weaknesses）是劣势、O （opportunities）是机会、T （threats）是威胁</code></pre><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>项目管理</tag>
+        <tag>十大知识领域</tag>
+        <tag>知识点</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>项目管理-范围管理</title>
+    <url>/2021/05/12/pm/Project_Scope_Management/</url>
+    <content><![CDATA[<h1 id="范围管理Project-Scope-Management"><a href="#范围管理Project-Scope-Management" class="headerlink" title="范围管理Project Scope Management"></a>范围管理<br/>Project Scope Management</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="产品范围"><a href="#产品范围" class="headerlink" title="产品范围"></a>产品范围</h3><pre><code>表示产品或者服务的特性和功能, 如何确定信息系统的范围在软件工程中叫做需求分析</code></pre><h3 id="项目范围"><a href="#项目范围" class="headerlink" title="项目范围"></a>项目范围</h3><pre><code>为了完成具有所规定特征呵呵功能的产品和服务必须完成的全部工作</code></pre><h3 id="项目的基准范围"><a href="#项目的基准范围" class="headerlink" title="项目的基准范围"></a>项目的基准范围</h3><pre><code>使经过品准的详细的项目范围说明书,WBS 和 WBS 词典</code></pre><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><pre><code>项目范围管理不仅仅使让项目管理和实施人员知道未达到预期目标需要完成那些具体工作,还要确认请相互项目项管各方在没想工作中清晰的分工界面和责任.</code></pre><h2 id="管理过程-6个"><a href="#管理过程-6个" class="headerlink" title="管理过程 6个"></a>管理过程 6个</h2><h3 id="1-规划范围管理Plan-Scope-Managerment"><a href="#1-规划范围管理Plan-Scope-Managerment" class="headerlink" title="1. 规划范围管理Plan Scope Managerment"></a>1. 规划范围管理<br>Plan Scope Managerment</h3><table>  <tr> <td bgcolor=#63abf7><font color=#ffffff>规划过程组</font></td></tr> </table>    创建范围管理计划,书面描述如何定义,确认和控制项目范围的过程
+
+<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>项目管理计划
+项目章程
+事业环境因素
+组织过程资产</code></pre><h4 id="工具技术"><a href="#工具技术" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>专家判断 Export Judgment
+会议</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>范围管理计划
+需求管理计划</code></pre><h3 id="2-收集需求Collect-Requrements"><a href="#2-收集需求Collect-Requrements" class="headerlink" title="2. 收集需求Collect Requrements"></a>2. 收集需求<br>Collect Requrements</h3><table>  <tr> <td bgcolor=#63abf7><font color=#ffffff>规划过程组</font></td></tr> </table>    定义:为实现项目目标而确定,记录并管理干系人的需要和需求的过程
+    作用:为定义和管理项目范围(包括产品范围) 奠定基础<br>
+
+<h4 id="输入-1"><a href="#输入-1" class="headerlink" title="输入"></a>输入</h4><pre><code>范围管理计划
+需求管理计划
+干系人管理计划
+项目章程
+干系人登记册</code></pre><h4 id="工具技术-1"><a href="#工具技术-1" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>访谈, 焦点小组,引导式研讨会, 问卷调查,观察
+群体创新技术(头脑风暴,名义小组,Deiphi,思维导图)
+群体决策技术, 原型法,标杆对照, 系统交互图,文件分析</code></pre><h4 id="输出-1"><a href="#输出-1" class="headerlink" title="输出"></a>输出</h4><pre><code>需求文件
+需求跟踪矩阵</code></pre><h3 id="3-定义范围Define-Scope"><a href="#3-定义范围Define-Scope" class="headerlink" title="3. 定义范围Define Scope"></a>3. 定义范围<br>Define Scope</h3><table>  <tr> <td bgcolor=#63abf7><font color=#ffffff>规划过程组</font></td></tr> </table>
+#### 概念
+
+<pre><code>制定项目和产品详细描述的过程
+明确所收集的需求那些将包含在项目范围内, 那些将排除在项目范围外,从而明确产品,服务或成果的边界</code></pre><h5 id="项目范围说明书"><a href="#项目范围说明书" class="headerlink" title="项目范围说明书"></a>项目范围说明书</h5><h6 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h6><pre><code>产品范围描述
+验收标准
+可交付成果
+项目的除外责任(那些不属于项目范围)
+制约因素 (如 强制性日期)
+假设条件(不需要验证即可视为正确真实的因素)</code></pre><h6 id="作用-1"><a href="#作用-1" class="headerlink" title="作用"></a>作用</h6><pre><code>确定范围
+沟通基础(共识)
+变更基础(判断是否超界)
+规划和控制依据
+规划基础(成本,进度等计划的基础)</code></pre><h4 id="输入-2"><a href="#输入-2" class="headerlink" title="输入"></a>输入</h4><pre><code>项目章程
+项目范围管理计划
+需求文件 &amp;nbsp; (来自于收集需求的输出)
+组织过程资产</code></pre><h4 id="工具技术-2"><a href="#工具技术-2" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>产品分析
+备选方案生成
+专家判断, 引导式研讨会</code></pre><h4 id="输出-2"><a href="#输出-2" class="headerlink" title="输出"></a>输出</h4><pre><code>项目范围说明书 (范围基线的组成部分)
+项目文件更新</code></pre><h3 id="4-创建-WBS-nbsp-Create-WBS"><a href="#4-创建-WBS-nbsp-Create-WBS" class="headerlink" title="4. 创建 WBS&nbsp;Create WBS"></a>4. 创建 WBS&nbsp;<br>Create WBS</h3><table>  <tr> <td bgcolor=#63abf7><font color=#ffffff>规划过程组</font></td></tr> </table>
+#### 概念
+
+<pre><code>作用 : 对所教福的内容提供一个结构化视图
+定义: 将项目可交付成果和项目工作分解为较小的,更衣与管理的组件的过程</code></pre><h4 id="需要开展的活动"><a href="#需要开展的活动" class="headerlink" title="需要开展的活动"></a>需要开展的活动</h4><pre><code>识别和分析可交付成果及相关工作
+确定 WBS 结构以及编排方法 (树型,列表型)
+自上而下的逐层细化分解
+为 WBS 组成部分定制和分配标志编码
+核实工作芬姐的程度是恰当的</code></pre><h4 id="输入-3"><a href="#输入-3" class="headerlink" title="输入"></a>输入</h4><pre><code>范围管理计划
+项目范围说明书 (前置(定义范围)产出物)
+需求文件, 事业环境因素, 组织过程资产</code></pre><h4 id="工具技术-3"><a href="#工具技术-3" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>分解
+专家判断</code></pre><h4 id="输出-3"><a href="#输出-3" class="headerlink" title="输出"></a>输出</h4><pre><code>范围基准
+项目文件更新</code></pre><h3 id="5-确认范围Vaidate-Scope"><a href="#5-确认范围Vaidate-Scope" class="headerlink" title="5. 确认范围Vaidate Scope"></a>5. 确认范围<br>Vaidate Scope</h3><table>  <tr> <td bgcolor=#ff9f1a><font color=#ffffff>监控过程组</font></td></tr> </table>
+#### 概念
+
+<pre><code>定义:是正式验收已完成的项目科可交付成果的过程
+作用: 使验收过程具有客观性,同事通过验收每个可交付成果,提高最终产品, 服务或成果获得验收的可能性
+贯穿于项目整个过程</code></pre><h4 id="输入-4"><a href="#输入-4" class="headerlink" title="输入"></a>输入</h4><pre><code>项目管理计划
+需求文件,需求跟踪矩阵
+可是的可交付成果, 工作绩效数据</code></pre><h4 id="工具技术-4"><a href="#工具技术-4" class="headerlink" title="工具技术"></a>工具技术</h4><h5 id="检查-审查-产品评审-审计-走查-巡检"><a href="#检查-审查-产品评审-审计-走查-巡检" class="headerlink" title="检查 (审查, 产品评审,审计, 走查,巡检)"></a>检查 (审查, 产品评审,审计, 走查,巡检)</h5><h6 id="检查工具-关注点"><a href="#检查工具-关注点" class="headerlink" title="检查工具 关注点"></a>检查工具 关注点</h6><pre><code>1. 可交付成果是否使可确认的
+1. 每个可交付成果是否有明确的里程碑,里程碑是否明确的, 可辩识的事件
+3. 是否有明确的质量标准
+4. 审核和承诺是否清晰的表达, 并获得一致同意
+5. 项目范围是否覆盖需要完成的产品货服务进行的所有活动,有没有遗漏或错误.
+6. 项目范围风险是否太高,管理层是否能够降低可预见的更新啊发生时对项目的冲击.
+群体决策技术</code></pre><h4 id="输出-4"><a href="#输出-4" class="headerlink" title="输出"></a>输出</h4><pre><code>验收的可交付成果, 工作绩效信息
+变更请求,项目文件更新</code></pre><h3 id="6-控制范围Contorl-Scope"><a href="#6-控制范围Contorl-Scope" class="headerlink" title="6. 控制范围Contorl Scope"></a>6. 控制范围<br>Contorl Scope</h3><table>  <tr> <td bgcolor=#ff9f1a><font color=#ffffff>监控过程组</font></td></tr> </table>    定义: 监督项目和产品的范围状态管理范围基准变更的过程<br>作用: 在振哥项目期间保持对范围基准的维护
+
+<h4 id="涉及内容"><a href="#涉及内容" class="headerlink" title="涉及内容"></a>涉及内容</h4><pre><code>影响导致范围变更的因素
+判断范围变更是否已经发生
+范围变更发生时管理实际的变更
+控制范围与其他控制过程相结合</code></pre><h4 id="变更原因"><a href="#变更原因" class="headerlink" title="变更原因"></a>变更原因</h4><pre><code>项目外部环境发生变化
+项目范围的计划编制不够周密详细,有一定的错误或者遗漏
+市场上出现了或者设计人员提出了新技术,新手段, 新方案
+项目实施组织本身发生变化
+客户对项目,项目产品或服务的要求发生变化</code></pre><h4 id="输入-5"><a href="#输入-5" class="headerlink" title="输入"></a>输入</h4><pre><code>项目管理计划
+需求文件
+需求跟踪矩阵
+工作绩效数据
+组织过程资产</code></pre><h4 id="工具与技术"><a href="#工具与技术" class="headerlink" title="工具与技术"></a>工具与技术</h4><pre><code>偏差分析</code></pre><h4 id="输出-5"><a href="#输出-5" class="headerlink" title="输出"></a>输出</h4><pre><code>工作绩效信息
+变更请求
+项目文件更新,组织过程资产更新</code></pre><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>项目管理</tag>
+        <tag>十大知识领域</tag>
+        <tag>范围管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>pm/Project_Schedule_Managerment</title>
+    <url>/2021/05/14/pm/Project_Schedule_Managerment/</url>
+    <content><![CDATA[<hr>
+<p>title: 项目管理-进度管理<br>date: 2021-05-12 22:10:23<br>tags: [项目管理,十大知识领域,进度管理]</p>
+<hr>
+<h1 id="进度管理"><a href="#进度管理" class="headerlink" title="进度管理"></a>进度管理</h1><h2 id="管理过程"><a href="#管理过程" class="headerlink" title="管理过程"></a>管理过程</h2><h3 id="规划进度管理Plan-Schedule-Managerment"><a href="#规划进度管理Plan-Schedule-Managerment" class="headerlink" title="规划进度管理Plan Schedule Managerment"></a>规划进度管理<br>Plan Schedule Managerment</h3><pre><code>为规划,编制,管理,执行和控制项目进度而制定的政策,程序和文档的过程</code></pre><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>项目管理计划
+项目章程
+事业环境因素因素和组织过程资产</code></pre><h4 id="工具技术"><a href="#工具技术" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>专家判断
+分析技术
+会议</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><pre><code>进度管理计划</code></pre><h3 id="定义活动Define-Activities"><a href="#定义活动Define-Activities" class="headerlink" title="定义活动Define Activities"></a>定义活动<br>Define Activities</h3><pre><code>识别和记录为完成项目可交付成果而采取的具体行动的过程</code></pre><h4 id="输入-1"><a href="#输入-1" class="headerlink" title="输入"></a>输入</h4><pre><code>进度管理计划
+范围基准
+事业环境因素 和组织过程资产</code></pre><h4 id="工具技术-1"><a href="#工具技术-1" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>分解
+滚动式规划
+专家判断</code></pre><h4 id="输出-1"><a href="#输出-1" class="headerlink" title="输出"></a>输出</h4><pre><code>活动清单,活动属性
+里程碑清单 (项目中重要的时间点或事件)</code></pre><h3 id="排列活动顺序Sequence-Activeties"><a href="#排列活动顺序Sequence-Activeties" class="headerlink" title="排列活动顺序Sequence Activeties"></a>排列活动顺序<br>Sequence Activeties</h3><pre><code>定义:识别和记录项目活动之间逻辑关系的过程&lt;br&gt;作用: 定义工作之间的逻辑顺序,以便在机顶的所有项目制约因素下获得最高的效率</code></pre><h3 id="估算活动资源Estimate-Activity-Resources"><a href="#估算活动资源Estimate-Activity-Resources" class="headerlink" title="估算活动资源Estimate Activity Resources"></a>估算活动资源<br>Estimate Activity Resources</h3><pre><code>定义: 估算活动资源就是确定在实施项目活动时要使用何种资源(人员.设备或物资),每一种实用的数量,以及何时用于项目计划活动&lt;br&gt;作用: 明确完成活动所需要资源种类,数量和特性, 以便于做出更准确的城北和持续时间估算.&lt;br&gt;注: 估算互动资源过程要同成本估算过程紧密配合</code></pre><h4 id="项目日历"><a href="#项目日历" class="headerlink" title="项目日历"></a>项目日历</h4><pre><code>编排开展激活活动的工作日或轮流班次, 以及不开展计划活动的非工作日的日历. 项目日历影响到所有活动 (简单理解就是 项目的工作日与非工作日)</code></pre><h4 id="资源日历"><a href="#资源日历" class="headerlink" title="资源日历"></a>资源日历</h4><pre><code>表明没中具体资源的可用工作日或者工作班次的日历. 资源丽日规定了在项目期间特定资源何时使用,可用多久. 可以在活动或者项目层面建立资源日历.&lt;br&gt;另外还需要考虑更多的资源属性, 例如经验和/或技能水平.</code></pre><h4 id="工具技术-2"><a href="#工具技术-2" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>专家判断(Export Judgment)
+备选方案分析(Alternative Analysis)
+发布的估算数据(Published estimates)</code></pre><h5 id="自下而上估算-Bottom-Up-Estimating"><a href="#自下而上估算-Bottom-Up-Estimating" class="headerlink" title="自下而上估算(Bottom-Up Estimating)"></a>自下而上估算(Bottom-Up Estimating)</h5><pre><code>对工作组成部分进行估算的一种方法. 准确性取决于打个活动或工作包的规模和复杂程度
+项目管理软件</code></pre><h3 id="估算活动持续时间Estimate-Activity-Durations"><a href="#估算活动持续时间Estimate-Activity-Durations" class="headerlink" title="估算活动持续时间Estimate Activity Durations"></a>估算活动持续时间<br>Estimate Activity Durations</h3><pre><code>定义:根据资源估算的结果, 估算完成单项活动所需所需要工作时段的过程&lt;br&gt;作用: 确定每个活动所需要花费的时间量, 未指定进度计划过程提供主要输入</code></pre><h4 id="工具技术-3"><a href="#工具技术-3" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>专家判断(Export Judgment)</code></pre><h5 id="类比估算-Analogous-Estimating"><a href="#类比估算-Analogous-Estimating" class="headerlink" title="类比估算(Analogous Estimating)"></a>类比估算(Analogous Estimating)</h5><pre><code>以过去类似项目的参数值(如持续时间,预算)</code></pre><h5 id="参数估算-Parametric-Estimating"><a href="#参数估算-Parametric-Estimating" class="headerlink" title="参数估算(Parametric Estimating)"></a>参数估算(Parametric Estimating)</h5><pre><code>利用历史数据和其他变量(如代码行)之间统计关系.来估算诸如成本,预算和陈继续时间等活动参数.</code></pre><h5 id="三点估算-Three-Point-Estimate"><a href="#三点估算-Three-Point-Estimate" class="headerlink" title="三点估算(Three-Point Estimate)"></a>三点估算(Three-Point Estimate)</h5><pre><code>通过考虑估算中的不确定性和风险, 可以提高活动持续时间估算的准确性,表明持续时间估算的变化范围&lt;br&gt;估算值 = (最乐观时间 + 4 X 最可能时间 + 最悲观时间 ) /6</code></pre><h5 id="储备分析-Reserve-Analysis"><a href="#储备分析-Reserve-Analysis" class="headerlink" title="储备分析(Reserve Analysis)"></a>储备分析(Reserve Analysis)</h5><pre><code>(储备量用来应对风险)在进行持续时间估算时,需考虑应急储备(时间储备,缓冲时间) 并将其纳入项目进度计划中,用来应对进度方面的不确定性.</code></pre><h3 id="制定进度计划Develop-Schedule"><a href="#制定进度计划Develop-Schedule" class="headerlink" title="制定进度计划Develop Schedule"></a>制定进度计划<br>Develop Schedule</h3><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><pre><code>分析活动顺序,持续时间,资源需求和进度制约因素,创建项目进度模型的过程
+作用: 把活动,持续时间,资源,资源可用性和逻辑关系带入进度规划工具,从而形成包含各个项目活动的计划日期的进度模型</code></pre><h5 id="时间约束因素"><a href="#时间约束因素" class="headerlink" title="时间约束因素"></a>时间约束因素</h5><pre><code>活动开始或结束的强制性日期.
+项目发起人客户或其他干系人制定关键时间或里程碑</code></pre><h5 id="辅助数据和信息"><a href="#辅助数据和信息" class="headerlink" title="辅助数据和信息"></a>辅助数据和信息</h5><pre><code>里程碑
+计划活动
+活动属性
+假设与约束因素
+按时间段提出的资源需求
+其他可供选择的进度计划
+进度应急储备</code></pre><h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><pre><code>1. 项目描述&lt;br&gt;2. 项目分解与活动界定&lt;br&gt;3. 工作描述&lt;br&gt;4. 项目组织和工作责任分配&lt;br&gt;5. 工作排序&lt;br&gt;6. 计算工作量&lt;br&gt;7. 估算工作持续时间&lt;br&gt;8. 绘制网络图&lt;br&gt;9. 进度安排</code></pre><h4 id="输入-2"><a href="#输入-2" class="headerlink" title="输入"></a>输入</h4><pre><code>进度管理计划, 项目范围说明书,风险登记册
+活动清单,活动属性,项目进度网络图,活动资源需求, 资源日历
+互动持续时间估算,项目人员分派,资源分解结构
+事业环境因素 ,组织过程资产</code></pre><h4 id="工具技术-4"><a href="#工具技术-4" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>关键路径法</code></pre><h5 id="关键链法"><a href="#关键链法" class="headerlink" title="关键链法"></a>关键链法</h5><pre><code>CCM 统一管理缓冲</code></pre><h5 id="计划评审技术-PERT"><a href="#计划评审技术-PERT" class="headerlink" title="计划评审技术(PERT)"></a>计划评审技术(PERT)</h5><pre><code>6希格玛
+进度压缩</code></pre><h5 id="资源优化技术-资源平衡-资源平滑"><a href="#资源优化技术-资源平衡-资源平滑" class="headerlink" title="资源优化技术 (资源平衡,资源平滑)"></a>资源优化技术 (资源平衡,资源平滑)</h5><h6 id="资源平衡-导致关键路径的改变-先做-nbsp-Resource-Leveling"><a href="#资源平衡-导致关键路径的改变-先做-nbsp-Resource-Leveling" class="headerlink" title="资源平衡(导致关键路径的改变) (先做)&nbsp;Resource Leveling"></a>资源平衡(导致关键路径的改变) (先做)<br>&nbsp;Resource Leveling</h6><pre><code>为了在资源需求与资源供给之间去的平衡, 根据资源制约对开始日期和结束日期进行调整的一种技术, 往往会导致关键路径的改变, 通常是延长</code></pre><h6 id="资源平滑-不会改变关键路径-后做-nbsp-Resource-Smoothing"><a href="#资源平滑-不会改变关键路径-后做-nbsp-Resource-Smoothing" class="headerlink" title="资源平滑(不会改变关键路径) (后做)&nbsp;Resource Smoothing"></a>资源平滑(不会改变关键路径) (后做)<br>&nbsp;Resource Smoothing</h6><pre><code>对进度模型中的活动进行调整,从而使项目资源需求不超过预订资源限制的一种技术, 不会改变关键路径,完工日期不会延时, 可能无法实现所有资源的优化.&lt;br&gt;通常是把资源看成可替换的.</code></pre><h4 id="输出-2"><a href="#输出-2" class="headerlink" title="输出"></a>输出</h4><pre><code>进度精准
+项目进度计划 (项目进度网络图, 横道图,里程碑图)
+进度数据,项目日志,项目管理计划更新,项目文件更新</code></pre><h3 id="控制进度Control-Schedule"><a href="#控制进度Control-Schedule" class="headerlink" title="控制进度Control Schedule"></a>控制进度<br>Control Schedule</h3><pre><code>监督项目活动状态, 更新项目进展, 管理进度基准变更,以实现计划的过程</code></pre><h4 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h4><pre><code>判断项目进度当前状态
+对引起进度变更的因素施加影响,以保证这种变化朝着有利的方向发展.
+判断进度是否发生变更
+发生变更时候按照变更控制流程管理实际的变更</code></pre><h4 id="步骤-1"><a href="#步骤-1" class="headerlink" title="步骤"></a>步骤</h4><pre><code>1.分析进度,找出那些地方需要采取纠正措施
+2. 确定应采取哪些具体纠正措施
+3. 修改计划, 将纠正措施列入计划
+4. 重新计算季度,估计计划采取的纠正措施的效果.</code></pre><h4 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h4><h5 id="相交曲线"><a href="#相交曲线" class="headerlink" title="相交曲线"></a>相交曲线</h5><pre><code>ES 曲线+ LS 曲线 (最早开始,最晚开始)
+比较曲线</code></pre><h4 id="进度更新"><a href="#进度更新" class="headerlink" title="进度更新"></a>进度更新</h4><h5 id="1-分析偏差产生的原因-nbsp"><a href="#1-分析偏差产生的原因-nbsp" class="headerlink" title="1. 分析偏差产生的原因&nbsp;"></a>1. 分析偏差产生的原因&nbsp;</h5><pre><code>人员因素
+工具,设备因素
+方法,技术因素
+资金因素
+环境因素</code></pre><h5 id="2-分析偏差对进度产生的影响"><a href="#2-分析偏差对进度产生的影响" class="headerlink" title="2. 分析偏差对进度产生的影响"></a>2. 分析偏差对进度产生的影响</h5><pre><code>产生偏差活动是否为关键活动
+偏差是否大于总浮动时间
+偏差是否大于自由浮动时间</code></pre><h5 id="3-调整项目进度计划"><a href="#3-调整项目进度计划" class="headerlink" title="3. 调整项目进度计划"></a>3. 调整项目进度计划</h5><h6 id="赶工-增加资源"><a href="#赶工-增加资源" class="headerlink" title="赶工(增加资源)"></a>赶工(增加资源)</h6><pre><code>以最小的成本最大限度的压缩进度
+加人,加班</code></pre><h6 id="快速跟进-并行"><a href="#快速跟进-并行" class="headerlink" title="快速跟进(并行)"></a>快速跟进(并行)</h6><pre><code>效率增加,风险增加, 而且不一定能适用</code></pre><h6 id="缩减项目范围"><a href="#缩减项目范围" class="headerlink" title="缩减项目范围"></a>缩减项目范围</h6><pre><code>分批交付,或者缩减范围, 必须要有客户方的认可
+使用高素质的资源或者经验更丰富的人员
+改进方法或进度
+加强质量管理,减少返工</code></pre><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+  </entry>
+  <entry>
+    <title>项目管理-十大知识领域</title>
+    <url>/2021/05/12/pm/project-manager/</url>
+    <content><![CDATA[<h1 id="项管十大知识领域以及知识点"><a href="#项管十大知识领域以及知识点" class="headerlink" title="项管十大知识领域以及知识点"></a>项管十大知识领域以及知识点</h1><blockquote>
+<p>口诀：范进成、质风采、资源沟通相关方，整合管理放首位。<br>分别对应于：（整合）、范围、进度、成本、质量、风险、采购、资源、沟通、相关方。</p>
+</blockquote>
+<h2 id="整体管理"><a href="#整体管理" class="headerlink" title="整体管理"></a>整体管理</h2><h2 id="范围管理"><a href="#范围管理" class="headerlink" title="范围管理"></a>范围管理</h2><blockquote>
+<p>做且只做该做的事</p>
+</blockquote>
+<h2 id="进度管理"><a href="#进度管理" class="headerlink" title="进度管理"></a>进度管理</h2><blockquote>
+<p>让一切按既定的进度进行</p>
+</blockquote>
+<h2 id="成本管理"><a href="#成本管理" class="headerlink" title="成本管理"></a>成本管理</h2><blockquote>
+<p>算准钱和花好钱；</p>
+</blockquote>
+<h2 id="质量管理"><a href="#质量管理" class="headerlink" title="质量管理"></a>质量管理</h2><blockquote>
+<p>目的是满足需求</p>
+</blockquote>
+<h2 id="人力资源管理"><a href="#人力资源管理" class="headerlink" title="人力资源管理"></a>人力资源管理</h2><blockquote>
+<p>让团队成员高效率地和你一起干，合理分配和管理实物资源</p>
+</blockquote>
+<h2 id="干系人管理"><a href="#干系人管理" class="headerlink" title="干系人管理"></a>干系人管理</h2><blockquote>
+<p>和项目相关方搞好关系并令其满意</p>
+</blockquote>
+<h2 id="沟通管理Project-Communication-Management"><a href="#沟通管理Project-Communication-Management" class="headerlink" title="沟通管理Project Communication Management"></a>沟通管理</br>Project Communication Management</h2><blockquote>
+<p>在合适的时间让合适的人通过合适的方式把合适的信息传达给合适的人</p>
+</blockquote>
+<h2 id="风险管理Project-Risk-management"><a href="#风险管理Project-Risk-management" class="headerlink" title="风险管理Project Risk management"></a>风险管理</br>Project Risk management</h2><blockquote>
+<p>“无事找事”，从而让项目“无险事”</p>
+</blockquote>
+<h2 id="采购管理Project-Procurement-Management"><a href="#采购管理Project-Procurement-Management" class="headerlink" title="采购管理Project Procurement Management"></a>采购管理</br>Project Procurement Management</h2><blockquote>
+<p>当好甲方</p>
+</blockquote>
+<h2 id="项目配置管理Project-configuration-Management"><a href="#项目配置管理Project-configuration-Management" class="headerlink" title="项目配置管理Project configuration Management"></a>项目配置管理</br>Project configuration Management</h2><blockquote>
+<p>变更于于配置</p>
+</blockquote>
+<hr>
+<h2 id="企业管理知识"><a href="#企业管理知识" class="headerlink" title="企业管理知识"></a>企业管理知识</h2><h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+      <tags>
+        <tag>项目管理</tag>
+        <tag>十大知识领域</tag>
+      </tags>
+  </entry>
 </search>

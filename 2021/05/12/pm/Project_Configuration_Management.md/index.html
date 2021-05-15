@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  
+  <link rel="stylesheet" href="/lib/animate-css/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"catcake.cc","root":"/","scheme":"Gemini","version":"8.0.0-rc.4","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="项目配置管理Project Configuration Management概念配置项定义: 硬件,软件或者二者的集合, 再配合管理过程种作为一个单独的实体对待.内容外部交付的软件产品和数据 制定的内部软件工作产品和数据 制定的用于创建或支持软件产品的支持工具 供方&#x2F;供应商提供的软件和客户提供的设备&#x2F;软件 基线配置项(可交付成果): 需求文档,设计文档, 源代码, 可执行代码测试用例, 运行软件所">
+<meta property="og:type" content="article">
+<meta property="og:title" content="项目管理-配置管理">
+<meta property="og:url" content="http://catcake.cc/2021/05/12/pm/Project_Configuration_Management.md/index.html">
+<meta property="og:site_name" content="C2C3">
+<meta property="og:description" content="项目配置管理Project Configuration Management概念配置项定义: 硬件,软件或者二者的集合, 再配合管理过程种作为一个单独的实体对待.内容外部交付的软件产品和数据 制定的内部软件工作产品和数据 制定的用于创建或支持软件产品的支持工具 供方&#x2F;供应商提供的软件和客户提供的设备&#x2F;软件 基线配置项(可交付成果): 需求文档,设计文档, 源代码, 可执行代码测试用例, 运行软件所">
+<meta property="og:locale" content="zh">
+<meta property="article:published_time" content="2021-05-12T14:10:23.000Z">
+<meta property="article:modified_time" content="2021-05-14T15:27:45.156Z">
+<meta property="article:author" content="CatCake">
+<meta property="article:tag" content="项目管理">
+<meta property="article:tag" content="十大知识领域">
+<meta property="article:tag" content="配置管理">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://catcake.cc/2021/05/12/pm/Project_Configuration_Management.md/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh'
+  };
+</script>
+
+  <title>项目管理-配置管理 | C2C3</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e4deef259e814e0bc4dc4e4861a064cb";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <main class="main">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line toggle-line-first"></span>
+        <span class="toggle-line toggle-line-middle"></span>
+        <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">C2C3</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">CatCake</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#项目配置管理Project-Configuration-Management"><span class="nav-number">1.</span> <span class="nav-text">项目配置管理
+Project Configuration Management</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置项"><span class="nav-number">1.1.1.</span> <span class="nav-text">配置项</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内容"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置项的状态"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">配置项的状态</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#版本号规则"><span class="nav-number">1.1.1.2.1.</span> <span class="nav-text">版本号规则:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置库"><span class="nav-number">1.1.2.</span> <span class="nav-text">配置库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#流程"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">流程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置基线"><span class="nav-number">1.1.3.</span> <span class="nav-text">配置基线</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基线分类"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">基线分类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#国家标准"><span class="nav-number">1.1.3.1.1.</span> <span class="nav-text">国家标准</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实际工作"><span class="nav-number">1.1.3.1.2.</span> <span class="nav-text">实际工作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#对内对外"><span class="nav-number">1.1.3.1.3.</span> <span class="nav-text">对内对外</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CCB-配置管理委员会-变更控制委员会-管理者角色"><span class="nav-number">1.1.4.</span> <span class="nav-text">CCB (配置管理委员会&#x2F; 变更控制委员会) (管理者角色)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CMO-配置管理员-执行者角色"><span class="nav-number">1.1.5.</span> <span class="nav-text">CMO 配置管理员(执行者角色)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#具体工作"><span class="nav-number">1.1.5.1.</span> <span class="nav-text">具体工作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-开展配置管理的主要活动"><span class="nav-number">1.1.5.1.1.</span> <span class="nav-text">2 开展配置管理的主要活动</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置管理活动"><span class="nav-number">1.1.6.</span> <span class="nav-text">配置管理活动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#主要活动"><span class="nav-number">1.1.6.1.</span> <span class="nav-text">主要活动</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#制定配置管理计划"><span class="nav-number">1.1.6.1.1.</span> <span class="nav-text">制定配置管理计划</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#内容-1"><span class="nav-number">1.1.6.1.1.1.</span> <span class="nav-text">内容</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#识别标识"><span class="nav-number">1.1.6.1.2.</span> <span class="nav-text">识别标识</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#基本步骤"><span class="nav-number">1.1.6.1.2.1.</span> <span class="nav-text">基本步骤</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置控制"><span class="nav-number">1.1.6.1.3.</span> <span class="nav-text">配置控制</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#配置控制的任务-变更控制流程-包括"><span class="nav-number">1.1.6.1.3.1.</span> <span class="nav-text">配置控制的任务(变更控制流程)包括</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置状态报告"><span class="nav-number">1.1.6.1.4.</span> <span class="nav-text">配置状态报告</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#内容总概"><span class="nav-number">1.1.6.1.4.1.</span> <span class="nav-text">内容总概:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#内容详细"><span class="nav-number">1.1.6.1.4.2.</span> <span class="nav-text">内容详细:</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置审计"><span class="nav-number">1.1.6.1.5.</span> <span class="nav-text">配置审计</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#功能配置审计"><span class="nav-number">1.1.6.1.5.1.</span> <span class="nav-text">功能配置审计</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#物理配置审计"><span class="nav-number">1.1.6.1.5.2.</span> <span class="nav-text">物理配置审计</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#发布管理和交付"><span class="nav-number">1.1.6.1.6.</span> <span class="nav-text">发布管理和交付</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CMMI-关于配置管理之流程"><span class="nav-number">1.1.6.2.</span> <span class="nav-text">CMMI 关于配置管理之流程</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="CatCake"
+      src="https://nick-md-1251953281.cos.ap-beijing.myqcloud.com/p.jpg">
+  <p class="site-author-name" itemprop="name">CatCake</p>
+  <div class="site-description" itemprop="description">吃,喝,看喵</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+      
+        <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+        <div class="widget-wrap">
+          <div id="myCanvasContainer" class="widget tagcloud">
+            <canvas width="220" height="250" id="resCanvas" style="width=100%">
+              <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/OQL/" rel="tag">OQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dump/" rel="tag">dump</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jvisualvm/" rel="tag">jvisualvm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tcpdump/" rel="tag">tcpdump</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wireshark/" rel="tag">wireshark</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E5%8A%9B%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86/" rel="tag">人力资源管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%81%E5%A4%A7%E7%9F%A5%E8%AF%86%E9%A2%86%E5%9F%9F/" rel="tag">十大知识领域</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%B2%E7%B3%BB%E4%BA%BA%E7%AE%A1%E7%90%86/" rel="tag">干系人管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%88%90%E6%9C%AC%E7%AE%A1%E7%90%86/" rel="tag">成本管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B4%E4%BD%93%E7%AE%A1%E7%90%86/" rel="tag">整体管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B2%9F%E9%80%9A%E7%AE%A1%E7%90%86/" rel="tag">沟通管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">知识点</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8C%83%E5%9B%B4%E7%AE%A1%E7%90%86/" rel="tag">范围管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86/" rel="tag">质量管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/" rel="tag">配置管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%87%E8%B4%AD%E7%AE%A1%E7%90%86/" rel="tag">采购管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" rel="tag">项目管理</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" rel="tag">风险管理</a><span class="tag-list-count">1</span></li></ul>
+            </canvas>
+          </div>
+        </div>
+      
+        <div class="widget-wrap"><div>
+  <canvas id="canvasDiyBlock" style="width:60%;" height="100" width="700">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+<script src="/js/custom/clock.js"></script>
+
+</div>
+        </div>
+
+    </div>
+
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </header>
+
+      
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div id="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+      <div class="main-inner">
+        
+
+        <div class="content post posts-expand">
+          
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="http://catcake.cc/2021/05/12/pm/Project_Configuration_Management.md/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://nick-md-1251953281.cos.ap-beijing.myqcloud.com/p.jpg">
+      <meta itemprop="name" content="CatCake">
+      <meta itemprop="description" content="吃,喝,看喵">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="C2C3">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          项目管理-配置管理
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-05-12 22:10:23" itemprop="dateCreated datePublished" datetime="2021-05-12T22:10:23+08:00">2021-05-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-05-14 23:27:45" itemprop="dateModified" datetime="2021-05-14T23:27:45+08:00">2021-05-14</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="项目配置管理Project-Configuration-Management"><a href="#项目配置管理Project-Configuration-Management" class="headerlink" title="项目配置管理Project Configuration Management"></a>项目配置管理<br>Project Configuration Management</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="配置项"><a href="#配置项" class="headerlink" title="配置项"></a>配置项</h3><pre><code>定义: 硬件,软件或者二者的集合, 再配合管理过程种作为一个单独的实体对待.</code></pre><h4 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h4><pre><code>外部交付的软件产品和数据
+制定的内部软件工作产品和数据
+制定的用于创建或支持软件产品的支持工具
+供方/供应商提供的软件和客户提供的设备/软件
+基线配置项(可交付成果): 需求文档,设计文档, 源代码, 可执行代码测试用例, 运行软件所需数据等.
+非基线配置项: 各类计划(如 项目管理计划,进度管理计划), 各类报告.</code></pre><h4 id="配置项的状态"><a href="#配置项的状态" class="headerlink" title="配置项的状态"></a>配置项的状态</h4><pre><code>草稿 --通过评审--&amp;gt; 正式状态 &amp;nbsp; ; &amp;nbsp;&lt;br&gt;正式状态要修改 需要再通过评审 --&amp;gt; 正式状态&amp;nbsp;&lt;br&gt;</code></pre><h5 id="版本号规则"><a href="#版本号规则" class="headerlink" title="版本号规则:"></a>版本号规则:</h5><pre><code>草稿状态 版本号格式为 0.YZ, YZ 取值01-99 
+正式版本 X.Y . &amp;nbsp;X 为主版本, Y 为次版本号, 取值0-9 . 配置第一次正式发布时版本为1.0
+如果升级服务较小, 只增大 Y 值, X 值不变. 只有升级幅度比较大的时候, 才允许增大 Y 值.
+如果正在修改状态的配置项版本号格式为 X.YZ. 修改状态只增 Z.</code></pre><h3 id="配置库"><a href="#配置库" class="headerlink" title="配置库"></a>配置库</h3><pre><code>开发库(动态库,程序员库, 工作库) : 保证正在开发的配置实体
+受控库 (主库) : 管理基线 &amp;nbsp;(申请 修改)
+产品库 (静态库, 产品库, 软件仓库) : 最终产品. &amp;nbsp;(不能修改)</code></pre><h4 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h4><pre><code>1. 产品库 复制为 受控库&amp;nbsp;
+2. 受控库 check out 为开发库
+3. &amp;nbsp;开发库 &amp;nbsp;check in &amp;nbsp;到受控库
+4. 受控库 更新到产品库
+权限最大: 配置管理员 (CMO)</code></pre><h3 id="配置基线"><a href="#配置基线" class="headerlink" title="配置基线"></a>配置基线</h3><pre><code>基线是一组通过正式审查并达成一致的规范或工作产品, 是开发工作的基础.
+基线是由一组配置项组成. 通常对应开发过程中的里程碑. 一个产品可以有多个基线, 也可只有一个基线.
+基线的主要特征有: 名称,标志符,版本,日期等
+基线配置项向软件开发人员开放读取权限(可能包括所有设计文档和源程序等)
+非基线配置项向 PM, CCB 及 相关人员开放(可能包括项目各类计划和报告等)</code></pre><h4 id="基线分类"><a href="#基线分类" class="headerlink" title="基线分类"></a>基线分类</h4><h5 id="国家标准"><a href="#国家标准" class="headerlink" title="国家标准"></a>国家标准</h5><pre><code>功能基线 (分析)
+分配基线 (设计)
+产品基线 :软件产品所有配置项</code></pre><h5 id="实际工作"><a href="#实际工作" class="headerlink" title="实际工作"></a>实际工作</h5><pre><code>需求基线,设计基线,测试基线,产品基线</code></pre><h5 id="对内对外"><a href="#对内对外" class="headerlink" title="对内对外"></a>对内对外</h5><pre><code>构造基线: 企业内部适用, 释放
+发型基线: 交付给外部客户 , 交付</code></pre><h3 id="CCB-配置管理委员会-变更控制委员会-管理者角色"><a href="#CCB-配置管理委员会-变更控制委员会-管理者角色" class="headerlink" title="CCB (配置管理委员会/ 变更控制委员会) (管理者角色)"></a>CCB (配置管理委员会/ 变更控制委员会) (管理者角色)</h3><pre><code>职能: 对配置变更做出评估, 审批以及监督已批准的变更的实施
+成员: 项目经理,用户代表, 产品经理, 开发/测试工程师
+特点: 领导橘色不做具体执行, 非常设机构, 可以时兼职人员</code></pre><h3 id="CMO-配置管理员-执行者角色"><a href="#CMO-配置管理员-执行者角色" class="headerlink" title="CMO 配置管理员(执行者角色)"></a>CMO 配置管理员(执行者角色)</h3><h4 id="具体工作"><a href="#具体工作" class="headerlink" title="具体工作"></a>具体工作</h4><pre><code>1. 建立配置项, &amp;nbsp; 建立和维护配置管理系统/配置库</code></pre><h5 id="2-开展配置管理的主要活动"><a href="#2-开展配置管理的主要活动" class="headerlink" title="2 开展配置管理的主要活动"></a>2 开展配置管理的主要活动</h5><pre><code>编写配置管理计划
+配置项识别
+建立和管理基线
+版本管理和配置控制
+配置状态报告
+配置审计
+发布管理和交付</code></pre><h3 id="配置管理活动"><a href="#配置管理活动" class="headerlink" title="配置管理活动"></a>配置管理活动</h3><pre><code>定义: 标识和说明配置项的功能和服务里特性</code></pre><h4 id="主要活动"><a href="#主要活动" class="headerlink" title="主要活动"></a>主要活动</h4><h5 id="制定配置管理计划"><a href="#制定配置管理计划" class="headerlink" title="制定配置管理计划"></a>制定配置管理计划</h5><pre><code>CMO (配置管理员) 制定, CCB 审批</code></pre><h6 id="内容-1"><a href="#内容-1" class="headerlink" title="内容"></a>内容</h6><pre><code>配置管理活动, 覆盖主要活动包括配置编制, 配置控制, ....
+试试这些活动的规范和规程
+实施这些活动的进度安排
+负责实施这些活动的人员或组织,以及他们和其他组织的关系</code></pre><h5 id="识别标识"><a href="#识别标识" class="headerlink" title="识别标识"></a>识别标识</h5><pre><code>也叫配置识别</code></pre><h6 id="基本步骤"><a href="#基本步骤" class="headerlink" title="基本步骤"></a>基本步骤</h6><pre><code>识别需要受控的配置项&lt;br&gt;分配一个唯一标识号&lt;br&gt;定义每个配置项的重要特征&lt;br&gt;确定每个配置项的所有者及其责任&lt;br&gt;确定配置项进入配置管理的时间和条件&lt;br&gt;建立和控制基线&lt;br&gt;维护文档和组件的修订于产品版本之间的关系</code></pre><h5 id="配置控制"><a href="#配置控制" class="headerlink" title="配置控制"></a>配置控制</h5><h6 id="配置控制的任务-变更控制流程-包括"><a href="#配置控制的任务-变更控制流程-包括" class="headerlink" title="配置控制的任务(变更控制流程)包括"></a>配置控制的任务(变更控制流程)包括</h6><pre><code>变更申请&lt;br&gt;变更评估&lt;br&gt;通告评估结果&lt;br&gt;变更实施&lt;br&gt;变更验证与确认&lt;br&gt;变更的发布&lt;br&gt;基于配置库的变更控制</code></pre><h5 id="配置状态报告"><a href="#配置状态报告" class="headerlink" title="配置状态报告"></a>配置状态报告</h5><pre><code>及时准确的给出配置项的当前状态.供相关人员了解</code></pre><h6 id="内容总概"><a href="#内容总概" class="headerlink" title="内容总概:"></a>内容总概:</h6><pre><code>配置项的标志和状态
+变更申请的状态和已批准的修改
+基线的当前和过去版本你的状态
+其他配置管理过程活动的记录</code></pre><h6 id="内容详细"><a href="#内容详细" class="headerlink" title="内容详细:"></a>内容详细:</h6><pre><code>各变更请求的该要, 变更请求号,日期,申请人,状态, 估计工作量,实际工作量, 发布版本,变更结束日期
+基线库的状态 : 库标志, 至某日预计颅内配置项数, 实际配置项数, 于谦版本差异描述
+发行信息: 发布版本, 计划发布时间,实际法不是件,说你哥
+备份信息: 备份日期, 截至,备份存放位置
+配置管理工具状态
+配置管理培训状态</code></pre><h5 id="配置审计"><a href="#配置审计" class="headerlink" title="配置审计"></a>配置审计</h5><pre><code>为了保证项目配置管理的有效性, 体现了配置项的最根本要求:不允许出现任何混乱, &amp;nbsp;一致性和完整性</code></pre><h6 id="功能配置审计"><a href="#功能配置审计" class="headerlink" title="功能配置审计"></a>功能配置审计</h6><pre><code>配置项的实际功效是否于其需求一致
+配置项的开发是否圆满完成
+配置项否达到规定的性能和功能特性
+配置项的运行和支持文档是否完成,是否符合要求</code></pre><h6 id="物理配置审计"><a href="#物理配置审计" class="headerlink" title="物理配置审计"></a>物理配置审计</h6><pre><code>配置项的五里村在是否于预期一致
+要交付的配置项是否存在
+配置项种是否包含了所有必要的项目</code></pre><h5 id="发布管理和交付"><a href="#发布管理和交付" class="headerlink" title="发布管理和交付"></a>发布管理和交付</h5><pre><code>妥善保存代码于文档的母拷贝
+存储 : 选择何时的截至, 副本存在不同的受控场所
+复制 : 建立流程确保复制的一致性于完整性
+打包
+交付
+重建 (应能重建软件环境)</code></pre><h4 id="CMMI-关于配置管理之流程"><a href="#CMMI-关于配置管理之流程" class="headerlink" title="CMMI 关于配置管理之流程"></a>CMMI 关于配置管理之流程</h4><pre><code>制定配置管理计划
+识别配置项
+建立配置管理系统
+创建或发型基线
+跟踪变更
+控制变更
+建立配置管理记录
+执行配置审核
+版本控制
+管理过程</code></pre><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" rel="tag"># 项目管理</a>
+              <a href="/tags/%E5%8D%81%E5%A4%A7%E7%9F%A5%E8%AF%86%E9%A2%86%E5%9F%9F/" rel="tag"># 十大知识领域</a>
+              <a href="/tags/%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/" rel="tag"># 配置管理</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/05/12/pm/Program_Stakeholder_Management%20/" rel="prev" title="项目管理-干系人管理">
+      <i class="fa fa-chevron-left"></i> 项目管理-干系人管理
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/05/14/pm/Business_Management/" rel="next" title="pm/Business_Management">
+      pm/Business_Management <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+        </div>
+        
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CatCake</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

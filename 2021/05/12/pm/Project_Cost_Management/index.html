@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  
+  <link rel="stylesheet" href="/lib/animate-css/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"catcake.cc","root":"/","scheme":"Gemini","version":"8.0.0-rc.4","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="成本管理Project Cost Management概念项目成本项目全过程所消耗的各种成本综合全生命周期成本权益总成本 既开发成本和维护成本的总和学习曲线重复生产许多产品时,那些产品的单位成本随着数量的增多呈规律性递减机会成本因选择一个机会而放弃另一个机会带来的成本 (选机会成本比较小的)沉默成本一种历史成本,对现有决策而言使不可控成本,决策时应排除其干扰管理过程(4个)规划成本管理Plan C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="项目管理-成本管理">
+<meta property="og:url" content="http://catcake.cc/2021/05/12/pm/Project_Cost_Management/index.html">
+<meta property="og:site_name" content="C2C3">
+<meta property="og:description" content="成本管理Project Cost Management概念项目成本项目全过程所消耗的各种成本综合全生命周期成本权益总成本 既开发成本和维护成本的总和学习曲线重复生产许多产品时,那些产品的单位成本随着数量的增多呈规律性递减机会成本因选择一个机会而放弃另一个机会带来的成本 (选机会成本比较小的)沉默成本一种历史成本,对现有决策而言使不可控成本,决策时应排除其干扰管理过程(4个)规划成本管理Plan C">
+<meta property="og:locale" content="zh">
+<meta property="og:image" content="https://docs-1251953281.cos.ap-beijing.myqcloud.com/2021/05/04/16201397968614.jpg">
+<meta property="article:published_time" content="2021-05-12T14:10:23.000Z">
+<meta property="article:modified_time" content="2021-05-14T15:37:15.461Z">
+<meta property="article:author" content="CatCake">
+<meta property="article:tag" content="项目管理">
+<meta property="article:tag" content="十大知识领域">
+<meta property="article:tag" content="成本管理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://docs-1251953281.cos.ap-beijing.myqcloud.com/2021/05/04/16201397968614.jpg">
+
+<link rel="canonical" href="http://catcake.cc/2021/05/12/pm/Project_Cost_Management/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh'
+  };
+</script>
+
+  <title>项目管理-成本管理 | C2C3</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e4deef259e814e0bc4dc4e4861a064cb";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <main class="main">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line toggle-line-first"></span>
+        <span class="toggle-line toggle-line-middle"></span>
+        <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">C2C3</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">CatCake</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#成本管理Project-Cost-Management"><span class="nav-number">1.</span> <span class="nav-text">成本管理
+Project Cost Management</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#项目成本"><span class="nav-number">1.1.1.</span> <span class="nav-text">项目成本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全生命周期成本"><span class="nav-number">1.1.2.</span> <span class="nav-text">全生命周期成本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学习曲线"><span class="nav-number">1.1.3.</span> <span class="nav-text">学习曲线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#机会成本"><span class="nav-number">1.1.4.</span> <span class="nav-text">机会成本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#沉默成本"><span class="nav-number">1.1.5.</span> <span class="nav-text">沉默成本</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#管理过程-4个"><span class="nav-number">1.2.</span> <span class="nav-text">管理过程(4个)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#规划成本管理Plan-Cost-Management"><span class="nav-number">1.2.1.</span> <span class="nav-text">规划成本管理
+Plan Cost Management</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#工具技术"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">工具技术</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">输出</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#成本管理计划"><span class="nav-number">1.2.1.3.1.</span> <span class="nav-text">成本管理计划</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#估算成本Estimate-Costs"><span class="nav-number">1.2.2.</span> <span class="nav-text">估算成本
+Estimate Costs</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#主要步骤"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">主要步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入-1"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#工具技术-1"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">工具技术</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#专家判断"><span class="nav-number">1.2.2.3.1.</span> <span class="nav-text">专家判断</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#类比估算"><span class="nav-number">1.2.2.3.2.</span> <span class="nav-text">类比估算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#参数估算"><span class="nav-number">1.2.2.3.3.</span> <span class="nav-text">参数估算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#自下而上估算"><span class="nav-number">1.2.2.3.4.</span> <span class="nav-text">自下而上估算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三点估算"><span class="nav-number">1.2.2.3.5.</span> <span class="nav-text">三点估算</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出-1"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">输出</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#制定预算Determine-Budget"><span class="nav-number">1.2.3.</span> <span class="nav-text">制定预算
+Determine Budget</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#步骤"><span class="nav-number">1.2.3.0.1.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#原则"><span class="nav-number">1.2.3.0.2.</span> <span class="nav-text">原则</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入-2"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#工具技术-2"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">工具技术</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#成本汇总"><span class="nav-number">1.2.3.2.1.</span> <span class="nav-text">成本汇总</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#储备分析-管理储备-与-应急储备"><span class="nav-number">1.2.3.2.2.</span> <span class="nav-text">储备分析(管理储备 与 应急储备)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#管理储备"><span class="nav-number">1.2.3.2.2.1.</span> <span class="nav-text">管理储备</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#应急储备"><span class="nav-number">1.2.3.2.2.2.</span> <span class="nav-text">应急储备</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#资源限制平衡"><span class="nav-number">1.2.3.2.3.</span> <span class="nav-text">资源限制平衡</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出-2"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">输出</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#成本基准"><span class="nav-number">1.2.3.3.1.</span> <span class="nav-text">成本基准</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制成本Control-Cost"><span class="nav-number">1.2.4.</span> <span class="nav-text">控制成本
+Control Cost</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内容"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#成本失控原因"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">成本失控原因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输入-3"><span class="nav-number">1.2.4.3.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#工具技术-3"><span class="nav-number">1.2.4.4.</span> <span class="nav-text">工具技术</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出-3"><span class="nav-number">1.2.4.5.</span> <span class="nav-text">输出</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="CatCake"
+      src="https://nick-md-1251953281.cos.ap-beijing.myqcloud.com/p.jpg">
+  <p class="site-author-name" itemprop="name">CatCake</p>
+  <div class="site-description" itemprop="description">吃,喝,看喵</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+      
+        <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+        <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+        <div class="widget-wrap">
+          <div id="myCanvasContainer" class="widget tagcloud">
+            <canvas width="220" height="250" id="resCanvas" style="width=100%">
+              <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/OQL/" rel="tag">OQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dump/" rel="tag">dump</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jvisualvm/" rel="tag">jvisualvm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tcpdump/" rel="tag">tcpdump</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wireshark/" rel="tag">wireshark</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E5%8A%9B%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86/" rel="tag">人力资源管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%81%E5%A4%A7%E7%9F%A5%E8%AF%86%E9%A2%86%E5%9F%9F/" rel="tag">十大知识领域</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B9%B2%E7%B3%BB%E4%BA%BA%E7%AE%A1%E7%90%86/" rel="tag">干系人管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%88%90%E6%9C%AC%E7%AE%A1%E7%90%86/" rel="tag">成本管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B4%E4%BD%93%E7%AE%A1%E7%90%86/" rel="tag">整体管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B2%9F%E9%80%9A%E7%AE%A1%E7%90%86/" rel="tag">沟通管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">知识点</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8C%83%E5%9B%B4%E7%AE%A1%E7%90%86/" rel="tag">范围管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86/" rel="tag">质量管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86/" rel="tag">配置管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%87%E8%B4%AD%E7%AE%A1%E7%90%86/" rel="tag">采购管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" rel="tag">项目管理</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" rel="tag">风险管理</a><span class="tag-list-count">1</span></li></ul>
+            </canvas>
+          </div>
+        </div>
+      
+        <div class="widget-wrap"><div>
+  <canvas id="canvasDiyBlock" style="width:60%;" height="100" width="700">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+<script src="/js/custom/clock.js"></script>
+
+</div>
+        </div>
+
+    </div>
+
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </header>
+
+      
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div id="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+      <div class="main-inner">
+        
+
+        <div class="content post posts-expand">
+          
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="http://catcake.cc/2021/05/12/pm/Project_Cost_Management/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://nick-md-1251953281.cos.ap-beijing.myqcloud.com/p.jpg">
+      <meta itemprop="name" content="CatCake">
+      <meta itemprop="description" content="吃,喝,看喵">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="C2C3">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          项目管理-成本管理
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-05-12 22:10:23" itemprop="dateCreated datePublished" datetime="2021-05-12T22:10:23+08:00">2021-05-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-05-14 23:37:15" itemprop="dateModified" datetime="2021-05-14T23:37:15+08:00">2021-05-14</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="成本管理Project-Cost-Management"><a href="#成本管理Project-Cost-Management" class="headerlink" title="成本管理Project Cost Management"></a>成本管理<br/>Project Cost Management</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="项目成本"><a href="#项目成本" class="headerlink" title="项目成本"></a>项目成本</h3><pre><code>项目全过程所消耗的各种成本综合</code></pre><h3 id="全生命周期成本"><a href="#全生命周期成本" class="headerlink" title="全生命周期成本"></a>全生命周期成本</h3><pre><code>权益总成本 既开发成本和维护成本的总和</code></pre><h3 id="学习曲线"><a href="#学习曲线" class="headerlink" title="学习曲线"></a>学习曲线</h3><pre><code>重复生产许多产品时,那些产品的单位成本随着数量的增多呈规律性递减</code></pre><h3 id="机会成本"><a href="#机会成本" class="headerlink" title="机会成本"></a>机会成本</h3><pre><code>因选择一个机会而放弃另一个机会带来的成本 (选机会成本比较小的)</code></pre><h3 id="沉默成本"><a href="#沉默成本" class="headerlink" title="沉默成本"></a>沉默成本</h3><pre><code>一种历史成本,对现有决策而言使不可控成本,决策时应排除其干扰</code></pre><h2 id="管理过程-4个"><a href="#管理过程-4个" class="headerlink" title="管理过程(4个)"></a>管理过程(4个)</h2><h3 id="规划成本管理Plan-Cost-Management"><a href="#规划成本管理Plan-Cost-Management" class="headerlink" title="规划成本管理Plan Cost Management"></a>规划成本管理<br>Plan Cost Management</h3><table>  <tr> <td bgcolor=#63abf7><font color=#ffffff>规划过程组</font></td></tr> </table>    定义: 为规划,管理,话费和控制项目成本而制定政策,程序和文档的过程
+
+<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><pre><code>项目章程,项目管理计划
+风险登记册
+事业环境因素因素和组织过程资产</code></pre><h4 id="工具技术"><a href="#工具技术" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>专家判断
+分析技术
+会议</code></pre><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><h5 id="成本管理计划"><a href="#成本管理计划" class="headerlink" title="成本管理计划"></a>成本管理计划</h5><pre><code>计量单位
+精确度
+组织程序链接
+控制临界值(偏差需要接入,管控的尺度值)
+绩效测量规则</code></pre><h3 id="估算成本Estimate-Costs"><a href="#估算成本Estimate-Costs" class="headerlink" title="估算成本Estimate Costs"></a>估算成本<br>Estimate Costs</h3><table>  <tr> <td bgcolor=#63abf7><font color=#ffffff>规划过程组</font></td></tr> </table>    定义: 对完成项目活动所需要资金进行近似估算的过程<br>作用 :确定完成项目工作所需的成本数额
+
+<h4 id="主要步骤"><a href="#主要步骤" class="headerlink" title="主要步骤"></a>主要步骤</h4><pre><code>1. 识别并分析项目成本的构成科目 (形成项目资源矩阵)
+2. 估算每一科目的成本大小
+3. 分析成本估算结果,祝熬出各种可以相互替代的成本, 协调各种成本之间的比例关系
+项目资源矩阵格式 &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;div&gt;| 工作| 资源需要|&lt;br&gt;&lt;/div&gt;|工作1| 资源1|资源2|资源3|..&lt;br&gt;|工作2| 资源1|资源2|资源..|..&lt;br&gt;
+注: 工期优化,费用优化, 资源优化, 无论怎么降低项目成本估算值,项目的应急储备都不应该被裁剪</code></pre><h4 id="输入-1"><a href="#输入-1" class="headerlink" title="输入"></a>输入</h4><pre><code>成本管理计划, 范围基准,项目进度计划,人力资源管理计划
+风险登记册
+事业环境因素 和组织过程资产</code></pre><h4 id="工具技术-1"><a href="#工具技术-1" class="headerlink" title="工具技术"></a>工具技术</h4><h5 id="专家判断"><a href="#专家判断" class="headerlink" title="专家判断"></a>专家判断</h5><pre><code>根据专家以往经验进行判断. 其中 Delphi 方法&quot;背靠背&quot;的专家判断法. 通过多轮匿名估算并调整, 最终取得较为统一的结论.
+多轮后 最后一轮平均值</code></pre><h5 id="类比估算"><a href="#类比估算" class="headerlink" title="类比估算"></a>类比估算</h5><pre><code>(有参数值的一般是类比) &amp;nbsp;以过去类似项目的参数值为基础, 来估算未来项目的同类参数或指标</code></pre><h5 id="参数估算"><a href="#参数估算" class="headerlink" title="参数估算"></a>参数估算</h5><pre><code>统计估算 &amp;nbsp;关键字统计关系</code></pre><h5 id="自下而上估算"><a href="#自下而上估算" class="headerlink" title="自下而上估算"></a>自下而上估算</h5><pre><code>准确度相对较高</code></pre><h5 id="三点估算"><a href="#三点估算" class="headerlink" title="三点估算"></a>三点估算</h5><pre><code>(最好 + 最坏 + 4 * 正常) /6
+储备分析 &amp;nbsp;质量成本
+项目管理软件, 卖方投标分析, 群体决策技术</code></pre><h4 id="输出-1"><a href="#输出-1" class="headerlink" title="输出"></a>输出</h4><pre><code>活动成本估算
+估算依据
+项目文件更新</code></pre><h3 id="制定预算Determine-Budget"><a href="#制定预算Determine-Budget" class="headerlink" title="制定预算Determine Budget"></a>制定预算<br>Determine Budget</h3><table>  <tr> <td bgcolor=#63abf7><font color=#ffffff>规划过程组</font></td></tr> </table>
+#### 概念
+
+<pre><code>定义: 汇总所有单个活动货工作包的估算成本, 建立一个经批准的成本基准的过程</code></pre><h5 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h5><pre><code>计算出各个进度所需要的成本
+汇总得出工作包的成本
+将各个工作包的成本汇总,得到控制账户的成本
+将各个控制帐号肚饿成本汇总, 得到项目成本
+在得到项目成本的基础上,加上一定的不可遇见费用(应急储备),得到项目的成本基准(预算.),有时,可以增加管理储备</code></pre><h5 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h5><pre><code>项目成本预算要以项目需求为基础
+项目成本预算要与项目目标相联系,必须同时考虑到项目质量目标和进度目标
+项目成本预算要切实可行&lt;br&gt;
+项目成本预算应当留有一定的弹性
+项目预算的组成</code></pre><p><img src="https://docs-1251953281.cos.ap-beijing.myqcloud.com/2021/05/04/16201397968614.jpg" alt="image"></p>
+<h4 id="输入-2"><a href="#输入-2" class="headerlink" title="输入"></a>输入</h4><pre><code>成本管理计划,活动成本估算,估算依据
+协议(合同), 范围基准, 项目进度计划
+资源日历, 风险登记册, 组织过程资产</code></pre><h4 id="工具技术-2"><a href="#工具技术-2" class="headerlink" title="工具技术"></a>工具技术</h4><h5 id="成本汇总"><a href="#成本汇总" class="headerlink" title="成本汇总"></a>成本汇总</h5><pre><code>以 WBS 工作包为单位对活动成本估算进行汇总, 然后往更高层次(控制账户)汇总,最终得到项目总成本
+专家判断</code></pre><h5 id="储备分析-管理储备-与-应急储备"><a href="#储备分析-管理储备-与-应急储备" class="headerlink" title="储备分析(管理储备 与 应急储备)"></a>储备分析(管理储备 与 应急储备)</h5><pre><code>计算出所需要的应急储备与管理储备</code></pre><h6 id="管理储备"><a href="#管理储备" class="headerlink" title="管理储备"></a>管理储备</h6><pre><code>针对未知的未知事件
+项目经理(无权直接适用)在使用或者支出管理储备前,可能需要获得批准
+管理储备不是项目成本基准的一部分, 但是包含在项目总预算中, 管理储备不纳入挣值计算</code></pre><h6 id="应急储备"><a href="#应急储备" class="headerlink" title="应急储备"></a>应急储备</h6><pre><code>针对已知的未知事件
+项目经理有权使用, 一般专款专用
+已知的未知事件,既在风险登记册中的一已知风险,是项目范围和成本基准的一部分</code></pre><h5 id="资源限制平衡"><a href="#资源限制平衡" class="headerlink" title="资源限制平衡"></a>资源限制平衡</h5><pre><code>根据对项目资金的任何限制,来平衡资金支出.
+历史关系</code></pre><h4 id="输出-2"><a href="#输出-2" class="headerlink" title="输出"></a>输出</h4><h5 id="成本基准"><a href="#成本基准" class="headerlink" title="成本基准"></a>成本基准</h5><pre><code>经批准的按时间安排的成本支出计划
+项目资金需求
+项目文件更新</code></pre><h3 id="控制成本Control-Cost"><a href="#控制成本Control-Cost" class="headerlink" title="控制成本Control Cost"></a>控制成本<br>Control Cost</h3><table>  <tr> <td bgcolor=#ff9f1a><font color=#ffffff>监控过程组</font></td></tr> </table>    监督项目状态以更新项目成本,管理成本基准变更的过程
+
+<h4 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h4><pre><code>对造成成本基准变更的因素施加影响
+确保所有的变更请求都的到及时处理
+当变更发生时,管理这些变更
+确保成本支出不超过批准的资金限额, 阶段性与总额都不超
+监督成本绩效,找出与成本基准的偏差
+对照资金支出,监督工作绩效
+防止出现未经批准的变更
+设法把成本超支控制在可接受范围内</code></pre><h4 id="成本失控原因"><a href="#成本失控原因" class="headerlink" title="成本失控原因"></a>成本失控原因</h4><pre><code>对项目认识不足(难度,规模认识不足)
+组织制度不健全
+方法问题
+技术的制约
+需求管理不当(变更频繁)</code></pre><h4 id="输入-3"><a href="#输入-3" class="headerlink" title="输入"></a>输入</h4><pre><code>项目管理计划,项目资金需求
+工作绩效数据
+组织过程资产</code></pre><h4 id="工具技术-3"><a href="#工具技术-3" class="headerlink" title="工具技术"></a>工具技术</h4><pre><code>挣值管理, 预测 完工尚需绩效指数
+绩效审查,储备分析
+项目管理软件</code></pre><h4 id="输出-3"><a href="#输出-3" class="headerlink" title="输出"></a>输出</h4><pre><code>工作绩效信息
+成本预测
+变更请求
+项目管理计划更新,项目文件更新,组织过程资产更新</code></pre><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" rel="tag"># 项目管理</a>
+              <a href="/tags/%E5%8D%81%E5%A4%A7%E7%9F%A5%E8%AF%86%E9%A2%86%E5%9F%9F/" rel="tag"># 十大知识领域</a>
+              <a href="/tags/%E6%88%90%E6%9C%AC%E7%AE%A1%E7%90%86/" rel="tag"># 成本管理</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/05/12/pm/Project_Communication_Management/" rel="prev" title="项目管理-沟通管理">
+      <i class="fa fa-chevron-left"></i> 项目管理-沟通管理
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/05/12/pm/Program_Stakeholder_Management%20/" rel="next" title="项目管理-干系人管理">
+      项目管理-干系人管理 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+        </div>
+        
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CatCake</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
